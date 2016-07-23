@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>易览资讯</title>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <script src="../../javascript/js/mui.min.js"></script>
+    <script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+    <script src="../../javascript/js/idangerous.swiper.min.js"></script>
+    <script src="../../javascript/js/util.js"></script>
+
+    
+    <link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
+        <style>
+        .title {
+            margin: 20px 15px 10px;
+            color: #6d6d72;
+            font-size: 15px;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .preloader {
+            position: absolute;
+            left: 0;
+            top: -100px;
+            z-index: 20;
+            line-height: 100px;
+            height: 3em;
+            width: 100%;
+            font-size: 24px;
+            -webkit-transition: 300ms;
+            -moz-transition: 300ms;
+            -ms-transition: 300ms;
+            -o-transition: 300ms;
+            transition: 300ms;
+            background-color: #bbbbbb;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<header class="mui-bar mui-bar-nav" style="position: fixed; z-index: 1001; height:3.5em">
+    <a class="mui-icon  mui-pull-left mui-icon-contact" id="myBtn"></a>
+    <h1 class="mui-title">TITLE</h1>
+    <a class="mui-icon  mui-pull-right mui-icon-search" id="searchBtn"></a>
+</header>
+
+<header class="mui-bar mui-bar-nav" style="height:2.5em; margin-top:3.5em; z-index: 1001">
+    <div class="titleBar" style="width:80%;height:100%;float:left;z-index: 20;" id="titleBar">
+    <div class="swiper-wrapper" style="padding:10px 0 10px; width:100%;z-index: 20; overflow: hidden">
+    <a class="swiper-slide" href="javascript:void(0);" cate="1" ><span class="news-cate-title">社会</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="2" ><span class="news-cate-title">雷锋网</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3" ><span class="news-cate-title">娱乐</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">科技</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">财经</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">手机</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">互联网</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">时尚</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">军事</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">历史</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">房地产</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title ">八卦</span></a>
+    <a class="swiper-slide" href="javascript:void(0);" cate="3"><span class="news-cate-title">阅读</span></a>
+    </div>
+    </div>
+</header>
+
+<div id="chooseCateBtn" style="position:fixed; right:0; height:2.6em; margin-top:-0.8em; z-index: 1002; width:3em;
+ background-color:#f7f7f7;line-height:3.3em;">
+    <i id="chooseCateIcon" class="mui-icon mui-icon-arrowdown" style="font-size:2em; margin-left:0.2em"></i>
+</div>
+
+<div class="cate-choose-div">
+    <button type="button" class="mui-button mui-btn-danger choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="2">雷锋网</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+    <button type="button" class="mui-button choose-cate-button"  cate="1">社会</button>
+</div>
+
+<div id="backDiv"></div>
+<div class="preloader"> Loading... </div>
+<div class="swiper-container">
+    <div class="mui-table-view swiper-wrapper" id="newsList" style="margin-top: 4.2em;">
+
+    </div>
+</div>
+
+</body>
+
+    <script src="../../javascript/page/news/news.js"></script>
+
+</html>
+
+
