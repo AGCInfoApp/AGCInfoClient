@@ -1,63 +1,70 @@
 <!doctype html>
 <html>
-
 	<head>
-		<title>个人信息</title>
-    <meta charset="utf-8">    
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
-    <script src="../../javascript/js/mui.min.js"></script>
-    <script src="../../javascript/js/jquery-2.2.3.min.js"></script>
-    <script src="../../javascript/js/idangerous.swiper.min.js"></script>
-    <script src="../../javascript/js/util.js"></script>
-    <script src="../../javascript/page/mine/mineMain.js"></script>
-    
-    <link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
- <style>
-			.mui-title{
+		<title>个人主页</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<script src="../../javascript/js/mui.min.js"></script>
+		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
+		<script src="../../javascript/js/util.js"></script>
+		<script src="../../javascript/page/mine/mineMain.js"></script>
+
+		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
+		<style>
+			.mui-title {
+				margin-top: 0.65em;
 				margin: 20px 15px 7px;
 				color: #575757;
-				font-size: 30px;
+				font-size: 35px;
 			}
-			.list-font{
-				margin-top:0.7em;
+			
+			.list-font {
+				margin-top: 0.7em;
 				font-size: 25px;
 			}
-			.mui-table-view-cell{
-				height:3.5em;
+			
+			.mui-table-view-cell {
+				height: 3.5em;
 			}
-			.mui-navigate-right{
-				height:3.5em;
+			
+			.mui-navigate-right {
+				height: 3.5em;
 			}
 		</style>
 	</head>
 	<body>
-		<header class="mui-bar mui-bar-nav" style="height:3.5em;">
-			<h1 class="mui-title" style="margin-top:0.4em;">我的</h1>
+		<header class="mui-bar mui-bar-nav" style="height:5.2em;">
+			<h1 class="mui-title" style="margin-top:0.7em;" id="welcome"></h1>
 		</header>
 		<div class="mui-content" style="margin-top:3.5em; z-index: 1001">
-			<div class="title" id="welcome"></div>
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id='myMessage'><h3 class="list-font">我的消息</h3></a>
-				</li>				
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id='selfShare'><h3 class="list-font">我的分享</h3></a>
+					<a class="mui-navigate-right" id='myMessage'>
+						<h3 class="list-font">我的消息</h3></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id='selfCollect'><h3 class="list-font">我的收藏</h3></a>
+					<a class="mui-navigate-right" id='selfShare'>
+						<h3 class="list-font">我的分享</h3></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id='myInfo'><h3 class="list-font">个人信息</h3></a>
+					<a class="mui-navigate-right" id='selfCollect'>
+						<h3 class="list-font">我的收藏</h3></a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id='friendList'><h3 class="list-font">好友列表</h3></a>
+					<a class="mui-navigate-right" id='myInfo'>
+						<h3 class="list-font">个人信息</h3></a>
 				</li>
-			</ul>		    
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id='friendList'>
+						<h3 class="list-font">好友列表</h3></a>
+				</li>
+			</ul>
 		</div>
 	</body>
 </html>
