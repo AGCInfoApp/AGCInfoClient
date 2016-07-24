@@ -25,15 +25,11 @@ function login(){
             },
             success: function (data, textStatus) {
                 var errCode = data["errCode"];
-                var token = "jqm";
-                //var token = data["token"];
                 if (errCode == 0) {
+                	sessionStorage.setItem("token", data["token"]);
                     mui.openWindow({
                         id: "register",
                         url: "../news/news.html",
-                        extras:{
-                            token:token,
-                        },
                         styles: {
                             popGesture: 'close'
                         },
@@ -54,22 +50,8 @@ function login(){
                 }
             }
         });
-        mui.openWindow({
-                        id: "register",
-                        url: "../news/news.html",
-                        extras:{
-                            token:123,
-                        },
-                        styles: {
-                            popGesture: 'close'
-                        },
-                        show: {
-                            aniShow: "pop-in"
-                        },
-                        waiting: {
-                            autoShow: true
-                        }
-                    });
+        sessionStorage.setItem("token", "jqm");
+        
     }
 }
 

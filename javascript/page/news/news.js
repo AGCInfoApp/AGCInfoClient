@@ -445,6 +445,7 @@
 
     $(document).ready(function(){
         if (window.sessionStorage) {
+        	var token=sessionStorage.getItem("token");
             var a=sessionStorage.getItem("curPage");
             var b =sessionStorage.getItem("newsId");
             var c =sessionStorage.getItem("newsPage");
