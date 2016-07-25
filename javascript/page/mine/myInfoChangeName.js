@@ -14,7 +14,7 @@ $(document).ready(function() {
 						url: "将姓名存入",
 						dataType: 'JSON',
 						data: JSON.stringify({
-							'newname': name,
+							'newName': name,
 						}),
 						beforeSend: function(XMLHttpRequest) {},
 						success: function(data, textStatus) {
