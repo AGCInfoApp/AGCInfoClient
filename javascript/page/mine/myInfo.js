@@ -17,7 +17,7 @@ $(document).ready(function() {
 				$("#myNickname").html(data["data"].nickname);
 				$("#myUsername").html(data["data"].username);
 				$("#mySex").html(data["data"].sex);
-				$("#myPersonalSign").html("2333333333!!!");
+				$("#mySignature").html(data["data"].signature);
 				
 			} else {
 				mui.toast(data["msg"]);
@@ -41,10 +41,10 @@ $(document).ready(function() {
 		});
 	});
 
-	document.getElementById("myInfoChangeName").addEventListener("tap", function() {
+	document.getElementById("myInfoChangeNickname").addEventListener("tap", function() {
 		mui.openWindow({
-			id: "myInfoChangeName",
-			url: "myInfoChangeName.html",
+			id: "myInfoChangeNickname",
+			url: "myInfoChangeNickname.html",
 			styles: {
 				popGesture: 'close'
 			},
@@ -73,10 +73,26 @@ $(document).ready(function() {
 		});
 	});
 
-	document.getElementById("myInfoChangePersonalSign").addEventListener("tap", function() {
+	document.getElementById("myInfoChangeEmail").addEventListener("tap", function() {
 		mui.openWindow({
-			id: "myInfoChangePersonalSign",
-			url: "myInfoChangePersonalSign.html",
+			id: "myInfoChangeEmail",
+			url: "myInfoChangeEmail.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	});
+	
+	document.getElementById("myInfoChangeSignature").addEventListener("tap", function() {
+		mui.openWindow({
+			id: "myInfoChangeSignature",
+			url: "myInfoChangeSignature.html",
 			styles: {
 				popGesture: 'close'
 			},

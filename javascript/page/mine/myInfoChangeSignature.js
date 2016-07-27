@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 	document.getElementById("save").addEventListener('tap', function() {
-		var personalSign = $.trim($("#personalSign").val());
-		if(personalSign.length < 20) {
+		var signature = $.trim($("#signature").val());
+		if(signature.length < 20) {
 			var btnArray = ['是', '否'];
 			mui.confirm('是否确认保存？', '', btnArray, function(e) {
 				if(e.index == 1) {
@@ -14,7 +14,7 @@ $(document).ready(function() {
 						url: "将个性签名存入",
 						dataType: 'JSON',
 						data: JSON.stringify({
-							'newPersonalSign': personalSign,
+							'newPersonalSign': signature,
 						}),
 						beforeSend: function(XMLHttpRequest) {},
 						success: function(data, textStatus) {
