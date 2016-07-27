@@ -5,7 +5,7 @@ $(document).ready(function() {
 		var myToken = localStorage.getItem("myToken");
 		var myUserId = localStorage.getItem("myUserId");
 	}
-	alert(myUserId);
+
 	$.ajax({
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
@@ -14,7 +14,20 @@ $(document).ready(function() {
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
 			if(errCode == 0) {
-				$("#welcome").html(data["nickname"]);
+				var id = data["data"].id;
+				var nickname = data["data"].nickname;
+				var mobile = data["data"].mobile;
+				var email = data["data"].email;
+				var username = data["data"].username;
+				var sex = data["data"].sex;
+				var birthday = data["data"].birthday;
+				var pic = data["data"].pic;
+				var readNum = data["data"].readNum;
+				var commentNum = data["data"].commentNum;
+				var level = data["data"].level;
+				var preference = data["data"].preference;
+				var signature = data["data"].signature;
+				$("#welcome").html(nickname);
 			} else {
 				mui.toast(data["msg"]);
 			}

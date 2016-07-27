@@ -11,10 +11,12 @@
 		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
 		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
 		<script src="../../javascript/js/util.js"></script>
+		<script src="../../javascript/js/mui.picker.min.js"></script>		
 		<script src="../../javascript/page/mine/myInfoChangeBirthday.js"></script>
 
 		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
+		<link rel="stylesheet" href="../../stylesheets/css/mui.picker.min.css">
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
 			.mui-title {
@@ -31,10 +33,14 @@
 			<h1 class="mui-title" style="margin-top:0.9em;">生日</h1>
 			<a class="mui-icon mui-icon-checkmarkempty mui-pull-right" id="save" style="margin-top:0.1em;font-size:70px;"></a>
 		</header>
-		<ul class="mui-table-view" style="margin-top:7em;">
-			<div class="mui-input-row" style="height:2em;">
-				<input id="nickname" type="text" class="mui-input-clear mui-input" placeholder="请输入新昵称：15字以内">
+		<div class="mui-content" style="margin-top:7em;">
+			<div class="mui-content-padded">
+				
+				<button id='selectBrithday' data-options='{"type":"date","beginYear":1949,"endYear":2016}' class="btn mui-btn mui-btn-block">选择日期 ...</button>
+				
+				
+				<div id='result' class="ui-alert"></div>
 			</div>
-		</ul>
+		</div>
 	</body>
 </html>
