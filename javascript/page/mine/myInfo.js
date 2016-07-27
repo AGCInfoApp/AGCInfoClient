@@ -17,6 +17,7 @@ $(document).ready(function() {
 				$("#myNickname").html(data["data"].nickname);
 				$("#myUsername").html(data["data"].username);
 				$("#mySex").html(data["data"].sex);
+				$("#myBirthday").html(data["data"].birthday);
 				$("#mySignature").html(data["data"].signature);
 				
 			} else {
