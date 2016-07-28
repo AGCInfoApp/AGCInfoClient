@@ -34,8 +34,8 @@ $(document).ready(function() {
 				$("#myBirthday").html(numberToDate(birthday));
 				$("#mySignature").html(signature);
 				$("#myEmail").html(email);
-				$("#myMobile").html(email);
-				$("#myLevel").html(email);
+				$("#myMobile").html(mobile);
+				$("#myLevel").html(level);
 			} else {
 				mui.toast(data["msg"]);
 			}

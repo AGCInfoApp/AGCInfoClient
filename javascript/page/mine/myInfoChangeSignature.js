@@ -28,7 +28,7 @@ $(document).ready(function() {
 				level = data["data"].level;
 				preference = data["data"].preference;
 				signature = data["data"].signature;
-				$('#signature').html(signature));
+				$('#signature').html(signature);
 			} else {
 				mui.toast(data["msg"]);
 			}

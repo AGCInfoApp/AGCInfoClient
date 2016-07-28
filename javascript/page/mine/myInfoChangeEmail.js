@@ -37,7 +37,7 @@ $(document).ready(function() {
 	
 	document.getElementById("save").addEventListener('tap', function() {
 		var newEmail = $.trim($("#email").val());
-		if(newEmail.length < 15) {
+		if(newEmail.length < 30) {
 			var btnArray = ['是', '否'];
 		mui.confirm('是否确认保存？', '', btnArray, function(e) {
 			if(e.index == 1) {

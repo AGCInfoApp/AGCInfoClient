@@ -51,7 +51,8 @@
 		],
 		"refer": [
 			"html/news/news.html",
-			"html/mine/mineMain.html"
+			"html/mine/mineMain.html",
+			"html/login/register.html"
 		]
 	},
 	"html/news/news.html": {
@@ -98,7 +99,9 @@
 			"html/mine/myInfoChangePicture.html",
 			"html/mine/myInfoChangeBirthday.html",
 			"html/mine/myInfoChangeNickname.html",
-			"html/mine/myInfoChangeEmail.html"
+			"html/mine/myInfoChangeEmail.html",
+			"html/mine/myInfoChangeSex.html",
+			"html/mine/myInfoChangeSignature.html"
 		]
 	},
 	"html/mine/friendList.html": {
@@ -132,13 +135,23 @@
 		],
 		"refer": [
 			"html/mine/friendList.html",
-			"html/mine/myInfo.html"
+			"html/mine/myInfo.html",
+			"html/mine/selfShare.html",
+			"html/mine/selfCollect.html",
+			"html/mine/concernList.html"
 		]
 	},
 	"html/mine/friendInfo.html": {
 		"resources": [
 			"images/myPhoto.png",
-			"javascript/page/mine/friendInfo.js"
+			"javascript/page/mine/friendInfo.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
 		]
 	},
 	"html/mine/myInfoChangeBirthday.html": {
@@ -169,7 +182,86 @@
 	},
 	"html/mine/myInfoChangeEmail.html": {
 		"resources": [
-			"javascript/page/mine/myInfoChangeEmail.js"
+			"javascript/page/mine/myInfoChangeEmail.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		]
+	},
+	"html/mine/myInfoChangeSex.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/myInfoChangeSex.js"
+		]
+	},
+	"html/mine/concernList.html": {
+		"resources": [
+			"stylesheets/css/mui.indexedlist.css",
+			"javascript/js/mui.indexedlist.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"javascript/page/mine/concernList.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/mine/friendInfo.html",
+			"html/mine/findPeople.html"
+		]
+	},
+	"html/mine/myInfoChangeSignature.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeSignature.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		]
+	},
+	"html/mine/findPeople.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.indexedlist.css",
+			"stylesheets/css/mui.min.css",
+			"javascript/js/mui.indexedlist.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"javascript/page/mine/findPeople.js"
+		]
+	},
+	"html/login/register.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/page/login/register.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/login/login.html"
 		]
 	}
 }
