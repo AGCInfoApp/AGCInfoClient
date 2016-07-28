@@ -1,132 +1,175 @@
 {
-  "customer/newslist.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js",
-      "images/myPhoto.png",
-      "images/cehuabeijing.png"
-    ],
-    "refer": [
-      "customer/searchPage.html"
-    ]
-  },
-  "customer/searchPage.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "customer/login.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "customer/register.html"
-    ]
-  },
-  "html/login/login.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/login/login.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "html/news/news.html"
-    ]
-  },
-  "html/news/news.html": {
-    "resources": [
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/idangerous.swiper.css",
-      "javascript/page/news/news.js",
-      "images/cehuabeijing.png",
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/minemain.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/minemain.js"
-    ],
-    "refer": []
-  },
-  "html/mine/myInfo.html": {
-    "resources": [
-      "javascript/page/mine/myInfo.js",
-      "images/myPhoto.png"
-    ],
-    "refer": [
-      "html/mine/myInfoChangePicture.html"
-    ]
-  },
-  "html/mine/friendList.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/js/mui.indexedlist.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/friendList.js",
-      "javascript/js/jQuery.Hz2Py-min.js",
-      "stylesheets/css/mui.indexedlist.css"
-    ],
-    "refer": [
-      "html/mine/friendInfo.html"
-    ]
-  },
-  "html/mine/mineMain.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/mine/mineMain.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "html/mine/friendList.html"
-    ]
-  },
-  "html/mine/friendInfo.html": {
-    "resources": [
-      "images/myPhoto.png",
-      "javascript/page/mine/friendInfo.js"
-    ]
-  }
+	"customer/newslist.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js",
+			"images/myPhoto.png",
+			"images/cehuabeijing.png"
+		],
+		"refer": [
+			"customer/searchPage.html"
+		]
+	},
+	"customer/searchPage.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"customer/login.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"customer/register.html"
+		]
+	},
+	"html/login/login.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/login/login.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/news/news.html",
+			"html/mine/mineMain.html"
+		]
+	},
+	"html/news/news.html": {
+		"resources": [
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/idangerous.swiper.css",
+			"javascript/page/news/news.js",
+			"images/cehuabeijing.png",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"html/mine/minemain.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/minemain.js"
+		],
+		"refer": []
+	},
+	"html/mine/myInfo.html": {
+		"resources": [
+			"javascript/page/mine/myInfo.js",
+			"images/myPhoto.png",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/mine/myInfoChangePicture.html",
+			"html/mine/myInfoChangeBirthday.html",
+			"html/mine/myInfoChangeNickname.html",
+			"html/mine/myInfoChangeEmail.html"
+		]
+	},
+	"html/mine/friendList.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/js/mui.indexedlist.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/friendList.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"stylesheets/css/mui.indexedlist.css"
+		],
+		"refer": [
+			"html/mine/friendInfo.html"
+		]
+	},
+	"html/mine/mineMain.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/mine/mineMain.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/mine/friendList.html",
+			"html/mine/myInfo.html"
+		]
+	},
+	"html/mine/friendInfo.html": {
+		"resources": [
+			"images/myPhoto.png",
+			"javascript/page/mine/friendInfo.js"
+		]
+	},
+	"html/mine/myInfoChangeBirthday.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeBirthday.js",
+			"stylesheets/css/mui.picker.min.css",
+			"javascript/js/mui.picker.min.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		]
+	},
+	"html/mine/myInfoChangeNickname.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeNickname.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		]
+	},
+	"html/mine/myInfoChangeEmail.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeEmail.js"
+		]
+	}
 }
