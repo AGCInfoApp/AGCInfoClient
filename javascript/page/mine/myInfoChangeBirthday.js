@@ -1,12 +1,10 @@
 var url = "http://139.129.25.229:31010/";
 $(document).ready(function() {
-    mui.init();
-	if(window.localStorage) {
+
+	if (window.localStorage) {
 		var myToken = localStorage.getItem("myToken");
 		var myUserId = localStorage.getItem("myUserId");
 	}
-    ;
-
 	var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 
 	$.ajax({
@@ -16,7 +14,7 @@ $(document).ready(function() {
 		beforeSend: function(XMLHttpRequest) {},
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if(errCode == 0) {
+			if (errCode == 0) {
 				id = data["data"].id;
 				nickname = data["data"].nickname;
 				mobile = data["data"].mobile;
@@ -37,7 +35,6 @@ $(document).ready(function() {
 		}
 	});
 
-	
 	var btns = $('.btn');
 	btns.each(function(i, btn) {
 		btn.addEventListener('tap', function() {
@@ -64,7 +61,7 @@ $(document).ready(function() {
 	document.getElementById("save").addEventListener('tap', function() {
 		var btnArray = ['是', '否'];
 		mui.confirm('是否确认保存？', '', btnArray, function(e) {
-			if(e.index == 1) {
+			if (e.index == 1) {
 				//否
 			} else {
 				//是
@@ -88,7 +85,7 @@ $(document).ready(function() {
 					beforeSend: function(XMLHttpRequest) {},
 					success: function(data, textStatus) {
 						var errCode = data["errCode"];
-						if(errCode == 0) {
+						if (errCode == 0) {
 							mui.toast("保存成功");
 						} else {
 							mui.toast("保存失败，稍后重试…");
@@ -102,7 +99,5 @@ $(document).ready(function() {
 				});
 			}
 		});
-
 	});
-
 });

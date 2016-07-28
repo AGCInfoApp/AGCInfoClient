@@ -1,45 +1,47 @@
 var url = "http://139.129.25.229:31010/";
 $(document).ready(function() {
-    mui.init();
-	if(window.localStorage) {
+
+	if (window.localStorage) {
 		var myToken = localStorage.getItem("myToken");
 		var myUserId = localStorage.getItem("myUserId");
 	}
-    
-    $.ajax({
+	var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
+
+	$.ajax({
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
 		dataType: 'JSON',
-		beforeSend: function(XMLHttpRequest) {},
+		beforeSend: function(XMLHttpRequest) {},  
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if(errCode == 0) {
-				var id = data["data"].id;
-				var nickname = data["data"].nickname;
-				var mobile = data["data"].mobile;
-				var email = data["data"].email;
-				var username = data["data"].username;
-				var sex = data["data"].sex;
-				var birthday = data["data"].birthday;
-				var pic = data["data"].pic;
-				var readNum = data["data"].readNum;
-				var commentNum = data["data"].commentNum;
-				var level = data["data"].level;
-				var preference = data["data"].preference;
-				var signature = data["data"].signature;
+			if (errCode == 0) {
+				id = data["data"].id;
+				nickname = data["data"].nickname;
+				mobile = data["data"].mobile;
+				email = data["data"].email;
+				username = data["data"].username;
+				sex = data["data"].sex;
+				birthday = data["data"].birthday;
+				pic = data["data"].pic;
+				readNum = data["data"].readNum;
+				commentNum = data["data"].commentNum;
+				level = data["data"].level;
+				preference = data["data"].preference;
+				signature = data["data"].signature;
 				$("#myNickname").html(nickname);
 				$("#myUsername").html(username);
 				$("#mySex").html(sex);
 				$("#myBirthday").html(numberToDate(birthday));
 				$("#mySignature").html(signature);
 				$("#myEmail").html(email);
-				
+				$("#myMobile").html(email);
+				$("#myLevel").html(email);
 			} else {
 				mui.toast(data["msg"]);
 			}
 		}
 	});
-    
+
 	document.getElementById("myInfoChangePicture").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "myInfoChangePicture",
@@ -87,7 +89,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	document.getElementById("myInfoChangeBirthday").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "myInfoChangeBirthday",
@@ -119,7 +121,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	document.getElementById("myInfoChangeSignature").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "myInfoChangeSignature",
