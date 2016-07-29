@@ -1,4 +1,4 @@
 $(document).ready(function() {
 
-  localStorage.getItem("friendToken");
+  localStorage.getItem("friendId");
 });

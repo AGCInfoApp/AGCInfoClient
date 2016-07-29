@@ -10,7 +10,6 @@
 
 		<script src="../../javascript/js/mui.min.js"></script>
 		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
-		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
 		<script src="../../javascript/js/util.js"></script>
 		<script src="../../javascript/js/mui.indexedlist.js"></script>
 		<script src="../../javascript/js/jQuery.Hz2Py-min.js"></script>
@@ -19,7 +18,7 @@
 		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/mui.indexedlist.css" />
-		
+
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
 			html,
@@ -32,22 +31,15 @@
 				-webkit-box-shadow: none;
 				box-shadow: none;
 			}
-			
-			.mui-title {
-				margin-top: 0.65em;
-				margin: 20px 15px 7px;
-				color: #575757;
-				font-size: 35px;
-			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav" style="height:5.2em;">
-			<input id="toPinYin" type="hidden"> 
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="margin-top:1.3em;"></a>
-			<h1 class="mui-title" style="margin-top:0.9em;">好友</h1>
-			<a id="findPeople" class="mui-icon mui-icon-plusempty mui-pull-right" id="save" style="margin-top:0.1em;font-size:70px;"></a>
+		<header class="mui-bar mui-bar-nav">
+			<input id="toPinYin" type="hidden">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">好友</h1>
+			<a id="findPeople" class="mui-icon mui-icon-plusempty mui-pull-right" style="font-size:40px;margin-top: -0.2em;"></a>
 		</header>
 		<div class="mui-content" style="margin-top:3em;">
 			<div id='list' class="mui-indexed-list">
@@ -55,7 +47,7 @@
 					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索">
 				</div>
 				<div class="mui-indexed-list-bar" id="index">
-					
+
 				</div>
 				<div class="mui-indexed-list-alert"></div>
 				<div class="mui-indexed-list-inner">
