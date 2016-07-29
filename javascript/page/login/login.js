@@ -30,7 +30,7 @@ function login(){
                 	localStorage.setItem("myToken", data["token"]);
                 	localStorage.setItem("myUserId", data["userId"]);
                     mui.openWindow({
-                        id: "register",
+                        id: "mineMain",
                         url: "../mine/mineMain.html",
                         styles: {
                             popGesture: 'close'
