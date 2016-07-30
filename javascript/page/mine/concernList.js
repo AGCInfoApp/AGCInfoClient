@@ -3,6 +3,59 @@ var myUserId;
 var myToken;
 var concernList = new Array();
 
+$(document).ready(function() {
+
+	if(window.localStorage) {
+		myToken = localStorage.getItem("myToken");
+		myUserId = localStorage.getItem("myUserId");
+	}
+	getFriend();
+
+	$(document).on('click', '.friend', function() {
+		var friendId = $(this).attr("id");
+		localStorage.setItem("friendId", friendId);
+		mui.openWindow({
+			id: "friendInfo",
+			url: "friendInfo.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	});
+
+	document.getElementById("findPeople").addEventListener("tap", function() {
+		mui.openWindow({
+			id: "findPeople",
+			url: "findPeople.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	});
+
+	mui.init();
+	mui.ready(function() {
+		var header = document.querySelector('header.mui-bar');
+		var list = document.getElementById('list');
+		//calc hieght
+		list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+		//create
+		window.indexedList = new mui.IndexedList(list);
+	});
+});
+
 function showFriend() {
 	/**
 	 * concernlist
@@ -297,57 +350,3 @@ function getFriend() {
 	});
 
 }
-
-$(document).ready(function() {
-
-	if(window.localStorage) {
-		myToken = localStorage.getItem("myToken");
-		myUserId = localStorage.getItem("myUserId");
-	}
-	getFriend();
-
-	$(document).on('click', '.friend', function() {
-		var friendId = $(this).attr("id");
-		localStorage.setItem("friendId", friendId);
-		mui.openWindow({
-			id: "friendInfo",
-			url: "friendInfo.html",
-			styles: {
-				popGesture: 'close'
-			},
-			show: {
-				aniShow: "pop-in"
-			},
-			waiting: {
-				autoShow: true
-			}
-		});
-	});
-
-	document.getElementById("findPeople").addEventListener("tap", function() {
-		mui.openWindow({
-			id: "findPeople",
-			url: "findPeople.html",
-			styles: {
-				popGesture: 'close'
-			},
-			show: {
-				aniShow: "pop-in"
-			},
-			waiting: {
-				autoShow: true
-			}
-		});
-	});
-
-	mui.init();
-	mui.ready(function() {
-		var header = document.querySelector('header.mui-bar');
-		var list = document.getElementById('list');
-		//calc hieght
-		list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
-		//create
-		window.indexedList = new mui.IndexedList(list);
-	});
-
-});

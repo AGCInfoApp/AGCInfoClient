@@ -1,46 +1,15 @@
 var url = "http://139.129.25.229:31010/";
+var myToken;
+var myUserId;
+var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
+
 $(document).ready(function() {
 
-	if (window.localStorage) {
-		var myToken = localStorage.getItem("myToken");
-		var myUserId = localStorage.getItem("myUserId");
+	if(window.localStorage) {
+		myToken = localStorage.getItem("myToken");
+		myUserId = localStorage.getItem("myUserId");
 	}
-	var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
-
-	$.ajax({
-		type: "GET",
-		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
-		dataType: 'JSON',
-		beforeSend: function(XMLHttpRequest) {},  
-		success: function(data, textStatus) {
-			var errCode = data["errCode"];
-			if (errCode == 0) {
-				id = data["data"].id;
-				nickname = data["data"].nickname;
-				mobile = data["data"].mobile;
-				email = data["data"].email;
-				username = data["data"].username;
-				sex = data["data"].sex;
-				birthday = data["data"].birthday;
-				pic = data["data"].pic;
-				readNum = data["data"].readNum;
-				commentNum = data["data"].commentNum;
-				level = data["data"].level;
-				preference = data["data"].preference;
-				signature = data["data"].signature;
-				$("#myNickname").html(nickname);
-				$("#myUsername").html(username);
-				$("#mySex").html(sex);
-				$("#myBirthday").html(numberToDate(birthday));
-				$("#mySignature").html(signature);
-				$("#myEmail").html(email);
-				$("#myMobile").html(mobile);
-				$("#myLevel").html(level);
-			} else {
-				mui.toast(data["msg"]);
-			}
-		}
-	});
+	getMyInfo();
 
 	document.getElementById("myInfoChangePicture").addEventListener("tap", function() {
 		mui.openWindow({
@@ -139,3 +108,42 @@ $(document).ready(function() {
 	});
 
 });
+
+function getMyInfo() {
+
+	$.ajax({
+		type: "GET",
+		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
+		dataType: 'JSON',
+		beforeSend: function(XMLHttpRequest) {},
+		success: function(data, textStatus) {
+			var errCode = data["errCode"];
+			if(errCode == 0) {
+				id = data["data"].id;
+				nickname = data["data"].nickname;
+				mobile = data["data"].mobile;
+				email = data["data"].email;
+				username = data["data"].username;
+				sex = data["data"].sex;
+				birthday = data["data"].birthday;
+				pic = data["data"].pic;
+				readNum = data["data"].readNum;
+				commentNum = data["data"].commentNum;
+				level = data["data"].level;
+				preference = data["data"].preference;
+				signature = data["data"].signature;
+				$("#myNickname").html(nickname);
+				$("#myUsername").html(username);
+				$("#mySex").html(sex);
+				$("#myBirthday").html(numberToDate(birthday));
+				$("#mySignature").html(signature);
+				$("#myEmail").html(email);
+				$("#myMobile").html(mobile);
+				$("#myLevel").html(level);
+			} else {
+				mui.toast(data["msg"]);
+			}
+		}
+	});
+
+}

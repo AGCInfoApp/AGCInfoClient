@@ -1,33 +1,80 @@
 var url = "http://139.129.25.229:31010/";
 var page = 1;
+var searchInput;
+var myToken;
+var myUserId;
+
+$(document).ready(function() {
+
+	if (window.localStorage) {
+		myToken = localStorage.getItem("myToken");
+		myUserId = localStorage.getItem("myUserId");
+	}
+
+
+	$("#search").bind('input propertychange', function(e) {
+		searchInput = $.trim($("#searchInput").val());
+		$.ajax({
+			type: "GET",
+			url: url+"prometheus/user/searchUser?searchKey=" + searchInput ,//+ "&page=" + "1",
+			dataType: 'JSON',
+			async: false,
+			beforeSend: function(XMLHttpRequest) {},
+			success: function(data, textStatus) {
+				var errCode = data["errCode"];
+				if (errCode == 0) {
+					firstSearchPeople(data["data"]);
+					
+				} else {
+					mui.toast("获取失败，稍后重试…");
+				}
+			},
+			complete: function(XMLHttpRequest, textStatus) {
+
+			},
+			error: function() { //请求出错处理
+			}
+		});
+		page = 2;
+	});
+	
+	$(document).on('click', '.stranger', function() {
+		var strangerUserId = $(this).attr("id");
+		localStorage.setItem("strangerUserId", strangerUserId);
+		mui.openWindow({
+			id: "concernPeople",
+			url: "concernPeople.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	});
+	
+});
 
 function showSearchPeople(data) {
 	for (var i = 0; i < data.length; i++) {
-		$("#searchResult").append("<li class='mui-table-view-cell'><a>" + data[i] + "</a></li>")
+		$("#searchResult").append("<li class='mui-table-view-cell stranger' id='"+data[i].userId+"'>" + data[i].nickname + "</li>")
 	}
 }
 
 function firstSearchPeople(data) {
+	$("#searchResult").html("");
 	var html = "";
 	for (var i = 0; i < data.length; i++) {
-		html = html + "<li class='mui-table-view-cell'><a>" + data[i] + "</a></li>";
+		html = html + "<li class='mui-table-view-cell stranger' id='"+data[i].userId+"'>" + data[i].nickname + "</li>";
 	}
 	$("#searchResult").html(html);
 }
 
 function pulldownRefresh() {
-	setTimeout(function() {
-		var table = document.body.querySelector('.mui-table-view');
-		var cells = document.body.querySelectorAll('.mui-table-view-cell');
-		for (var i = cells.length, len = i + 3; i < len; i++) {
-			var li = document.createElement('li');
-			li.className = 'mui-table-view-cell';
-			li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-			//下拉刷新，新纪录插到最前面；
-			table.insertBefore(li, table.firstChild);
-		}
-		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-	}, 1500);
+	
 }
 
 function pullupRefresh() {
@@ -93,38 +140,3 @@ function pullupRefresh() {
 	}, 500);
 
 }
-
-$(document).ready(function() {
-
-	if (window.localStorage) {
-		var myToken = localStorage.getItem("myToken");
-		var myUserId = localStorage.getItem("myUserId");
-	}
-
-	
-
-	var searchInput;
-	$("#search").bind('input propertychange', function(e) {
-		searchInput = $.trim($("#searchInput").val());
-		$.ajax({
-			type: "GET",
-			url: "", //url+"/prometheus/news/search?searchKey=" + searchInput + "&page=" + "1",
-			dataType: 'JSON',
-			beforeSend: function(XMLHttpRequest) {},
-			success: function(data, textStatus) {
-				var errCode = data["errCode"];
-				if (errCode == 0) {
-					firstSearchPeople(data["data"]);
-				} else {
-					mui.toast("获取失败，稍后重试…");
-				}
-			},
-			complete: function(XMLHttpRequest, textStatus) {
-
-			},
-			error: function() { //请求出错处理
-			}
-		});
-		page = 2;
-	});
-});
