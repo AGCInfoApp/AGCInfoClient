@@ -9,9 +9,7 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
-    getMyInfo();
-	
-	
+	getMyInfo();
 
 	document.getElementById("myMessage").addEventListener("tap", function() {
 		mui.openWindow({
@@ -93,9 +91,24 @@ $(document).ready(function() {
 		});
 	});
 
+	document.getElementById("fansList").addEventListener("tap", function() {
+		mui.openWindow({
+			id: "fansList",
+			url: "fansList.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	});
 });
 
-function getMyInfo(){
+function getMyInfo() {
 	$.ajax({
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
