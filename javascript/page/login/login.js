@@ -30,8 +30,8 @@ function login(){
                 	localStorage.setItem("myToken", data["token"]);
                 	localStorage.setItem("myUserId", data["userId"]);
                     mui.openWindow({
-                        id: "mineMain",
-                        url: "../mine/mineMain.html",
+                        id: "dynamic",
+                        url: "../dynamic/dynamicMain.html",
                         styles: {
                             popGesture: 'close'
                         },

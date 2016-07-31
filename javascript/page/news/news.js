@@ -1,4 +1,4 @@
-
+var url = "http://139.129.25.229:31010/";
     $('#searchBtn').on('click',function(event){
             mui.openWindow({
                 id: "search",
@@ -129,7 +129,7 @@
     function firstGetData(page){
         $.ajax({
             type: "GET",
-            url: "/prometheus/news/listByCat?cateId="+cateId+"&page="+page,
+            url: url+"prometheus/news/listByCat?cateId="+cateId+"&page="+page,
             dataType: 'JSON',
             beforeSend: function(XMLHttpRequest){
             },
@@ -166,7 +166,7 @@
             setTimeout(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/prometheus/news/listByCat?cateId="+cateId+"&page=1",
+                    url: url+"prometheus/news/listByCat?cateId="+cateId+"&page=1",
                     dataType: 'JSON',
                     beforeSend: function (XMLHttpRequest) {
                     },
@@ -190,7 +190,7 @@
         }else{ //加载前一页
             $.ajax({
                 type: "GET",
-                url: "/prometheus/news/listByCat?cateId="+cateId+"&page="+prePage,
+                url: url+"prometheus/news/listByCat?cateId="+cateId+"&page="+prePage,
                 dataType: 'JSON',
                 beforeSend: function (XMLHttpRequest) {
                 },
@@ -219,7 +219,7 @@
         setTimeout(function() {
             $.ajax({
                 type: "GET",
-                url: "/prometheus/news/listByCat?cateId="+cateId+"&page="+nextPage,
+                url: url+"prometheus/news/listByCat?cateId="+cateId+"&page="+nextPage,
                 dataType: 'JSON',
                 beforeSend: function(XMLHttpRequest){
                 },

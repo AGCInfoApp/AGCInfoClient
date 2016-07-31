@@ -248,7 +248,8 @@
 				"refer": [
 					"html/news/news.html",
 					"html/mine/mineMain.html",
-					"html/login/register.html"
+					"html/login/register.html",
+					"html/dynamic/dynamicMain.html"
 				],
 				"priority": 0
 			},
@@ -265,7 +266,9 @@
 					"javascript/js/jquery-2.2.3.min.js",
 					"javascript/js/mui.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/news/search.html"
+				],
 				"priority": 0
 			},
 			"html/mine/minemain.html": {
@@ -292,7 +295,8 @@
 					"stylesheets/css/app.css",
 					"javascript/js/jquery-2.2.3.min.js",
 					"javascript/js/mui.min.js",
-					"images/myPhoto.png"
+					"images/myPhoto.png",
+					null
 				],
 				"refer": [
 					"html/mine/myInfoChangeName.html",
@@ -323,7 +327,8 @@
 					"html/mine/friendList.html",
 					"html/mine/selfShare.html",
 					"html/mine/selfCollect.html",
-					"html/mine/concernList.html"
+					"html/mine/concernList.html",
+					"html/mine/fansList.html"
 				],
 				"priority": 0
 			},
@@ -462,7 +467,8 @@
 					"stylesheets/fonts/mui.ttf",
 					"stylesheets/css/app.css",
 					"javascript/js/jquery-2.2.3.min.js",
-					"javascript/js/mui.min.js"
+					"javascript/js/mui.min.js",
+					null
 				],
 				"refer": [
 					"html/mine/friendInfo.html",
@@ -498,7 +504,9 @@
 					"javascript/js/jQuery.Hz2Py-min.js",
 					"javascript/page/mine/findPeople.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/mine/concernPeople.html"
+				],
 				"priority": 0
 			},
 			"html/login/register.html": {
@@ -514,6 +522,112 @@
 				"refer": [
 					"html/login/login.html"
 				],
+				"priority": 0
+			},
+			"html/mine/concernPeople.html": {
+				"resources": [
+					"images/myPhoto.png",
+					"javascript/page/mine/friendInfo.js",
+					"javascript/js/util.js",
+					"javascript/js/idangerous.swiper.min.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js",
+					"javascript/page/mine/concernPeople.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/news/search.html": {
+				"resources": [
+					"javascript/page/news/search.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/mine/fansList.html": {
+				"resources": [
+					"stylesheets/css/mui.indexedlist.css",
+					"javascript/js/mui.indexedlist.js",
+					"javascript/js/jQuery.Hz2Py-min.js",
+					"javascript/page/mine/concernList.js",
+					"javascript/js/util.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js",
+					"javascript/page/mine/fansList.js"
+				],
+				"refer": [
+					"html/mine/friendInfo.html",
+					"html/mine/concernPeople.html"
+				],
+				"priority": 0
+			},
+			"html/dynamic/dynamicMain.html": {
+				"resources": [
+					"javascript/js/idangerous.swiper.min.js",
+					"javascript/page/mine/mineMain.js",
+					"javascript/js/util.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js",
+					"javascript/page/dynamic/dynamicMain.js"
+				],
+				"refer": [
+					"html/dynamic/myMessage.html",
+					"html/dynamic/friendShare.html",
+					"html/dynamic/friendShare_Main.html"
+				],
+				"priority": 0
+			},
+			"html/dynamic/friendShare.html": {
+				"resources": [
+					"javascript/js/util.js",
+					"javascript/js/idangerous.swiper.min.js",
+					"stylesheets/css/mui.min.css",
+					"javascript/page/mine/mineMain.js",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js",
+					"javascript/page/dynamic/friendShare.js",
+					"stylesheets/fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/dynamic/friendShare_Main.html": {
+				"resources": [
+					"html/dynamic/friendShare_Sub.html",
+					"stylesheets/fonts/mui.ttf",
+					"javascript/js/mui.min.js",
+					"javascript/js/util.js",
+					"javascript/js/idangerous.swiper.min.js",
+					"stylesheets/css/mui.min.css",
+					"javascript/page/dynamic/friendShare.js",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/dynamic/friendShare_Sub.html": {
+				"resources": [
+					"javascript/js/util.js",
+					"javascript/js/idangerous.swiper.min.js",
+					"stylesheets/css/mui.min.css",
+					"javascript/page/dynamic/friendShare.js",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
