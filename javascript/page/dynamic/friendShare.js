@@ -4,9 +4,9 @@ var myUserId;
 
 $(document).ready(function() {
 
-	if(window.localStorage) {
+	if (window.localStorage) {
 		myToken = localStorage.getItem("myToken");
-		myUserId = localStorage.getItem("myUserId");
+		myUserId = parseInt(localStorage.getItem("myUserId"));
 	}
 
 	mui.init({
@@ -22,6 +22,24 @@ $(document).ready(function() {
 		}
 	});
 
+
+//		$.ajax({
+//				type: "POST",
+//				url: url + "prometheus/moment/createMoment",
+//				contentType: "application/json", //必须有
+//				dataType: 'JSON',
+//				data: JSON.stringify({
+//					"userId": myUserId,
+//					"token": myToken,
+//					"message": "牛逼！"
+//				}),
+//				beforeSend: function(XMLHttpRequest) {},
+//				success: function(data, textStatus) {
+//					alert(data["errCode"]);
+//					
+//				}
+//			});
+
 });
 
 /**
@@ -29,8 +47,9 @@ $(document).ready(function() {
  */
 function pulldownRefresh() {
 	setTimeout(function() {
-		
-	}, 1500);
+
+		mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+	}, 3000);
 }
 
 /**
@@ -38,6 +57,26 @@ function pulldownRefresh() {
  */
 function pullupRefresh() {
 	setTimeout(function() {
-		
+
+		mui('#pullrefresh').pullRefresh().endPullupToRefresh();
 	}, 1500);
+}
+
+function getFirstFriendDynamic() {
+	$.ajax({
+		type: "GET",
+		url: url + "prometheus/moment/listMoment?userId=" + myUserId + "&page=" + 1,
+		dataType: 'JSON',
+		success: function(data, textStatus) { 
+			var errCode = data["errCode"];
+			if (errCode == 0) {
+				for(var i = 0;i<20;i++){
+					
+				}
+				
+				data["data"][2].message;
+			}
+		},
+
+	});
 }
