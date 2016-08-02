@@ -31,7 +31,8 @@ function login(){
                 	localStorage.setItem("myUserId", data["userId"]);
                     mui.openWindow({
                         id: "dynamic",
-                        url: "../dynamic/dynamicMain.html",
+                        //url: "../dynamic/dynamicMain.html",
+                        url: "Main.html",
                         styles: {
                             popGesture: 'close'
                         },

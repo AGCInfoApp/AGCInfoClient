@@ -9,6 +9,9 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
+	window.addEventListener('refresh', function(e) {  
+        location.reload();  
+    }) 
 	getFriend();
 
 	$(document).on('click', '.friend', function() {

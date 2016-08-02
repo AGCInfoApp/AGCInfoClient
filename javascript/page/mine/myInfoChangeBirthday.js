@@ -9,7 +9,16 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
-    
+    mui.init({
+		beforeback: function() {
+			//获得列表界面的webview  
+			var list = plus.webview.currentWebview().opener();
+			//触发列表界面的自定义事件（refresh）,从而进行数据刷新  
+			mui.fire(list, 'refresh');
+			//返回true，继续页面关闭逻辑  
+			return true;
+		}
+	});
     getMyInfo();
     
 	

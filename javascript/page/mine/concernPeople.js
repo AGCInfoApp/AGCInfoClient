@@ -14,7 +14,16 @@ $(document).ready(function() {
 		myUserId = localStorage.getItem("myUserId");
 		strangerUserId = localStorage.getItem("strangerUserId");
 	}
-	
+	mui.init({
+		beforeback: function() {
+			//获得列表界面的webview  
+			var list = plus.webview.currentWebview().opener();
+			//触发列表界面的自定义事件（refresh）,从而进行数据刷新  
+			mui.fire(list, 'refresh');
+			//返回true，继续页面关闭逻辑  
+			return true;
+		}
+	});
 	friendJudge();
 
     $(document).on('click', '#concernButton', function() {

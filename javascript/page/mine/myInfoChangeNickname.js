@@ -10,16 +10,24 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
-    getMyInfo();
-    
-	
+	mui.init({
+		beforeback: function() {
+			//获得列表界面的webview  
+			var list = plus.webview.currentWebview().opener();
+			//触发列表界面的自定义事件（refresh）,从而进行数据刷新  
+			mui.fire(list, 'refresh');
+			//返回true，继续页面关闭逻辑  
+			return true;
+		}
+	});
+	getMyInfo();
 
 	document.getElementById("save").addEventListener('tap', function() {
 		newNickname = $.trim($("#nickname").val());
-		if (newNickname.length < 15) {
+		if(newNickname.length < 15) {
 			var btnArray = ['是', '否'];
 			mui.confirm('是否确认保存？', '', btnArray, function(e) {
-				if (e.index == 1) {
+				if(e.index == 1) {
 					//否
 				} else {
 					//是
@@ -43,7 +51,7 @@ $(document).ready(function() {
 						beforeSend: function(XMLHttpRequest) {},
 						success: function(data, textStatus) {
 							var errCode = data["errCode"];
-							if (errCode == 0) {
+							if(errCode == 0) {
 								mui.toast("保存成功");
 							} else {
 								mui.toast("保存失败，稍后重试…");
@@ -64,7 +72,7 @@ $(document).ready(function() {
 
 });
 
-function getMyInfo(){
+function getMyInfo() {
 	$.ajax({
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
@@ -72,7 +80,7 @@ function getMyInfo(){
 		beforeSend: function(XMLHttpRequest) {},
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
+			if(errCode == 0) {
 				id = data["data"].id;
 				nickname = data["data"].nickname;
 				mobile = data["data"].mobile;
