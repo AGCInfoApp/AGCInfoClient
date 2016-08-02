@@ -377,7 +377,8 @@
 			"javascript/js/mui.min.js",
 			"images/myPhoto.png",
 			"stylesheets/fonts/iconfont.ttf",
-			"stylesheets/page/dynamic/friendShare.css"
+			"stylesheets/page/dynamic/friendShare.css",
+			"stylesheets/fonts/iconfont.woff"
 		]
 	}
 }

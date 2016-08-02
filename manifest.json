@@ -628,7 +628,8 @@
 					"javascript/js/mui.min.js",
 					"images/myPhoto.png",
 					"stylesheets/fonts/iconfont.ttf",
-					"stylesheets/page/dynamic/friendShare.css"
+					"stylesheets/page/dynamic/friendShare.css",
+					"stylesheets/fonts/iconfont.woff"
 				],
 				"refer": [],
 				"priority": 0
@@ -679,7 +680,6 @@
 				"javascript/user/reducers/index.js",
 				"images/favicon.png",
 				"javascript/user/containers/VisibleTodoList.js",
-				"stylesheets/fonts/iconfont.woff",
 				"stylesheets/main.css"
 			]
 		}
