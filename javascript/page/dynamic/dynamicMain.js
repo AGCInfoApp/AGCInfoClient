@@ -13,7 +13,7 @@ $(document).ready(function() {
 	document.getElementById("myMessage").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "myMessage",
-			url: "myMessage.html",
+			url: "../dynamic/myMessage.html",
 			styles: {
 				popGesture: 'close'
 			},
@@ -29,7 +29,7 @@ $(document).ready(function() {
 	document.getElementById("selfShare").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "selfShare",
-			url: "selfShare.html",
+			url: "../dynamic/selfShare.html",
 			styles: {
 				popGesture: 'close'
 			},
@@ -45,7 +45,7 @@ $(document).ready(function() {
 	document.getElementById("selfCollect").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "selfCollect",
-			url: "selfCollect.html",
+			url: "../dynamic/selfCollect.html",
 			styles: {
 				popGesture: 'close'
 			},
@@ -61,7 +61,7 @@ $(document).ready(function() {
 	document.getElementById("friendShare").addEventListener("tap", function() {
 		mui.openWindow({
 			id: "friendShare_Main",
-			url: "friendShare_Main.html",
+			url: "../dynamic/friendShare_Main.html",
 			styles: {
 				popGesture: 'close'
 			},

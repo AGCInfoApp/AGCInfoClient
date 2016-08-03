@@ -143,7 +143,8 @@
 			"html/mine/selfCollect.html",
 			"html/mine/concernList.html",
 			"html/mine/myMessage.html",
-			"html/mine/fansList.html"
+			"html/mine/fansList.html",
+			"html/dynamic/friendShare_Main.html"
 		]
 	},
 	"html/mine/friendInfo.html": {
@@ -379,6 +380,21 @@
 			"stylesheets/fonts/iconfont.ttf",
 			"stylesheets/page/dynamic/friendShare.css",
 			"stylesheets/fonts/iconfont.woff"
+		]
+	},
+	"html/mine/myInfoChangePicture.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangePicture.js",
+			"images/noHeadPhoto.jpg",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/js/iscroll-zoom.js",
+			"javascript/js/zepto.min.js"
 		]
 	}
 }
