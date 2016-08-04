@@ -26,6 +26,35 @@ $(document).ready(function() {
 		}
 	});
 	showFirstFriendDynamic();
+
+	$(document).on('click', '.goodButton', function() {
+		$.ajax({
+			type: "POST",
+			url: url + "prometheus/moment/createComment",
+			contentType: "application/json", //必须有
+			dataType: 'JSON',
+			data: JSON.stringify({
+				"momentId": 42,
+				"userId": myUserId,
+				"content": "居然评论成功了！",
+				"reUid": 0
+			}),
+			beforeSend: function(XMLHttpRequest) {},
+			success: function(data, textStatus) {
+				var errCode = data["errCode"];
+				if (errCode == 0) {
+
+				} else {
+
+				}
+			},
+			complete: function(XMLHttpRequest, textStatus) {
+
+			},
+			error: function() { //请求出错处理
+			}
+		});
+	});
 	//		$.ajax({
 	//				type: "POST",
 	//				url: url + "prometheus/moment/createMoment",
@@ -76,7 +105,7 @@ function showFirstFriendDynamic() {
 
 				if (data["data"].length > 0) {
 					for (var i = 0; i < data["data"].length; i++) {
-						appendNewShare(data["data"][i],"bottom"); 
+						appendNewShare(data["data"][i], "bottom");
 					}
 					newestShare = data["data"][0].id;
 					oldestShare = data["data"][data["data"].length - 1].id;
@@ -101,7 +130,7 @@ function showMoreFriendDynamicOnBottom() {
 				if (data["data"].length > 0) {
 					for (var i = 0; i < data["data"].length; i++) {
 						if (data["data"][i].id < oldestShare) {
-							appendNewShare(data["data"][i],"bottom");
+							appendNewShare(data["data"][i], "bottom");
 						}
 					}
 					oldestShare = data["data"][data["data"].length - 1].id;
@@ -117,16 +146,16 @@ function showMoreFriendDynamicOnBottom() {
 function showMoreFriendDynamicOnTop() {
 	var tag = 1;
 
-	while (tag==1) {
+	while (tag == 1) {
 		$.ajax({
 			type: "GET",
 			url: url + "prometheus/moment/listMoment?userId=" + myUserId + "&page=" + pageTop,
 			async: false,
 			dataType: 'JSON',
 			success: function(data, textStatus) {
-				var errCode = data["errCode"];			
+				var errCode = data["errCode"];
 				if (errCode == 0) {
-                   	
+
 					//长度为0
 					if (data["data"].length == 0) {
 						//pageTop=1
@@ -200,9 +229,9 @@ function showMoreFriendDynamicOnTop() {
 				success: function(data, textStatus) {
 					var errCode = data["errCode"];
 					if (errCode == 0) {
-						for (var i = data["data"].length-1; i >= 0; i--) {
+						for (var i = data["data"].length - 1; i >= 0; i--) {
 							if (data["data"][i].id > newestShare) {
-								appendNewShare(data["data"][i],"top");
+								appendNewShare(data["data"][i], "top");
 							}
 						}
 					}
@@ -214,7 +243,7 @@ function showMoreFriendDynamicOnTop() {
 	pageTop = 1;
 }
 
-function appendNewShare(data,type) {
+function appendNewShare(data, type) {
 	var html = "";
 	html = html + "<li class='mui-media dynamicWidth'>";
 
@@ -278,11 +307,11 @@ function appendNewShare(data,type) {
 
 	//点赞评论面板
 	if (data.vote.length == 0 && data.comment.length == 0) {
-		var commentTable = "hidden";
+		var commentTable = "hidden='hidden'";
 	} else {
 		var commentTable = "";
 	}
-	html = html + "<table class='commentTable' id='commentTable" + data.id + "' hidden='" + commentTable + "'>";
+	html = html + "<table class='commentTable' id='commentTable" + data.id + "' "+commentTable+">";
 	html = html + "<tr>";
 	html = html + "<td class='commentList'>";
 	html = html + "<p class='good'>";
@@ -300,10 +329,11 @@ function appendNewShare(data,type) {
 	html = html + "</p>";
 	html = html + "<hr>";
 	//评论容器id
-	html = html + "<p class='oneComment' id='commentContainer" + data.id + "'>";
 	//评论
+
 	for (var j = 0; j < data.comment.length; j++) {
-		if (data.comment[j].reId == 0) {
+        html = html + "<p class='oneComment' id='commentContainer" + data.id +"comment"+j+ "'>";
+		if (data.comment[j].reId == 0||data.comment[j].reId == null) { 
 			//回复的人
 			html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
 			html = html + "<span class='replyWord'>:</span>";
@@ -319,18 +349,19 @@ function appendNewShare(data,type) {
 			//回复内容
 			html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
 		}
+		html = html + "</p>";
 	}
-	html = html + "</p>";
+	
 	html = html + "</td>";
 	html = html + "</tr>";
 	html = html + "</table>";
 	html = html + "</div>";
 	html = html + "<hr>";
 	html = html + "</li>";
-	if(type=="top"){
+	if (type == "top") {
 		$("#shareList").prepend(html);
-	}else{
+	} else {
 		$("#shareList").append(html);
 	}
-	
+
 }

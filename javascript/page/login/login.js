@@ -33,6 +33,7 @@ function login(){
                         id: "dynamic",
                         //url: "../dynamic/dynamicMain.html",
                         url: "Main.html",
+
                         styles: {
                             popGesture: 'close'
                         },
