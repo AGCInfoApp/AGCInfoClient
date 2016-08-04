@@ -6,13 +6,13 @@ var pageTop = 1;
 var pageBottom = 1;
 var newestShare;
 var oldestShare;
+var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 $(document).ready(function() {
 
-	if (window.localStorage) {
+	if(window.localStorage) {
 		myToken = localStorage.getItem("myToken");
 		myUserId = parseInt(localStorage.getItem("myUserId"));
 	}
-
 	mui.init({
 		pullRefresh: {
 			container: '#pullrefresh',
@@ -25,27 +25,32 @@ $(document).ready(function() {
 			}
 		}
 	});
+	getMyInfo();
+
 	showFirstFriendDynamic();
 
 	$(document).on('click', '.goodButton', function() {
+		var momentId = parseInt($(this).attr("id").replace("goodButton", ""));
 		$.ajax({
 			type: "POST",
-			url: url + "prometheus/moment/createComment",
+			url: url + "prometheus/moment/createVote",
 			contentType: "application/json", //必须有
 			dataType: 'JSON',
 			data: JSON.stringify({
-				"momentId": 42,
-				"userId": myUserId,
-				"content": "居然评论成功了！",
-				"reUid": 0
+				"momentId": momentId,
+				"userId": myUserId
 			}),
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data, textStatus) {
 				var errCode = data["errCode"];
-				if (errCode == 0) {
-
+				if(errCode == 0) {
+					$("#commentTable" + momentId).attr("hidden", null);
+					if($("#goodPeopleContainer" + momentId).html() != "") {
+						$("#goodPeopleContainer" + momentId).append(",");
+					}
+					$("#goodPeopleContainer" + momentId).append(nickname);
 				} else {
-
+                    mui.toast(data["msg"]);
 				}
 			},
 			complete: function(XMLHttpRequest, textStatus) {
@@ -54,7 +59,36 @@ $(document).ready(function() {
 			error: function() { //请求出错处理
 			}
 		});
+
 	});
+
+	//	$.ajax({
+	//		type: "POST",
+	//		url: url + "prometheus/moment/createComment",
+	//		contentType: "application/json", //必须有
+	//		dataType: 'JSON',
+	//		data: JSON.stringify({
+	//			"momentId": 42,
+	//			"userId": myUserId,
+	//			"content": "居然评论成功了！",
+	//			"reUid": 0
+	//		}),
+	//		beforeSend: function(XMLHttpRequest) {},
+	//		success: function(data, textStatus) {
+	//			var errCode = data["errCode"];
+	//			if(errCode == 0) {
+	//
+	//			} else {
+	//
+	//			}
+	//		},
+	//		complete: function(XMLHttpRequest, textStatus) {
+	//
+	//		},
+	//		error: function() { //请求出错处理
+	//		}
+	//	});
+
 	//		$.ajax({
 	//				type: "POST",
 	//				url: url + "prometheus/moment/createMoment",
@@ -101,10 +135,10 @@ function showFirstFriendDynamic() {
 		dataType: 'JSON',
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
+			if(errCode == 0) {
 
-				if (data["data"].length > 0) {
-					for (var i = 0; i < data["data"].length; i++) {
+				if(data["data"].length > 0) {
+					for(var i = 0; i < data["data"].length; i++) {
 						appendNewShare(data["data"][i], "bottom");
 					}
 					newestShare = data["data"][0].id;
@@ -126,10 +160,12 @@ function showMoreFriendDynamicOnBottom() {
 		dataType: 'JSON',
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
-				if (data["data"].length > 0) {
-					for (var i = 0; i < data["data"].length; i++) {
-						if (data["data"][i].id < oldestShare) {
+			if(errCode == 0) {
+				alert(JSON.stringify(data["data"]));
+				if(data["data"].length > 0) {
+					for(var i = 0; i < data["data"].length; i++) {
+						if(data["data"][i].id < oldestShare) {
+
 							appendNewShare(data["data"][i], "bottom");
 						}
 					}
@@ -146,7 +182,7 @@ function showMoreFriendDynamicOnBottom() {
 function showMoreFriendDynamicOnTop() {
 	var tag = 1;
 
-	while (tag == 1) {
+	while(tag == 1) {
 		$.ajax({
 			type: "GET",
 			url: url + "prometheus/moment/listMoment?userId=" + myUserId + "&page=" + pageTop,
@@ -154,12 +190,12 @@ function showMoreFriendDynamicOnTop() {
 			dataType: 'JSON',
 			success: function(data, textStatus) {
 				var errCode = data["errCode"];
-				if (errCode == 0) {
+				if(errCode == 0) {
 
 					//长度为0
-					if (data["data"].length == 0) {
+					if(data["data"].length == 0) {
 						//pageTop=1
-						if (pageTop == 1) {
+						if(pageTop == 1) {
 							mui.toast("没有新动态...");
 							tag = -1;
 						}
@@ -170,10 +206,10 @@ function showMoreFriendDynamicOnTop() {
 						}
 					}
 					//长度居中
-					else if (0 < data["data"].length < pageLength) {
+					else if(0 < data["data"].length < pageLength) {
 						//pageTop=1
-						if (pageTop == 1) {
-							if (data["data"][0].id == newestShare) {
+						if(pageTop == 1) {
+							if(data["data"][0].id == newestShare) {
 								mui.toast("没有新动态...");
 								tag = -1;
 							} else {
@@ -182,7 +218,7 @@ function showMoreFriendDynamicOnTop() {
 						}
 						//pageTop>1
 						else {
-							if (data["data"][0].id == newestShare) {
+							if(data["data"][0].id == newestShare) {
 								pageTop--;
 								tag = 0;
 							} else {
@@ -191,19 +227,19 @@ function showMoreFriendDynamicOnTop() {
 						}
 					}
 					//长度满
-					else if (data["data"].length == pageLength) {
+					else if(data["data"].length == pageLength) {
 						//情况一
-						if (data["data"][pageLength - 1] > newestShare) {
+						if(data["data"][pageLength - 1] > newestShare) {
 							pageTop++;
 						}
 						//情况二
-						else if (data["data"][0] > newestShare >= data["data"][pageLength - 1]) {
+						else if(data["data"][0] > newestShare >= data["data"][pageLength - 1]) {
 							tag = 0;
 						}
 						//情况三
-						else if (data["data"][0] == newestShare) {
+						else if(data["data"][0] == newestShare) {
 							//pageTop=1
-							if (pageTop == 1) {
+							if(pageTop == 1) {
 								mui.toast("没有新动态...");
 								tag = -1;
 							}
@@ -219,8 +255,8 @@ function showMoreFriendDynamicOnTop() {
 		});
 	}
 
-	if (tag == 0) {
-		while (pageTop >= 1) {
+	if(tag == 0) {
+		while(pageTop >= 1) {
 			$.ajax({
 				type: "GET",
 				url: url + "prometheus/moment/listMoment?userId=" + myUserId + "&page=" + pageTop,
@@ -228,9 +264,9 @@ function showMoreFriendDynamicOnTop() {
 				dataType: 'JSON',
 				success: function(data, textStatus) {
 					var errCode = data["errCode"];
-					if (errCode == 0) {
-						for (var i = data["data"].length - 1; i >= 0; i--) {
-							if (data["data"][i].id > newestShare) {
+					if(errCode == 0) {
+						for(var i = data["data"].length - 1; i >= 0; i--) {
+							if(data["data"][i].id > newestShare) {
 								appendNewShare(data["data"][i], "top");
 							}
 						}
@@ -244,6 +280,7 @@ function showMoreFriendDynamicOnTop() {
 }
 
 function appendNewShare(data, type) {
+
 	var html = "";
 	html = html + "<li class='mui-media dynamicWidth'>";
 
@@ -269,7 +306,7 @@ function appendNewShare(data, type) {
 	html = html + "</div>";
 
 	//新闻
-	if (data.newsId != 0) {
+	if(data.newsId != 0) {
 		//新闻id
 		html = html + "<a id='" + data.newsId + "'>";
 		html = html + "<table class='newsTable'>";
@@ -306,12 +343,12 @@ function appendNewShare(data, type) {
 	html = html + "</table>";
 
 	//点赞评论面板
-	if (data.vote.length == 0 && data.comment.length == 0) {
+	if(data.vote.length == 0 && data.comment.length == 0) {
 		var commentTable = "hidden='hidden'";
 	} else {
 		var commentTable = "";
 	}
-	html = html + "<table class='commentTable' id='commentTable" + data.id + "' "+commentTable+">";
+	html = html + "<table class='commentTable' id='commentTable" + data.id + "' " + commentTable + ">";
 	html = html + "<tr>";
 	html = html + "<td class='commentList'>";
 	html = html + "<p class='good'>";
@@ -319,9 +356,9 @@ function appendNewShare(data, type) {
 	//点赞容器id
 	html = html + "<span class='goodPeople' id='goodPeopleContainer" + data.id + "'>";
 	//点赞的人
-	for (var j = 0; j < data.vote.length; j++) {
+	for(var j = 0; j < data.vote.length; j++) {
 		html = html + data.vote[j].userName;
-		if (j < data.vote.length - 1) {
+		if(j < data.vote.length - 1) {
 			html = html + ",";
 		}
 	}
@@ -330,38 +367,70 @@ function appendNewShare(data, type) {
 	html = html + "<hr>";
 	//评论容器id
 	//评论
-
-	for (var j = 0; j < data.comment.length; j++) {
-        html = html + "<p class='oneComment' id='commentContainer" + data.id +"comment"+j+ "'>";
-		if (data.comment[j].reId == 0||data.comment[j].reId == null) { 
-			//回复的人
-			html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
-			html = html + "<span class='replyWord'>:</span>";
-			//回复内容
-			html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
-		} else {
-			//回复的人
-			html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
-			html = html + "<span class='replyWord'>回复</span>";
-			//被回复的人
-			html = html + "<span class='replyPeople'>" + data.comment[j].reName + "</span>";
-			html = html + "<span class='replyWord'>:</span>";
-			//回复内容
-			html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
+	for(var j = 0; j < data.comment.length; j++) {
+		html = html + "<p class='oneComment' id='commentContainer" + data.id + "comment" + j + "'>";
+		if(data.comment[j] != null) {
+			if(data.comment[j].reId == 0) {
+				//回复的人
+				html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
+				html = html + "<span class='replyWord'>:</span>";
+				//回复内容
+				html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
+			} else {
+				//回复的人
+				html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
+				html = html + "<span class='replyWord'>回复</span>";
+				//被回复的人
+				html = html + "<span class='replyPeople'>" + data.comment[j].reName + "</span>";
+				html = html + "<span class='replyWord'>:</span>";
+				//回复内容
+				html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
+			}
+			html = html + "</p>";
 		}
-		html = html + "</p>";
 	}
-	
+
 	html = html + "</td>";
 	html = html + "</tr>";
 	html = html + "</table>";
 	html = html + "</div>";
 	html = html + "<hr>";
 	html = html + "</li>";
-	if (type == "top") {
+	if(type == "top") {
 		$("#shareList").prepend(html);
 	} else {
 		$("#shareList").append(html);
 	}
+
+}
+
+function getMyInfo() {
+
+	$.ajax({
+		type: "GET",
+		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
+		dataType: 'JSON',
+		beforeSend: function(XMLHttpRequest) {},
+		success: function(data, textStatus) {
+			var errCode = data["errCode"];
+			if(errCode == 0) {
+				id = data["data"].id;
+				nickname = data["data"].nickname;
+				mobile = data["data"].mobile;
+				email = data["data"].email;
+				username = data["data"].username;
+				sex = data["data"].sex;
+				birthday = data["data"].birthday;
+				pic = data["data"].pic;
+				readNum = data["data"].readNum;
+				commentNum = data["data"].commentNum;
+				level = data["data"].level;
+				preference = data["data"].preference;
+				signature = data["data"].signature;
+			} else {
+				mui.toast(data["msg"]);
+			}
+		}
+	});
 
 }
