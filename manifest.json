@@ -614,7 +614,9 @@
 					"stylesheets/css/app.css",
 					"javascript/js/jquery-2.2.3.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/dynamic/createShare.html"
+				],
 				"priority": 0
 			},
 			"html/dynamic/friendShare_Sub.html": {
@@ -648,6 +650,20 @@
 					"javascript/js/mui.min.js",
 					"javascript/js/iscroll-zoom.js",
 					"javascript/js/zepto.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/dynamic/createShare.html": {
+				"resources": [
+					"javascript/js/mui.min.js",
+					"javascript/page/dynamic/createShare.js",
+					"javascript/js/util.js",
+					"javascript/js/idangerous.swiper.min.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js"
 				],
 				"refer": [],
 				"priority": 0

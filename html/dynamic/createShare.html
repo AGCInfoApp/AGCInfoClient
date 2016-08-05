@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>修改姓名</title>
+		<title>创建动态</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,7 +11,7 @@
 		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
 		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
 		<script src="../../javascript/js/util.js"></script>
-		<script src="../../javascript/page/mine/myInfoChangeNickname.js"></script>
+		<script src="../../javascript/page/dynamic/createShare.js"></script>
 
 		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
@@ -23,13 +23,11 @@
 	<body>
 		<header class="mui-bar mui-bar-nav" >
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title" >昵称</h1>
-			<a class="mui-icon mui-icon-checkmarkempty mui-pull-right" id="save" style="margin-top:-0.3em;font-size:50px;"></a>
+			<h1 class="mui-title" >创建动态</h1>
+			<a class="mui-icon  mui-pull-right" id="save" style="margin-top:0.2em;font-size:20px;">发表</a>
 		</header>
-		<ul class="mui-table-view" style="margin-top:3em;">
-			<div class="mui-input-row" style="height:2em;">
-				<input id="nickname" type="text" class="mui-input-clear mui-input" placeholder="请输入新昵称：15字以内">
+			<div class="mui-input-row" style="margin: 10px 5px;margin-top: 3em;">
+					<textarea id="shareInput" rows="5" placeholder="想跟大家说点什么"></textarea>
 			</div>
-		</ul>
 	</body>
 </html>

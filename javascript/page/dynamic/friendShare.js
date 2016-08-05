@@ -6,6 +6,7 @@ var pageTop = 1;
 var pageBottom = 1;
 var newestShare;
 var oldestShare;
+var momentId = 0;
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 $(document).ready(function() {
 
@@ -13,6 +14,9 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken");
 		myUserId = parseInt(localStorage.getItem("myUserId"));
 	}
+	window.addEventListener('refresh', function(e) {  
+        location.reload();  
+    });
 	mui.init({
 		pullRefresh: {
 			container: '#pullrefresh',
@@ -30,27 +34,81 @@ $(document).ready(function() {
 	showFirstFriendDynamic();
 
 	$(document).on('click', '.goodButton', function() {
-		var momentId = parseInt($(this).attr("id").replace("goodButton", ""));
+		momentId = parseInt($(this).attr("id").replace("goodButton", ""));
+		vote();
+	});
+
+	$(document).on('click', '.commentButton', function() {
+		momentId = parseInt($(this).attr("id").replace("commentButton", ""));
+		var btnArray = ['取消', '评论'];
+		mui.prompt(' ', '请输入评论内容', '评论：', btnArray, function(e) {
+			if(e.index == 1) {
+				commonComment(e.value);
+			} else {
+
+			}
+		})
+	});
+
+	$(document).on('click', '.oneComment', function() {
+		momentId = parseInt($(this).attr("id").split(",")[0]);
+		var reId = parseInt($(this).attr("id").split(",")[1]);
+		var reName = $(this).attr("id").split(",")[2];
+		if(reId != myUserId) {
+			var btnArray = ['取消', '评论'];
+			mui.prompt(' ', '请输入评论内容', '评论：', btnArray, function(e) {
+				if(e.index == 1) {
+					commentToPeople(e.value, reId, reName);
+				} else {
+
+				}
+			})
+		}
+
+	});
+
+
+});
+
+function commentToPeople(commentMessage, reId, reName) {
+
+	if(commentMessage == null) {
+		mui.toast("评论内容不能为空");
+	} else {
+		alert(momentId + " " + myUserId + " " + commentMessage);
 		$.ajax({
 			type: "POST",
-			url: url + "prometheus/moment/createVote",
+			url: url + "prometheus/moment/createComment",
 			contentType: "application/json", //必须有
 			dataType: 'JSON',
 			data: JSON.stringify({
 				"momentId": momentId,
-				"userId": myUserId
+				"userId": myUserId,
+				"content": commentMessage,
+				"reUid": reId
 			}),
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data, textStatus) {
 				var errCode = data["errCode"];
 				if(errCode == 0) {
-					$("#commentTable" + momentId).attr("hidden", null);
-					if($("#goodPeopleContainer" + momentId).html() != "") {
-						$("#goodPeopleContainer" + momentId).append(",");
-					}
-					$("#goodPeopleContainer" + momentId).append(nickname);
+					var html = "";
+					html = html + "<p class='oneComment'>";
+
+					//回复的人
+					html = html + "<span class='replyPeople'>" + nickname + "</span>";
+					html = html + "<span class='replyWord'>回复</span>";
+					//被回复的人
+					html = html + "<span class='replyPeople'>" + reName + "</span>";
+					html = html + "<span class='replyWord'>:</span>";
+					//回复内容
+					html = html + "<span class='replyWord'>" + commentMessage + "</span>";
+
+					html = html + "</p>";
+					$("#commentTable" + momentId).append(html);
+
+					mui.toast("评论成功");
 				} else {
-                    mui.toast(data["msg"]);
+					mui.toast("评论失败");
 				}
 			},
 			complete: function(XMLHttpRequest, textStatus) {
@@ -60,53 +118,92 @@ $(document).ready(function() {
 			}
 		});
 
+	}
+
+}
+
+function commonComment(commentMessage) {
+
+	if(commentMessage == null) {
+		mui.toast("评论内容不能为空");
+	} else {
+		alert(momentId + " " + myUserId + " " + commentMessage);
+		$.ajax({
+			type: "POST",
+			url: url + "prometheus/moment/createComment",
+			contentType: "application/json", //必须有
+			dataType: 'JSON',
+			data: JSON.stringify({
+				"momentId": momentId,
+				"userId": myUserId,
+				"content": commentMessage,
+				"reUid": 0
+			}),
+			beforeSend: function(XMLHttpRequest) {},
+			success: function(data, textStatus) {
+				var errCode = data["errCode"];
+				if(errCode == 0) {
+					var html = "";
+					html = html + "<p class='oneComment'>";
+
+					//回复的人
+					html = html + "<span class='replyPeople'>" + nickname + "</span>";
+					html = html + "<span class='replyWord'>:</span>";
+					//回复内容
+					html = html + "<span class='replyWord'>" + commentMessage + "</span>";
+
+					html = html + "</p>";
+					$("#commentTable" + momentId).append(html);
+
+					mui.toast("评论成功");
+				} else {
+					mui.toast("评论失败");
+				}
+			},
+			complete: function(XMLHttpRequest, textStatus) {
+
+			},
+			error: function() { //请求出错处理
+			}
+		});
+
+	}
+
+}
+
+function vote() {
+	$.ajax({
+		type: "POST",
+		url: url + "prometheus/moment/createVote",
+		contentType: "application/json", //必须有
+		dataType: 'JSON',
+		data: JSON.stringify({
+			"momentId": momentId,
+			"userId": myUserId
+		}),
+		beforeSend: function(XMLHttpRequest) {},
+		success: function(data, textStatus) {
+			var errCode = data["errCode"];
+			if(errCode == 0) {
+				$("#goodButton" + momentId).html(" 已赞");
+				$("#goodButton" + momentId).attr("class", "mui-icon iconfont icon-appreciatelight hasGoodButton");
+				$("#goodButton" + momentId).attr("id", "hasGoodButton" + momentId);
+				$("#commentTable" + momentId).attr("hidden", null);
+				if($("#goodPeopleContainer" + momentId).html() != "") {
+					$("#goodPeopleContainer" + momentId).append(",");
+				}
+				$("#goodPeopleContainer" + momentId).append(nickname);
+			} else {
+				mui.toast(data["msg"]);
+			}
+		},
+		complete: function(XMLHttpRequest, textStatus) {
+
+		},
+		error: function() { //请求出错处理
+		}
 	});
-
-	//	$.ajax({
-	//		type: "POST",
-	//		url: url + "prometheus/moment/createComment",
-	//		contentType: "application/json", //必须有
-	//		dataType: 'JSON',
-	//		data: JSON.stringify({
-	//			"momentId": 42,
-	//			"userId": myUserId,
-	//			"content": "居然评论成功了！",
-	//			"reUid": 0
-	//		}),
-	//		beforeSend: function(XMLHttpRequest) {},
-	//		success: function(data, textStatus) {
-	//			var errCode = data["errCode"];
-	//			if(errCode == 0) {
-	//
-	//			} else {
-	//
-	//			}
-	//		},
-	//		complete: function(XMLHttpRequest, textStatus) {
-	//
-	//		},
-	//		error: function() { //请求出错处理
-	//		}
-	//	});
-
-	//		$.ajax({
-	//				type: "POST",
-	//				url: url + "prometheus/moment/createMoment",
-	//				contentType: "application/json", //必须有
-	//				dataType: 'JSON',
-	//				data: JSON.stringify({
-	//					"userId": myUserId,
-	//					"token": myToken,
-	//					"message": "牛逼！"
-	//				}),
-	//				beforeSend: function(XMLHttpRequest) {},
-	//				success: function(data, textStatus) {
-	//					alert(data["errCode"]);
-	//					
-	//				}
-	//			});
-
-});
+}
 
 /**
  * 下拉刷新具体业务实现
@@ -161,7 +258,6 @@ function showMoreFriendDynamicOnBottom() {
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
 			if(errCode == 0) {
-				alert(JSON.stringify(data["data"]));
 				if(data["data"].length > 0) {
 					for(var i = 0; i < data["data"].length; i++) {
 						if(data["data"][i].id < oldestShare) {
@@ -181,7 +277,7 @@ function showMoreFriendDynamicOnBottom() {
 
 function showMoreFriendDynamicOnTop() {
 	var tag = 1;
-
+alert(tag)
 	while(tag == 1) {
 		$.ajax({
 			type: "GET",
@@ -333,11 +429,20 @@ function appendNewShare(data, type) {
 	html = html + "<td width='60%'></td>";
 	html = html + "<td width='20%'>";
 	//点赞按钮id
-	html = html + "<a><span class='mui-icon iconfont icon-appreciatelight goodButton' id='goodButton" + data.id + "'> 点赞</span></a>";
+	if(data.hasVote == 0) {
+		var hasVoteText = "点赞";
+		var hasVoteClass = "goodButton";
+		var hasVoteId = "goodButton"
+	} else {
+		var hasVoteText = "已赞";
+		var hasVoteClass = "hasGoodButton";
+		var hasVoteId = "hasGoodButton";
+	}
+	html = html + "<span class='mui-icon iconfont icon-appreciatelight " + hasVoteClass + "' id='" + hasVoteId + data.id + "'> " + hasVoteText + "</span>";
 	html = html + "</td>";
 	html = html + "<td width='20%'>";
 	//评论按钮id	
-	html = html + "<a><span class='mui-icon mui-icon-chat commentButton' id='commentButton" + data.id + "'> 评论</span></a>";
+	html = html + "<div class='mui-icon mui-icon-chat commentButton' id='commentButton" + data.id + "'> 评论</div>";
 	html = html + "</td>";
 	html = html + "</tr>";
 	html = html + "</table>";
@@ -368,7 +473,7 @@ function appendNewShare(data, type) {
 	//评论容器id
 	//评论
 	for(var j = 0; j < data.comment.length; j++) {
-		html = html + "<p class='oneComment' id='commentContainer" + data.id + "comment" + j + "'>";
+		html = html + "<p class='oneComment' id='" + data.id + "," + data.comment[j].userId + "," + data.comment[j].userName + "'>";
 		if(data.comment[j] != null) {
 			if(data.comment[j].reId == 0) {
 				//回复的人
