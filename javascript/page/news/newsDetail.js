@@ -1,30 +1,38 @@
-var host="http://localhost:31010/prometheus";
-
-    var cateId=GetQueryString("cateId");
+var url = "http://139.129.25.229:31010";
+var myToken;
+var myUserId;
+ 
     var newsId=GetQueryString("newsId");
 
     if (window.sessionStorage) {
         sessionStorage.setItem("newsId", newsId);
     }
+    if(window.localStorage) {
+		myToken = localStorage.getItem("myToken");
+		myUserId = localStorage.getItem("myUserId");
+	}
 
 
 
-    getNewsDetail(cateId,newsId);
-    getComment(cateId,newsId);
-    getRecommentNews(cateId,newsId);
+    getNewsDetail(newsId);
+    getComment(newsId);
+    getRecommentNews(newsId);
 
     //获取新闻详情
-    function getNewsDetail(cateId,newsId){
+    function getNewsDetail(newsId){
+    	console.log(url+"/prometheus/news/getInfo?newsId="+newsId+"&userId="+myUserId);
         $.ajax({
             type: "GET",
-            url: "/prometheus/news/getInfo?cateId="+cateId+"&id="+newsId,
+            url: url+"/prometheus/news/getInfo?newsId="+newsId+"&userId="+myUserId,
             dataType: 'JSON',
             beforeSend: function(XMLHttpRequest){
             },
             success: function(data, textStatus){
+            	console.log(JSON.stringify(data));
                 var errCode=data["errCode"];
                 if(errCode==0){
                     handleData(data["data"]);
+                    console.log(JSON.stringify(data["data"]));
                 }else{
 
                 }
@@ -38,10 +46,10 @@ var host="http://localhost:31010/prometheus";
     }
 
     //获取热门评论
-    function getComment(cateId,newsId){
+    function getComment(newsId){
         $.ajax({
             type: "GET",
-            url: "/prometheus/comment/getByNews?cateId="+cateId+"&newsId="+newsId+"&page="+1+"&size="+4,
+            url: url+"/prometheus/comment/getByNews?newsId="+newsId+"&page="+1+"&size="+4,
             dataType: 'JSON',
             beforeSend: function(XMLHttpRequest){
             },
@@ -61,10 +69,10 @@ var host="http://localhost:31010/prometheus";
     }
 
     //获取推荐新闻
-    function getRecommentNews(cateId,newsId){
+    function getRecommentNews(newsId){
         $.ajax({
             type: "GET",
-            url: "/prometheus/news/getRecommentNews?cateId="+cateId+"&newsId="+newsId,
+            url: url+"/prometheus/news/getRecommentNews?newsId="+newsId,
             dataType: 'JSON',
             beforeSend: function(XMLHttpRequest){
             },
@@ -136,7 +144,7 @@ var host="http://localhost:31010/prometheus";
         for(var i=0;i<data.length;i++) {
             var html = "";
             html += '<li class="mui-table-view-cell mui-media" >';
-            html += '<a href="/prometheus/assets/customer/newsDetail.html?newsId='+data[i]["id"]+"&cateId="+data[i]["cateId"] +'" >';
+            html += '<a href="newsDetail.html?newsId='+data[i]["id"]+"&userId="+myUserId+'" >';
             if(data[i]["thumbnail"].length>10) {
                 html += '<img class="mui-media-object mui-pull-left thumb-nail" src="' + data[i]["thumbnail"] + '">';
             }
@@ -154,9 +162,8 @@ var host="http://localhost:31010/prometheus";
     }
 
 
-     var btn = document.getElementById("backBtn");
-     btn.addEventListener("tap",function () {
-        window.history.back(-1);
+    $('#backBtn').on('click',function(event){
+            window.history.back(-1);
     });
 
 
@@ -164,13 +171,13 @@ var host="http://localhost:31010/prometheus";
 
 
     //发表评论
-    document.getElementById("createComment").addEventListener("tap",function(){
+    $('#createComment').on("tap",function(){
         var content=$("#commentContent").val();
         $("#commentContent").val("");
         if(content.length>0) {
             $.ajax({
                 type: "POST",
-                url: "/prometheus/comment/create",
+                url: url+"/prometheus/comment/create",
                 contentType: "application/json", //必须有
                 dataType: 'JSON',
                 data: JSON.stringify({
@@ -185,7 +192,7 @@ var host="http://localhost:31010/prometheus";
                     var errCode = data["errCode"];
                     if (errCode == 0) {
                         mui.toast("评论成功！");
-                        getComment(cateId,newsId);
+                        getComment(newsId);
                     } else {
                         mui.toast("评论失败，稍后重试…");
                     }
