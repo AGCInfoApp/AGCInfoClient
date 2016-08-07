@@ -306,7 +306,8 @@
 					"html/mine/myInfoChangeBirthday.html",
 					"html/mine/myInfoChangeNickname.html",
 					"html/mine/myInfoChangeEmail.html",
-					"html/mine/myInfoChangeSignature.html"
+					"html/mine/myInfoChangeSignature.html",
+					"html/mine/index.html"
 				],
 				"priority": 0
 			},
@@ -329,9 +330,7 @@
 					"html/mine/selfCollect.html",
 					"html/mine/concernList.html",
 					"html/mine/fansList.html",
-					"html/dynamic/friendShare_Main.html",
-					"html/dynamic/selfCollect.html",
-					"html/news/newsDetail.html"
+					"html/dynamic/friendShare_Main.html"
 				],
 				"priority": 0
 			},
@@ -666,6 +665,17 @@
 					"stylesheets/fonts/mui.ttf",
 					"stylesheets/css/app.css",
 					"javascript/js/jquery-2.2.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/mine/index.html": {
+				"resources": [
+					"javascript/js/iscroll-zoom.js",
+					"javascript/js/jquery.photoClip.min.js",
+					"javascript/js/hammer.js",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/lrz.all.bundle.js"
 				],
 				"refer": [],
 				"priority": 0
