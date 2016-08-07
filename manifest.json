@@ -296,7 +296,8 @@
 					"javascript/js/jquery-2.2.3.min.js",
 					"javascript/js/mui.min.js",
 					"images/myPhoto.png",
-					null
+					null,
+					"images/noHeadPhoto.jpg"
 				],
 				"refer": [
 					"html/mine/myInfoChangeName.html",
@@ -330,7 +331,9 @@
 					"html/mine/selfCollect.html",
 					"html/mine/concernList.html",
 					"html/mine/fansList.html",
-					"html/dynamic/friendShare_Main.html"
+					"html/dynamic/friendShare_Main.html",
+					"html/dynamic/myMessage.html",
+					"html/news/newsDetail.html"
 				],
 				"priority": 0
 			},
@@ -650,7 +653,14 @@
 					"javascript/js/jquery-2.2.3.min.js",
 					"javascript/js/mui.min.js",
 					"javascript/js/iscroll-zoom.js",
-					"javascript/js/zepto.min.js"
+					"javascript/js/zepto.min.js",
+					"javascript/js/jquery.photoClip.min.js",
+					"javascript/js/hammer.js",
+					"javascript/js/lrz.all.bundle.js",
+					"images/noHeadPhoto.png",
+					"images/myPhoto.png",
+					"javascript/js/ajaxfileupload.js",
+					null
 				],
 				"refer": [],
 				"priority": 0
@@ -680,16 +690,25 @@
 				"refer": [],
 				"priority": 0
 			},
+			"html/dynamic/myMessage.html": {
+				"resources": [
+					"javascript/page/dynamic/myMessage.js",
+					"javascript/js/util.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
 			"html/news/newsDetail.html": {
 				"resources": [
 					"javascript/js/util.js",
 					"javascript/js/idangerous.swiper.min.js",
 					"javascript/js/jquery-2.2.3.min.js",
-					"javascript/page/news/newsDetail.js",
-					"stylesheets/css/mui.min.css",
-					"stylesheets/fonts/mui.ttf",
-					"stylesheets/css/app.css",
-					"javascript/js/mui.min.js"
+					"javascript/page/news/newsDetail.js"
 				],
 				"refer": [],
 				"priority": 0

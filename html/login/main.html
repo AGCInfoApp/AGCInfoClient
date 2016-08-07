@@ -54,8 +54,13 @@
 				float: left;
 			}
 			.subPage{
+				position: absolute;
 				width: 100%;
-				height: 95%;
+				height: 100%;
+			}
+			.subPageFrame{
+				width: 100%;
+				height: 91%;
 			}
 		</style>
 	</head>
@@ -63,34 +68,34 @@
 	<body>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#news">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">首页</span>
+				<span class="mui-icon iconfont icon-xinwen"></span>
+				<span class="mui-tab-label">新闻</span>
 			</a>
 			<a class="mui-tab-item" href="#shop">
-				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
-				<span class="mui-tab-label">消息</span>
+				<span class="mui-icon iconfont icon-shangcheng"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">商城</span>
 			</a>
 			<a class="mui-tab-item" href="#dynamic">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">通讯录</span>
+				<span class="mui-icon iconfont icon-dongtai"></span>
+				<span class="mui-tab-label">动态</span>
 			</a>
 			<a class="mui-tab-item" href="#mine">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">设置</span>
+				<span class="mui-icon iconfont icon-geren"></span>
+				<span class="mui-tab-label">我的</span>
 			</a>
 		</nav>
 		<div class="mui-content">
-			<div id="news" class="mui-control-content mui-active">
-				<iframe class="subPage" src="../news/news.html"></iframe>
+			<div id="news" class=" mui-active subPage">
+				<iframe class="subPageFrame" src="../news/news.html"></iframe>
 			</div>
-			<div id="shop" class="mui-control-content">
-				<iframe class="subPage" src="../shop/shop.html"></iframe>
+			<div id="shop" class="mui-control-content subPage">
+				<iframe class="subPageFrame" src="../shop/shop.html"></iframe>
 			</div>
-			<div id="dynamic" class="mui-control-content">
-				<iframe class="subPage" src="../dynamic/dynamicMain.html"></iframe>
+			<div id="dynamic" class="mui-control-content subPage">
+				<iframe class="subPageFrame" src="../dynamic/dynamicMain.html"></iframe>
 			</div>
-			<div id="mine" class="mui-control-content">
-				<iframe class="subPage" src="../mine/mineMain.html"></iframe>
+			<div id="mine" class="mui-control-content subPage">
+				<iframe class="subPageFrame" src="../mine/mineMain.html"></iframe>
 			</div>
 		</div>
 	</body>

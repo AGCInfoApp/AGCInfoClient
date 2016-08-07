@@ -1,4 +1,5 @@
 var url = "http://139.129.25.229:31010/";
+var headPhotoUrl = "http://139.129.25.229/"
 var myToken;
 var myUserId;
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
@@ -143,6 +144,7 @@ function getMyInfo() {
 				$("#myEmail").html(email);
 				$("#myMobile").html(mobile);
 				$("#myLevel").html(level);
+				$("#myHeadPicture").attr("src",headPhotoUrl+pic);
 			} else {
 				mui.toast(data["msg"]);
 			}

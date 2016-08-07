@@ -61,6 +61,7 @@
 
 
 /*iconfont 配置*/
+
 @font-face {font-family: "iconfont";
   src: url('../fonts/iconfont.eot?t=1470062499'); /* IE9*/
   src: url('../fonts/iconfont.eot?t=1470062499#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -77,7 +78,12 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-appreciatelight:before { content: "\e7a0"; }
+.icon-shangcheng:before { content: "\e671"; }
+.icon-dongtai:before { content: "\e61f"; }
+.icon-geren:before { content: "\e678"; }
+.icon-dianzan:before { content: "\e600"; }
+.icon-xinwen:before { content: "\e6cb"; }
+
 
 /************news list************** */
 

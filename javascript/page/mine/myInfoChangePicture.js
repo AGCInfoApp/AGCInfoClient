@@ -11,6 +11,16 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken"); 
 		myUserId = parseInt(localStorage.getItem("myUserId"));
 	}
+	mui.init({
+		beforeback: function() {
+			//获得列表界面的webview  
+			var list = plus.webview.currentWebview().opener();
+			//触发列表界面的自定义事件（refresh）,从而进行数据刷新  
+			mui.fire(list, 'refresh');
+			//返回true，继续页面关闭逻辑  
+			return true;
+		}
+	});
 	getMyInfo();
 
 	var clipArea = new bjj.PhotoClip("#clipArea", {
@@ -27,7 +37,6 @@ $(document).ready(function() {
 		},
 		clipFinish: function(dataURL) {
 			console.log(dataURL);
-					alert("jqm")
 			imgBlob = convertBase64UrlToBlob(dataURL);
 
 		}
@@ -101,19 +110,53 @@ function uploadHead() {
     var formData = new FormData(form);   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数
     
     //convertBase64UrlToBlob函数是将base64编码转换为Blob
-    formData.append("image",imgBlob);  //append函数的第一个参数是后台获取数据的参数名,和html标签的input的name属性功能相同
+    formData.append("image",imgBlob,"head"+myUserId+".png");  //append函数的第一个参数是后台获取数据的参数名,和html标签的input的name属性功能相同
     
     //ajax 提交form
     $.ajax({
         url : url + "prometheus/service/uploadPic",
         type : "POST",
         data : formData,
-        dataType:"text",
+        dataType:"json",
         processData : false,         // 告诉jQuery不要去处理发送的数据
         contentType : false,        // 告诉jQuery不要去设置Content-Type请求头
         
         success:function(data){
-            alert(JSON.stringify(data))
+            if(data["errCode"]==0){
+            	newPic=data["data"];
+            	$.ajax({
+						type: "POST",
+						url: url + "prometheus/user/editInfo",
+						contentType: "application/json", //必须有
+						dataType: 'JSON',
+						data: JSON.stringify({
+							"userId": id,
+							"token": myToken,
+							"nickname": nickname,
+							"mobile": mobile,
+							"email": email,
+							"username": username,
+							"sex": sex,
+							"birthday": birthday,
+							"pic": newPic,
+							"signature": signature
+						}),
+						beforeSend: function(XMLHttpRequest) {},
+						success: function(data, textStatus) {
+							var errCode = data["errCode"];
+							if(errCode == 0) {
+								mui.toast("保存成功");
+							} else {
+								mui.toast("保存失败，稍后重试…");
+							}
+						},
+						complete: function(XMLHttpRequest, textStatus) {
+	
+						},
+						error: function() { //请求出错处理
+						}
+					});
+            }
         },
         xhr:function(){            //在jquery函数中直接使用ajax的XMLHttpRequest对象
             var xhr = new XMLHttpRequest();

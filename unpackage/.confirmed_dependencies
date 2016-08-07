@@ -96,7 +96,8 @@
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
-			"javascript/js/mui.min.js"
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
 		],
 		"refer": [
 			"html/mine/myInfoChangePicture.html",
@@ -104,7 +105,8 @@
 			"html/mine/myInfoChangeNickname.html",
 			"html/mine/myInfoChangeEmail.html",
 			"html/mine/myInfoChangeSex.html",
-			"html/mine/myInfoChangeSignature.html"
+			"html/mine/myInfoChangeSignature.html",
+			"html/mine/index.html"
 		]
 	},
 	"html/mine/friendList.html": {
@@ -145,7 +147,7 @@
 			"html/mine/myMessage.html",
 			"html/mine/fansList.html",
 			"html/dynamic/friendShare_Main.html",
-			"html/dynamic/selfCollect.html",
+			"html/dynamic/myMessage.html",
 			"html/news/newsDetail.html"
 		]
 	},
@@ -397,7 +399,13 @@
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js",
 			"javascript/js/iscroll-zoom.js",
-			"javascript/js/zepto.min.js"
+			"javascript/js/zepto.min.js",
+			"javascript/js/jquery.photoClip.min.js",
+			"javascript/js/hammer.js",
+			"javascript/js/lrz.all.bundle.js",
+			"images/noHeadPhoto.png",
+			"images/myPhoto.png",
+			"javascript/js/ajaxfileupload.js"
 		]
 	},
 	"html/dynamic/createShare.html": {
@@ -412,18 +420,6 @@
 			"javascript/js/jquery-2.2.3.min.js"
 		]
 	},
-	"html/news/newsDetail.html": {
-		"resources": [
-			"javascript/js/util.js",
-			"javascript/js/idangerous.swiper.min.js",
-			"javascript/js/jquery-2.2.3.min.js",
-			"javascript/page/news/newsDetail.js",
-			"stylesheets/css/mui.min.css",
-			"stylesheets/fonts/mui.ttf",
-			"stylesheets/css/app.css",
-			"javascript/js/mui.min.js"
-		]
-	},
 	"html/mine/index.html": {
 		"resources": [
 			"javascript/js/iscroll-zoom.js",
@@ -431,6 +427,25 @@
 			"javascript/js/hammer.js",
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/lrz.all.bundle.js"
+		]
+	},
+	"html/dynamic/myMessage.html": {
+		"resources": [
+			"javascript/page/dynamic/myMessage.js",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		]
+	},
+	"html/news/newsDetail.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/page/news/newsDetail.js"
 		]
 	}
 }
