@@ -1,4 +1,8 @@
 var url = "http://139.129.25.229:31010/";
+var myToken;
+var myUserId;
+
+	
     $('#searchBtn').on('click',function(event){
             mui.openWindow({
                 id: "search",
@@ -254,7 +258,7 @@ var url = "http://139.129.25.229:31010/";
         for(var i=0;i<data.length;i++){
             var html="";
             html+='<li class="mui-table-view-cell mui-media" id='+data[i]["id"]+' name='+data[i]["id"]+' >';
-            html+='<a href="/prometheus/assets/customer/newsDetail.html?newsId='+data[i]["id"]+"&cateId="+data[i]["cateId"]+'" page='+newsPage+' index='+i+'>';
+            html+='<a href="newsDetail.html?newsId='+data[i]["newsId"]+"&userId="+myUserId+'" page='+newsPage+' index='+i+'>';
             if(data[i]["thumbnail"].length>10) {
                 html += '<img class="mui-media-object mui-pull-left thumb-nail" src="' + data[i]["thumbnail"] + '">';
             }
@@ -279,7 +283,7 @@ var url = "http://139.129.25.229:31010/";
         for(var i=0;i<data.length;i++){
             var html="";
             html+='<li class="mui-table-view-cell mui-media" id='+data[i]["id"]+' name='+data[i]["id"]+'>';
-            html+='<a href="/prometheus/assets/customer/newsDetail.html?newsId='+data[i]["id"]+"&cateId="+data[i]["cateId"]+'" page='+newsPage+' index='+i+'>';
+            html+='<a href="newsDetail.html?newsId='+data[i]["newsId"]+"&userId="+myUserId+'" page='+newsPage+' index='+i+'>';
             if(data[i]["thumbnail"].length>10) {
                 html += '<img class="mui-media-object mui-pull-left thumb-nail" src="' + data[i]["thumbnail"] + '">';
             }
@@ -315,7 +319,7 @@ var url = "http://139.129.25.229:31010/";
         for(var i=data.length-1;i>=0;i--){
             var html="";
             html+='<li class="mui-table-view-cell mui-media" id='+data[i]["id"]+' name='+data[i]["id"]+' >';
-            html+='<a href="/prometheus/assets/customer/newsDetail.html?newsId='+data[i]["id"]+"&cateId="+data[i]["cateId"]+'" page='+newsPage+' index='+i+'>';
+            html+='<a href="newsDetail.html?newsId='+data[i]["newsId"]+"&userId="+myUserId+'" page='+newsPage+' index='+i+'>';
             if(data[i]["thumbnail"].length>10) {
                 html += '<img class="mui-media-object mui-pull-left thumb-nail" src="' + data[i]["thumbnail"] + '">';
             }
@@ -469,8 +473,11 @@ var url = "http://139.129.25.229:31010/";
                 cateId=parseInt(sessionStorage.getItem("cateId"));
             }
         }
+       if(window.localStorage) {
+		myToken = localStorage.getItem("myToken");
+		myUserId = localStorage.getItem("myUserId");
+	   }
 
-        console.log("=====curPage:" + curPage+"newsId="+newsId+"newsPage"+newsPage+a+" ++ "+b+c);
         firstGetData(newsPage);
 
     });
