@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 	<head>
-		<title>个人主页</title>
+		<title>找 人</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,36 +12,33 @@
 		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
 		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
 		<script src="../../javascript/js/util.js"></script>
-		<script src="../../javascript/page/mine/mineMain.js"></script>
+		<script src="../../javascript/page/mine/findPeople.js"></script>
 
 		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
-
+			
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title" id="welcome"></h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">找人</h1>
+			<div class="mui-content-padded" style="margin: 7px;">
+				<div class="mui-input-row mui-search">
+					<input id="search" type="search" class="mui-input-clear" placeholder="请输入搜索内容..." style="background-color:#ffffdf; ">
+				</div>
+			</div>
 		</header>
-		<div class="mui-content">
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell" >
-					<a class="mui-navigate-right" id="myInfo">
-						<h4 class="list-font">个人信息</h4></a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id="concernList">
-						<h4 class="list-font">我的关注</h4></a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id="fansList">
-						<h4 class="list-font">我的粉丝</h4></a>
-				</li>
-			</ul>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="margin-top:2.5em;">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul id="searchResult" class="mui-table-view mui-table-view-chevron">
+
+				</ul>
+			</div>
 		</div>
 	</body>
-
 </html>

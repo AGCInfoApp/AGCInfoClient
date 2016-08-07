@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>好友信息</title>
+		<title>修改生日</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,45 +11,31 @@
 		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
 		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
 		<script src="../../javascript/js/util.js"></script>
-		<script src="../../javascript/page/mine/friendInfo.js"></script>
+		<script src="../../javascript/js/mui.picker.min.js"></script>		
+		<script src="../../javascript/page/mine/myInfoChangeBirthday.js"></script>
 
 		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
+		<link rel="stylesheet" href="../../stylesheets/css/mui.picker.min.css">
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
 			
-			
-			.messageTypeFont{
-				position:absolute;
-				left:1em;
-			}
-			
-			.messageFont{
-				position:absolute;
-				right:2em;
-				color: #bebebe;
-			}
 		</style>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav" >
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" ></a>
-			<h1 class="mui-title" >好友信息</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" >生日</h1>
+			<a class="mui-icon mui-icon-checkmarkempty mui-pull-right" id="save" style="margin-top:-0.3em;font-size:50px;"></a>
 		</header>
-
-		<ul class="mui-table-view" style="margin-top:3em">
-				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right" id="changeRemarkName">
-						<img class="mui-media-object mui-pull-left" src="../../images/myPhoto.png" style="height:3em;">
-						<div class="mui-media-body"  id="friendInfo">
-							
-						</div>
-					</a>
-				</li>
+		<div class="mui-content" style="margin-top:2em;">
+			<div class="mui-content-padded">
 				
-			</ul>
-			
+				<button id='selectBrithday' data-options='{"type":"date","beginYear":1949,"endYear":2016}' class="btn mui-btn mui-btn-block">选择日期 ...</button>
+				
+				
+				<div id='result' class="ui-alert"></div>
+			</div>
+		</div>
 	</body>
-
 </html>

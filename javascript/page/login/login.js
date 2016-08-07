@@ -1,3 +1,4 @@
+var url = "http://139.129.25.229:31010/";
 function checkNull(){
     if($.trim($("#account").val()).length==0 || $.trim($("#password").val()).length==0){
         mui.toast("账号或密码不能为空");
@@ -14,7 +15,7 @@ function login(){
         var password = $.trim($("#password").val());
         $.ajax({
             type: "POST",
-            url: "检查用户名密码是否正确",
+            url: url+"prometheus/user/login",
             contentType: "application/json", //必须有
             dataType: 'JSON',
             data: JSON.stringify({
@@ -26,10 +27,13 @@ function login(){
             success: function (data, textStatus) {
                 var errCode = data["errCode"];
                 if (errCode == 0) {
-                	sessionStorage.setItem("token", data["token"]);
+                	localStorage.setItem("myToken", data["token"]);
+                	localStorage.setItem("myUserId", data["userId"]);
                     mui.openWindow({
-                        id: "register",
-                        url: "../news/news.html",
+                        id: "dynamic",
+                        //url: "../dynamic/dynamicMain.html",
+                        url: "Main.html",
+
                         styles: {
                             popGesture: 'close'
                         },
@@ -41,16 +45,12 @@ function login(){
                         }
                     });
                     mui.toast("登录成功！");
-                } else if(errCode==1000201) {
-                    mui.toast("账号不存在！");
-                } else if(errCode==1000202){
-                    mui.toast("密码错误！");
                 } else{
-                    mui.toast("登录失败！稍后重试");
+                	mui.toast(data["msg"]);
                 }
             }
         });
-        sessionStorage.setItem("token", "jqm");
+
         
     }
 }
@@ -78,21 +78,21 @@ $(document).ready(function(){
         });
     });
 
-    document.getElementById("forgetPassword").addEventListener("tap",function(){
-        mui.openWindow({
-            id: "findPassword",
-            url: "findPassword.html",
-            styles: {
-                popGesture: 'close'
-            },
-            show: {
-                aniShow: "pop-in"
-            },
-            waiting: {
-                autoShow: true
-            }
-        });
-    });
+//  document.getElementById("forgetPassword").addEventListener("tap",function(){
+//      mui.openWindow({
+//          id: "findPassword",
+//          url: "findPassword.html",
+//          styles: {
+//              popGesture: 'close'
+//          },
+//          show: {
+//              aniShow: "pop-in"
+//          },
+//          waiting: {
+//              autoShow: true
+//          }
+//      });
+//  });
 });
 
 

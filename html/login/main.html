@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个人信息</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<script src="../../javascript/js/mui.min.js"></script>
+		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
+		<script src="../../javascript/js/util.js"></script>
+		<script src="../../javascript/page/login/main.js"></script>
+
+		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			oa-contact-position {
+				float: left;
+			}
+			.subPage{
+				width: 100%;
+				height: 95%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#news">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#shop">
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item" href="#dynamic">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" href="#mine">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">设置</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="news" class="mui-control-content mui-active">
+				<iframe class="subPage" src="../news/news.html"></iframe>
+			</div>
+			<div id="shop" class="mui-control-content">
+				<iframe class="subPage" src="../shop/shop.html"></iframe>
+			</div>
+			<div id="dynamic" class="mui-control-content">
+				<iframe class="subPage" src="../dynamic/dynamicMain.html"></iframe>
+			</div>
+			<div id="mine" class="mui-control-content">
+				<iframe class="subPage" src="../mine/mineMain.html"></iframe>
+			</div>
+		</div>
+	</body>
+</html>

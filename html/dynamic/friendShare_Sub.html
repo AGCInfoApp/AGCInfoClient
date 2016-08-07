@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>个人主页</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<script src="../../javascript/js/mui.min.js"></script>
+		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
+		<script src="../../javascript/js/util.js"></script>
+		<script src="../../javascript/page/dynamic/friendShare.js"></script>
+
+		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/page/dynamic/friendShare.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron" id="shareList">
+					<li class="mui-media dynamicWidth">
+						<img class="mui-media-object mui-pull-left headPhoto" src="../../images/myPhoto.png">
+						<div class="mui-media-body">
+							<div>
+								<p class="nameStyle">123</p>
+							</div>
+							<div>
+								<p class="messageStyle">这个东西老不匹配咋办？</p>
+							</div>
+							<div class="photoContainer">
+								<img class="photo" src="../../images/myPhoto.png">
+								<img class="photo" src="../../images/myPhoto.png">
+								<img class="photo" src="../../images/myPhoto.png">
+							</div>
+							<a id="newsId">
+								<table class="newsTable">
+									<tr>
+										<td>
+											<p class="newsTitle">绯闻</p>
+											<p class="newsDesc">叽里呱啦噼里啪啦</p>
+											<hr>
+											<div class="newsPicContainer">
+												<img class="newsPhoto" src="../../images/myPhoto.png" />
+											</div>
+										</td>
+									</tr>
+								</table>
+							</a>
+							<table class="commentButtonTable">
+								<tr>
+									<td width="60%"></td>
+									<td width="20%">
+										<a><span class="mui-icon iconfont icon-appreciatelight goodButton"> 点赞</span></a>
+									</td>
+									<td width="20%">
+										<a><span class="mui-icon mui-icon-chat commentButton"> 评论</span></a>
+									</td>
+								</tr>
+							</table>
+							<table class="commentTable">
+								<tr>
+									<td class="commentList">
+										<p class="good">
+											<span class="mui-icon iconfont icon-appreciatelight goodicon"></span>
+											<span class="goodPeople">123123</span>
+										</p>
+										<hr>
+										<p class="oneComment">
+											<span class="replyPeople">test</span>
+											<span class="replyWord">:</span>
+											<span class="replyWord">牛逼！</span>
+										</p>
+										<p class="oneComment">
+											<span class="replyPeople">jqm</span>
+											<span class="replyWord">回复</span>
+											<span class="replyPeople">test</span>
+											<span class="replyWord">:</span>
+											<span class="replyWord">是啊!</span>
+
+										</p>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<hr>
+					</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
