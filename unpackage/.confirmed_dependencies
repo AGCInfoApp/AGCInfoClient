@@ -104,7 +104,8 @@
 			"html/mine/myInfoChangeNickname.html",
 			"html/mine/myInfoChangeEmail.html",
 			"html/mine/myInfoChangeSex.html",
-			"html/mine/myInfoChangeSignature.html"
+			"html/mine/myInfoChangeSignature.html",
+			"html/mine/index.html"
 		]
 	},
 	"html/mine/friendList.html": {
@@ -395,7 +396,13 @@
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js",
 			"javascript/js/iscroll-zoom.js",
-			"javascript/js/zepto.min.js"
+			"javascript/js/zepto.min.js",
+			"javascript/js/jquery.photoClip.min.js",
+			"javascript/js/hammer.js",
+			"javascript/js/lrz.all.bundle.js",
+			"images/noHeadPhoto.png",
+			"images/myPhoto.png",
+			"javascript/js/ajaxfileupload.js"
 		]
 	},
 	"html/dynamic/createShare.html": {
@@ -408,6 +415,15 @@
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js"
+		]
+	},
+	"html/mine/index.html": {
+		"resources": [
+			"javascript/js/iscroll-zoom.js",
+			"javascript/js/jquery.photoClip.min.js",
+			"javascript/js/hammer.js",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/lrz.all.bundle.js"
 		]
 	}
 }
