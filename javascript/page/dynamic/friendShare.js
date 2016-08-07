@@ -1,4 +1,5 @@
 var url = "http://139.129.25.229:31010/";
+var headPhotoUrl = "http://139.129.25.229/";
 var myToken;
 var myUserId;
 var pageLength = 20;
@@ -186,7 +187,7 @@ function vote() {
 			var errCode = data["errCode"];
 			if(errCode == 0) {
 				$("#goodButton" + momentId).html(" 已赞");
-				$("#goodButton" + momentId).attr("class", "mui-icon iconfont icon-appreciatelight hasGoodButton");
+				$("#goodButton" + momentId).attr("class", "mui-icon iconfont icon-dianzan hasGoodButton");
 				$("#goodButton" + momentId).attr("id", "hasGoodButton" + momentId);
 				$("#commentTable" + momentId).attr("hidden", null);
 				if($("#goodPeopleContainer" + momentId).html() != "") {
@@ -381,7 +382,7 @@ function appendNewShare(data, type) {
 	html = html + "<li class='mui-media dynamicWidth'>";
 
 	//头像data.userPic
-	html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='../../images/myPhoto.png'>";
+	html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='"+headPhotoUrl+data.userPic+"'>";
 	html = html + "<div class='mui-media-body'>";
 
 	//昵称
@@ -438,7 +439,7 @@ function appendNewShare(data, type) {
 		var hasVoteClass = "hasGoodButton";
 		var hasVoteId = "hasGoodButton";
 	}
-	html = html + "<span class='mui-icon iconfont icon-appreciatelight " + hasVoteClass + "' id='" + hasVoteId + data.id + "'> " + hasVoteText + "</span>";
+	html = html + "<span class='mui-icon iconfont icon-dianzan " + hasVoteClass + "' id='" + hasVoteId + data.id + "'> " + hasVoteText + "</span>";
 	html = html + "</td>";
 	html = html + "<td width='20%'>";
 	//评论按钮id	
@@ -457,7 +458,7 @@ function appendNewShare(data, type) {
 	html = html + "<tr>";
 	html = html + "<td class='commentList'>";
 	html = html + "<p class='good'>";
-	html = html + "<span class='mui-icon iconfont icon-appreciatelight goodicon'></span>";
+	html = html + "<span class='mui-icon iconfont icon-dianzan goodicon'></span>";
 	//点赞容器id
 	html = html + "<span class='goodPeople' id='goodPeopleContainer" + data.id + "'>";
 	//点赞的人
