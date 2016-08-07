@@ -15,9 +15,9 @@ $(document).ready(function() {
 		myToken = localStorage.getItem("myToken");
 		myUserId = parseInt(localStorage.getItem("myUserId"));
 	}
-	window.addEventListener('refresh', function(e) {  
-        location.reload();  
-    });
+	window.addEventListener('refresh', function(e) {
+		location.reload();
+	});
 	mui.init({
 		pullRefresh: {
 			container: '#pullrefresh',
@@ -67,7 +67,6 @@ $(document).ready(function() {
 		}
 
 	});
-
 
 });
 
@@ -278,7 +277,7 @@ function showMoreFriendDynamicOnBottom() {
 
 function showMoreFriendDynamicOnTop() {
 	var tag = 1;
-alert(tag)
+	alert(tag)
 	while(tag == 1) {
 		$.ajax({
 			type: "GET",
@@ -382,7 +381,11 @@ function appendNewShare(data, type) {
 	html = html + "<li class='mui-media dynamicWidth'>";
 
 	//头像data.userPic
-	html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='"+headPhotoUrl+data.userPic+"'>";
+	if(data.userPic != "") {
+		html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='" + headPhotoUrl + data.userPic + "'>";
+	} else {
+		html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='../../images/noHeadPhoto.jpg'>";
+	}
 	html = html + "<div class='mui-media-body'>";
 
 	//昵称

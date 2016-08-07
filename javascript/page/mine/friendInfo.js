@@ -1,4 +1,5 @@
 var url = "http://139.129.25.229:31010/";
+var headPhotoUrl = "http://139.129.25.229/";
 var myToken;
 var myUserId;
 var friendUserId;
@@ -85,6 +86,10 @@ function showFriendInfo(){
 		remarkNameByMe = friendNickname;
 	}
 	//显示信息
+	if(friendPic!=""){
+		$("#headPhoto").attr("src",headPhotoUrl+friendPic);
+	}
+	
 	$("#friendInfo").html(remarkNameByMe + "  " + friendSex + "<p class='mui-ellipsis'>用户名:" + friendUsername + "</p>							<p class='mui-ellipsis'>    昵称:" + friendNickname + "</p>");
 
 }
