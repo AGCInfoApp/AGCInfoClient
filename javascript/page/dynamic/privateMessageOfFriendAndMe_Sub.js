@@ -60,7 +60,7 @@ function showFirstPrivateMessage() {
 
 				if (data["data"].length > 0) {
 					for (var i = data["data"].length - 1; i >= 0; i--) {
-						appendNewShare(data["data"][i], "top");
+						appendNewPrivateMessage(data["data"][i], "top");
 					}
 					oldestShare = data["data"][data["data"].length - 1].id;
 					pageTop++;
@@ -85,7 +85,7 @@ function showMorePrivateMessageOnTop() {
 					for (var i = data["data"].length - 1; i >= 0; i--) {
 						if (data["data"][i].id < oldestShare) {
 
-							appendNewShare(data["data"][i], "top");
+							appendNewPrivateMessage(data["data"][i], "top");
 						}
 					}
 					oldestShare = data["data"][data["data"].length - 1].id;
@@ -98,7 +98,7 @@ function showMorePrivateMessageOnTop() {
 	});
 }
 
-function appendNewShare(data, type) {
+function appendNewPrivateMessage(data, type) {
 
 	var html = "";
 	html = html + "<li class='mui-media dynamicWidth'>";

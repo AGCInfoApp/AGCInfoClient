@@ -147,7 +147,8 @@
 			"html/mine/myMessage.html",
 			"html/mine/fansList.html",
 			"html/dynamic/friendShare_Main.html",
-			"html/dynamic/myMessage.html"
+			"html/dynamic/myMessage.html",
+			"html/dynamic/selfCollect.html"
 		]
 	},
 	"html/mine/friendInfo.html": {
@@ -472,6 +473,21 @@
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js"
+		]
+	},
+	"html/dynamic/selfCollect.html": {
+		"resources": [
+			"images/noHeadPhoto.jpg",
+			"images/myPhoto.png",
+			"javascript/page/dynamic/selfCollect.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"stylesheets/fonts/iconfont.woff"
 		]
 	}
 }
