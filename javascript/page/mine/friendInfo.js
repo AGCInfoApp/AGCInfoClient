@@ -36,13 +36,29 @@ $(document).ready(function() {
 		});
 	});
 	
+	document.getElementById("sandPrivateMessage").addEventListener("tap", function() {
+		mui.openWindow({
+			id: "privateMessageOfFriendAndMe_Main",
+			url: "../dynamic/privateMessageOfFriendAndMe_Main.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+	});
+	
 });
 
 function getFriendInfo(){
 	//得到备注
 	//$.ajax({
 	//		type: "GET",
-	//		url: url + "prometheus/user/getOtherRemarkName?userId=" + friendUserId+"&firendId="+friendUserId,
+	//		url: url + "prometheus/user/getOtherRemarkName?userId=" + myUserId+"&firendId="+friendUserId,
 	//		dataType: 'JSON',
 	//	async: false,
 	//		beforeSend: function(XMLHttpRequest) {},

@@ -160,9 +160,12 @@
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
-			"javascript/js/mui.min.js"
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
 		],
-		"refer": []
+		"refer": [
+			"html/dynamic/privateMessageOfFriendAndMe_Main.html"
+		]
 	},
 	"html/mine/myInfoChangeBirthday.html": {
 		"resources": [
@@ -383,7 +386,8 @@
 			"images/myPhoto.png",
 			"stylesheets/fonts/iconfont.ttf",
 			"stylesheets/page/dynamic/friendShare.css",
-			"stylesheets/fonts/iconfont.woff"
+			"stylesheets/fonts/iconfont.woff",
+			"images/noHeadPhoto.jpg"
 		]
 	},
 	"html/mine/myInfoChangePicture.html": {
@@ -432,6 +436,37 @@
 		"resources": [
 			"javascript/page/dynamic/myMessage.js",
 			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		]
+	},
+	"html/dynamic/privateMessageOfFriendAndMe_Main.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"html/dynamic/privateMessageOfFriendAndMe_Sub.html",
+			"javascript/page/dynamic/privateMessageOfFriendAndMe_Main.js"
+		],
+		"refer": [
+			"html/dynamic/privateMessageOfFriendAndMe_Sub.html"
+		]
+	},
+	"html/dynamic/privateMessageOfFriendAndMe_Sub.html": {
+		"resources": [
+			"javascript/page/dynamic/privateMessageOfFriendAndMe_Sub.js",
+			"images/myPhoto.png",
+			"stylesheets/fonts/iconfont.woff",
+			"stylesheets/page/dynamic/friendShare.css",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
 			"stylesheets/css/mui.min.css",
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",

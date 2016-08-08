@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>个人主页</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<script src="../../javascript/js/mui.min.js"></script>
+		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+		<script src="../../javascript/js/idangerous.swiper.min.js"></script>
+		<script src="../../javascript/js/util.js"></script>
+		<script src="../../javascript/page/dynamic/privateMessageOfFriendAndMe_Sub.js"></script>
+
+		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
+		<style>
+			.caseBorder {
+				color: #D3D3D3;
+				width: 95%;
+			}
+			
+			.textRight {
+				text-align: right;
+			}
+			
+			.freindNameStyle {
+				font-size: 18px;
+				color: #EC971F;
+				margin-top: 0.4em;
+				margin-left: 0.5em;
+			}
+			
+			.freindMessageStyle {
+				font-size: 16px;
+				word-wrap: break-word;
+				word-break: break-all;
+				color: #000000;
+				margin-top: -0.3em;
+				margin-left: 0.6em;
+			}
+			
+			.myNameStyle {
+				font-size: 18px;
+				color: #EC971F;
+				margin-top: 0.4em;
+				margin-right: 0.5em;
+			}
+			
+			.myMessageStyle {
+				font-size: 16px;
+				word-wrap: break-word;
+				word-break: break-all;
+				color: #000000;
+				margin-top: -0.3em;
+				right: 0.6em;
+			}
+			.privateMessageInputContainer {
+				position: absolute;
+				height: 2em;
+				width: 100%;
+				bottom: 0em;
+				margin: 0em;
+				text-align: center;
+			}
+			
+			.privateMessageInput {
+				margin-left: 0.5em;
+				background-color: #ffffdf;
+			}
+			
+			.sendPrivateMessage {
+				margin-left: 0.5em;
+				margin-top: -1em;
+				height: 2.8em;
+				color: white;
+				background-color: #007AFF;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron" id="privateMessageList">
+					<li class="mui-media">
+						<div class="mui-media-body">
+							<div>
+								<p class="freindNameStyle">123</p>
+							</div>
+							<div>
+								<p class="freindMessageStyle">这个东西老不匹配咋办？</p>
+							</div>
+						</div>
+					</li>
+					<hr class="caseBorder">
+					<li class="mui-media">
+						<div class="mui-media-body textRight">
+							<div>
+								<p class="myNameStyle" id="123">jqm</p>
+							</div>
+							<div>
+								<p class="myMessageStyle">这个东西老不匹配咋办？</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<table class="mui-input-row mui-search privateMessageInputContainer">
+			<tr>
+				<td style="width: 75%;text-align: center;">
+					<input class="privateMessageInput" id="privateMessageInput" type="text" class="mui-input-clear" placeholder="">
+				</td>
+				<td style="width: 25%;text-align: center;">
+					<button class="sendPrivateMessage" id="sendPrivateMessage">
+							发送
+					</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

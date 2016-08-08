@@ -144,7 +144,9 @@ function getMyInfo() {
 				$("#myEmail").html(email);
 				$("#myMobile").html(mobile);
 				$("#myLevel").html(level);
-				$("#myHeadPicture").attr("src",headPhotoUrl+pic);
+				if(pic!=""){
+					$("#myHeadPicture").attr("src",headPhotoUrl+pic);
+				}
 			} else {
 				mui.toast(data["msg"]);
 			}
