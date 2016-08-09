@@ -1,6 +1,7 @@
 var url = "http://139.129.25.229:31010/";
 var myToken;
 var myUserId;
+var newSex = "女";
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 
 $(document).ready(function() {
@@ -22,9 +23,10 @@ $(document).ready(function() {
 	getMyInfo();
 	
 	
-	var newSex = "";
+
 	document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected', function(e) {
 		newSex = e.detail.el.innerText;
+		alert(newSex)
 	});
 	
 	document.getElementById("save").addEventListener('tap', function() {

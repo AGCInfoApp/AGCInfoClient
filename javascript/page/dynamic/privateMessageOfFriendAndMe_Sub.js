@@ -37,6 +37,9 @@ $(document).ready(function() {
 	getFriendInfo();
 	showFirstPrivateMessage();
 
+
+
+
 });
 
 /**
@@ -52,12 +55,12 @@ function pulldownRefresh() {
 function showFirstPrivateMessage() {
 	$.ajax({
 		type: "GET",
-		//		url: url + "prometheus/moment/listMoment?userId=" + myUserId + "&friendUserId=" + friendUserId + "&page=" + pageBottom,
+		url: url + "prometheus/news/message/chatMessage?userId=" + myUserId + "&chatUserId=" + friendUserId + "&token=" + myToken + "&page=" + pageTop,
 		dataType: 'JSON',
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
 			if (errCode == 0) {
-
+				alert(JSON.stringify(data))
 				if (data["data"].length > 0) {
 					for (var i = data["data"].length - 1; i >= 0; i--) {
 						appendNewPrivateMessage(data["data"][i], "top");
@@ -89,7 +92,7 @@ function showMorePrivateMessageOnTop() {
 						}
 					}
 					oldestShare = data["data"][data["data"].length - 1].id;
-					pageBottom++;
+					pageTop++;
 				} else {
 					mui.toast("没有更多记录了...");
 				}
@@ -101,133 +104,25 @@ function showMorePrivateMessageOnTop() {
 function appendNewPrivateMessage(data, type) {
 
 	var html = "";
-	html = html + "<li class='mui-media dynamicWidth'>";
-
-	//头像data.userPic
-	if (data.userPic != "") {
-		html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='" + headPhotoUrl + data.userPic + "'>";
-	} else {
-		html = html + "<img class='mui-media-object mui-pull-left headPhoto'  src='../../images/noHeadPhoto.jpg'>";
-	}
+	html = html + "<li class='mui-media'>";
 	html = html + "<div class='mui-media-body'>";
-
-	//昵称
 	html = html + "<div>";
-	//用户昵称data.username
-	html = html + "<p class='nameStyle'>" + data.userName + "</p>";
-	html = html + "</div>";
-
-	//信息
-	html = html + "<div>";
-	html = html + "<p class='messageStyle'>" + data.message + "</p>";
-	html = html + "</div>";
-
-	//照片
-	html = html + "<div class='photoContainer'>";
-	//照片，未设置<img class="photo" src="../../images/myPhoto.png">
-	html = html + "";
-	html = html + "</div>";
-
-	//新闻
-	if (data.newsId != 0) {
-		//新闻id
-		html = html + "<a id='" + data.newsId + "'>";
-		html = html + "<table class='newsTable'>";
-		html = html + "<tr>";
-		html = html + "<td>";
-		//新闻标题
-		html = html + "<p class='newsTitle'>" + data.newsTitle + "</p>";
-		//新闻简介
-		html = html + "<p class='newsDesc'>" + data.newsDesc + "</p>";
-		html = html + "<hr>";
-		html = html + "<div class='newsPicContainer'>";
-		//新闻图片
-		html = html + "<img class='newsPhoto' src=" + data.newsPic + "/>";
+	if (data.sendId == myUserId) {
+		html = html + "<p class='myNameStyle'>" + nickname + "</p>";
 		html = html + "</div>";
-		html = html + "</td>";
-		html = html + "</tr>";
-		html = html + "</table>";
-		html = html + "</a>";
-	}
-
-	//点赞评论按钮
-	html = html + "<table class='commentButtonTable'>";
-	html = html + "<tr>";
-	html = html + "<td width='60%'></td>";
-	html = html + "<td width='20%'>";
-	//点赞按钮id
-	if (data.hasVote == 0) {
-		var hasVoteText = "点赞";
-		var hasVoteClass = "goodButton";
-		var hasVoteId = "goodButton"
+		html = html + "<div>";
+		html = html + "<p class='myMessageStyle'>" + data.message + "</p>";
 	} else {
-		var hasVoteText = "已赞";
-		var hasVoteClass = "hasGoodButton";
-		var hasVoteId = "hasGoodButton";
-	}
-	html = html + "<span class='mui-icon iconfont icon-dianzan " + hasVoteClass + "' id='" + hasVoteId + data.id + "'> " + hasVoteText + "</span>";
-	html = html + "</td>";
-	html = html + "<td width='20%'>";
-	//评论按钮id	
-	html = html + "<div class='mui-icon mui-icon-chat commentButton' id='commentButton" + data.id + "'> 评论</div>";
-	html = html + "</td>";
-	html = html + "</tr>";
-	html = html + "</table>";
-
-	//点赞评论面板
-	if (data.vote.length == 0 && data.comment.length == 0) {
-		var commentTable = "hidden='hidden'";
-	} else {
-		var commentTable = "";
-	}
-	html = html + "<table class='commentTable' id='commentTable" + data.id + "' " + commentTable + ">";
-	html = html + "<tr>";
-	html = html + "<td class='commentList'>";
-	html = html + "<p class='good'>";
-	html = html + "<span class='mui-icon iconfont icon-dianzan goodicon'></span>";
-	//点赞容器id
-	html = html + "<span class='goodPeople' id='goodPeopleContainer" + data.id + "'>";
-	//点赞的人
-	for (var j = 0; j < data.vote.length; j++) {
-		html = html + data.vote[j].userName;
-		if (j < data.vote.length - 1) {
-			html = html + ",";
-		}
-	}
-	html = html + "</span>";
-	html = html + "</p>";
-	html = html + "<hr>";
-	//评论容器id
-	//评论
-	for (var j = 0; j < data.comment.length; j++) {
-		html = html + "<p class='oneComment' id='" + data.id + "," + data.comment[j].userId + "," + data.comment[j].userName + "'>";
-		if (data.comment[j] != null) {
-			if (data.comment[j].reId == 0) {
-				//回复的人
-				html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
-				html = html + "<span class='replyWord'>:</span>";
-				//回复内容
-				html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
-			} else {
-				//回复的人
-				html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
-				html = html + "<span class='replyWord'>回复</span>";
-				//被回复的人
-				html = html + "<span class='replyPeople'>" + data.comment[j].reName + "</span>";
-				html = html + "<span class='replyWord'>:</span>";
-				//回复内容
-				html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
-			}
-			html = html + "</p>";
-		}
+		html = html + "<p class='freindNameStyle'>" + friendNickname + "</p>";
+		html = html + "</div>";
+		html = html + "<div>";
+		html = html + "<p class='freindMessageStyle'>" + data.message + "</p>";
 	}
 
-	html = html + "</td>";
-	html = html + "</tr>";
-	html = html + "</table>";
 	html = html + "</div>";
-	html = html + "<hr>";
+	html = html + "</div>";
 	html = html + "</li>";
+	html = html + "<hr class='caseBorder'>";
 	if (type == "top") {
 		$("#privateMessageList").prepend(html);
 	} else {
