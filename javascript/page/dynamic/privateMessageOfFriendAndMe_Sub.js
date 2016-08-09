@@ -18,7 +18,7 @@ var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentN
 
 $(document).ready(function() {
 
-	if (window.localStorage) {
+	if(window.localStorage) {
 		myToken = localStorage.getItem("myToken");
 		myUserId = parseInt(localStorage.getItem("myUserId"));
 		friendUserId = parseInt(localStorage.getItem("friendId"));
@@ -41,93 +41,51 @@ $(document).ready(function() {
 	showFirstPrivateMessage();
 
 	document.getElementById("sendPrivateMessage").addEventListener("tap", function() {
-		$.ajax({
-			type: "POST",
-			url: url + "prometheus/news/message/create",
-			contentType: "application/json", //必须有
-			dataType: 'JSON',
-			async: false,
-			data: JSON.stringify({
-				"sendId": myUserId,
-				"receiveId": friendUserId,
-				"token": myToken,
-				"message": $("#privateMessageInput").val()
-			}),
-			beforeSend: function(XMLHttpRequest) {},
-			success: function(data, textStatus) {
-				var errCode = data["errCode"];
-				if (errCode == 0) {
-					mui.toast("发送私信成功！");
-				} else {
-					mui.toast("发送私信失败，稍后重试…");
-				}
-			},
-			complete: function(XMLHttpRequest, textStatus) {
-
-			},
-			error: function() { //请求出错处理
-			}
-		});
-		$("#privateMessageInput").val("");
-		var tag = 1;
-		while (tag == 1) {
+		if($("#privateMessageInput").val().length == 0) {
+			mui.toast("输点东西才能发...")
+		} else {
 			$.ajax({
-				type: "GET",
-				url: url + "prometheus/news/message/chatMessage?userId=" + myUserId + "&chatUserId=" + friendUserId + "&token=" + myToken + "&page=" + pageTop,
-				async: false,
+				type: "POST",
+				url: url + "prometheus/news/message/create",
+				contentType: "application/json", //必须有
 				dataType: 'JSON',
+				async: false,
+				data: JSON.stringify({
+					"sendId": myUserId,
+					"receiveId": friendUserId,
+					"token": myToken,
+					"message": $("#privateMessageInput").val()
+				}),
+				beforeSend: function(XMLHttpRequest) {},
 				success: function(data, textStatus) {
 					var errCode = data["errCode"];
-					if (errCode == 0) {
+					if(errCode == 0) {
+						mui.toast("发送私信成功！");
+					} else {
+						mui.toast("发送私信失败，稍后重试…");
+					}
+				},
+				complete: function(XMLHttpRequest, textStatus) {
 
-						//长度为0
-						if (data["data"].length == 0) {
-							//pageBottom=1
-							if (pageBottom == 1) {
-								mui.toast("没有新动态...");
-								tag = -1;
-							}
-							//pageBottom>1
-							else {
-								pageBottom--;
-								tag = 0;
-							}
-						}
-						//长度居中
-						else if (0 < data["data"].length < pageLength) {
-							//pageBottom=1
-							if (pageBottom == 1) {
-								if (data["data"][0].id == newestPrivateMessage) {
-									mui.toast("没有新动态...");
-									tag = -1;
-								} else {
-									tag = 0;
-								}
-							}
-							//pageBottom>1
-							else {
-								if (data["data"][0].id == newestPrivateMessage) {
-									pageBottom--;
-									tag = 0;
-								} else {
-									tag = 0;
-								}
-							}
-						}
-						//长度满
-						else if (data["data"].length == pageLength) {
-							//情况一
-							if (data["data"][pageLength - 1] > newestPrivateMessage) {
-								pageBottom++;
-							}
-							//情况二
-							else if (data["data"][0] > newestPrivateMessage >= data["data"][pageLength - 1]) {
-								tag = 0;
-							}
-							//情况三
-							else if (data["data"][0] == newestPrivateMessage) {
+				},
+				error: function() { //请求出错处理
+				}
+			});
+			$("#privateMessageInput").val("");
+			var tag = 1;
+			while(tag == 1) {
+				$.ajax({
+					type: "GET",
+					url: url + "prometheus/news/message/chatMessage?userId=" + myUserId + "&chatUserId=" + friendUserId + "&token=" + myToken + "&page=" + pageBottom,
+					async: false,
+					dataType: 'JSON',
+					success: function(data, textStatus) {
+						var errCode = data["errCode"];
+						if(errCode == 0) {
+							//长度为0
+							if(data["data"].length == 0) {
 								//pageBottom=1
-								if (pageBottom == 1) {
+								if(pageBottom == 1) {
 									mui.toast("没有新动态...");
 									tag = -1;
 								}
@@ -137,36 +95,79 @@ $(document).ready(function() {
 									tag = 0;
 								}
 							}
-						}
-					}
-				},
-			});
-		}
-		alert(tag);
-		if (tag == 0) {
-			while (pageBottom >= 1) {
-				$.ajax({
-					type: "GET",
-					url: url + "prometheus/news/message/chatMessage?userId=" + myUserId + "&chatUserId=" + friendUserId + "&token=" + myToken + "&page=" + pageTop,
-					async: false,
-					dataType: 'JSON',
-					success: function(data, textStatus) {
-						var errCode = data["errCode"];
-						if (errCode == 0) {
-							for (var i = data["data"].length - 1; i >= 0; i--) {
-								if (data["data"][i].id > newestPrivateMessage) {
-									appendNewPrivateMessage(data["data"][i], "bottom");
+							//长度居中
+							else if(0 < data["data"].length < pageLength) {
+								//pageBottom=1
+								if(pageBottom == 1) {
+									if(data["data"][0].id == newestPrivateMessage) {
+										mui.toast("没有新动态...");
+										tag = -1;
+									} else {
+										tag = 0;
+									}
+								}
+								//pageBottom>1
+								else {
+									if(data["data"][0].id == newestPrivateMessage) {
+										pageBottom--;
+										tag = 0;
+									} else {
+										tag = 0;
+									}
+								}
+							}
+							//长度满
+							else if(data["data"].length == pageLength) {
+								//情况一
+								if(data["data"][pageLength - 1] > newestPrivateMessage) {
+									pageBottom++;
+								}
+								//情况二
+								else if(data["data"][0] > newestPrivateMessage >= data["data"][pageLength - 1]) {
+									tag = 0;
+								}
+								//情况三
+								else if(data["data"][0] == newestPrivateMessage) {
+									//pageBottom=1
+									if(pageBottom == 1) {
+										mui.toast("没有新动态...");
+										tag = -1;
+									}
+									//pageBottom>1
+									else {
+										pageBottom--;
+										tag = 0;
+									}
 								}
 							}
 						}
 					},
 				});
-				pageBottom--;
 			}
+			if(tag == 0) {
+				while(pageBottom >= 1) {
+					$.ajax({
+						type: "GET",
+						url: url + "prometheus/news/message/chatMessage?userId=" + myUserId + "&chatUserId=" + friendUserId + "&token=" + myToken + "&page=" + pageBottom,
+						async: false,
+						dataType: 'JSON',
+						success: function(data, textStatus) {
+							var errCode = data["errCode"];
+							if(errCode == 0) {
+								for(var i = data["data"].length - 1; i >= 0; i--) {
+									if(data["data"][i].id > newestPrivateMessage) {
+										appendNewPrivateMessage(data["data"][i], "bottom");
+									}
+								}
+							}
+						},
+					});
+					pageBottom--;
+				}
+			}
+			pageBottom = 1;
 		}
-		pageBottom = 1;
 	});
-
 });
 
 /**
@@ -188,13 +189,13 @@ function showFirstPrivateMessage() {
 		async: false,
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
-				alert(JSON.stringify(data))
-				if (data["data"].length > 0) {
-					for (var i = 0; i < data["data"].length; i++) {
+			if(errCode == 0) {
+				if(data["data"].length > 0) {
+					for(var i = 0; i < data["data"].length; i++) {
 						appendNewPrivateMessage(data["data"][i], "top");
 					}
 					oldestPrivateMessage = data["data"][data["data"].length - 1].id;
+					newestPrivateMessage = data["data"][0].id;
 					pageTop++;
 				} else {
 					mui.toast("你跟他（她）没有私信记录...");
@@ -212,10 +213,10 @@ function showMorePrivateMessageOnTop() {
 		dataType: 'JSON',
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
-				if (data["data"].length > 0) {
-					for (var i = 0; i < data["data"].length; i++) {
-						if (data["data"][i].id < oldestPrivateMessage) {
+			if(errCode == 0) {
+				if(data["data"].length > 0) {
+					for(var i = 0; i < data["data"].length; i++) {
+						if(data["data"][i].id < oldestPrivateMessage) {
 
 							appendNewPrivateMessage(data["data"][i], "top");
 						}
@@ -234,16 +235,19 @@ function appendNewPrivateMessage(data, type) {
 
 	var html = "";
 	html = html + "<li class='mui-media'>";
-	html = html + "<div class='mui-media-body'>";
-	html = html + "<div>";
-	if (data.sendId == myUserId) {
-		html = html + "<span class='TimeStyle'>" + formatDate(data.createTime) + "<span>";
-		html = html + "&nbsp;&nbsp;&nbsp;";
+
+	if(data.sendId == myUserId) {
+		html = html + "<div class='mui-media-body textRight'>";
+		html = html + "<div>";
 		html = html + "<span class='myNameStyle'>" + nickname + "<span>";
+		html = html + "&nbsp;&nbsp;&nbsp;";
+		html = html + "<span class='TimeStyle'>" + formatDate(data.createTime) + "<span>";
 		html = html + "</div>";
 		html = html + "<div>";
 		html = html + "<p class='myMessageStyle'>" + data.message + "</p>";
 	} else {
+		html = html + "<div class='mui-media-body'>";
+		html = html + "<div>";
 		html = html + "<span class='freindNameStyle'>123<span>";
 		html = html + "&nbsp;&nbsp;&nbsp;";
 		html = html + "<span class='TimeStyle'>" + formatDate(data.createTime) + "<span>";
@@ -256,7 +260,7 @@ function appendNewPrivateMessage(data, type) {
 	html = html + "</div>";
 	html = html + "</li>";
 	html = html + "<hr class='caseBorder'>";
-	if (type == "top") {
+	if(type == "top") {
 		$("#privateMessageList").prepend(html);
 	} else {
 		$("#privateMessageList").append(html);
@@ -270,10 +274,11 @@ function getMyInfo() {
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
 		dataType: 'JSON',
+		async: false,
 		beforeSend: function(XMLHttpRequest) {},
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
+			if(errCode == 0) {
 				id = data["data"].id;
 				nickname = data["data"].nickname;
 				mobile = data["data"].mobile;
@@ -323,7 +328,7 @@ function getFriendInfo() {
 		async: false,
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if (errCode == 0) {
+			if(errCode == 0) {
 				friendNickname = data["data"].nickname;
 				friendUsername = data["data"].username;
 				friendPic = data["data"].pic;
@@ -332,8 +337,8 @@ function getFriendInfo() {
 	});
 
 	//显示备注或昵称
-	if (remarkNameByMe == "" || remarkNameByMe == null) {
-		if (friendNickname == "" || friendNickname == null) {
+	if(remarkNameByMe == "" || remarkNameByMe == null) {
+		if(friendNickname == "" || friendNickname == null) {
 			$("#privateMessageInput").attr("placeholder", "你想说什么...");
 		} else {
 			$("#privateMessageInput").attr("placeholder", "你想对" + friendNickname + "说什么...");
