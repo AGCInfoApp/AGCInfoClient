@@ -277,7 +277,6 @@ function showMoreFriendDynamicOnBottom() {
 
 function showMoreFriendDynamicOnTop() {
 	var tag = 1;
-	alert(tag)
 	while(tag == 1) {
 		$.ajax({
 			type: "GET",

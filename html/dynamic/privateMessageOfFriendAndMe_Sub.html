@@ -30,7 +30,7 @@
 				font-size: 18px;
 				color: #EC971F;
 				margin-top: 0.4em;
-				margin-left: 0.5em;
+				margin-left: 0.7em;
 			}
 			
 			.freindMessageStyle {
@@ -38,7 +38,7 @@
 				word-wrap: break-word;
 				word-break: break-all;
 				color: #000000;
-				margin-top: -0.3em;
+				margin-top: 0.5em;
 				margin-left: 0.6em;
 			}
 			
@@ -46,7 +46,7 @@
 				font-size: 18px;
 				color: #EC971F;
 				margin-top: 0.4em;
-				margin-right: 0.5em;
+				margin-right: 0.7em;
 			}
 			
 			.myMessageStyle {
@@ -54,9 +54,15 @@
 				word-wrap: break-word;
 				word-break: break-all;
 				color: #000000;
-				margin-top: -0.3em;
+				margin-top: 0.5em;
 				right: 0.6em;
 			}
+			
+			.TimeStyle {
+				color: #999999;
+				font-size: 16px;
+			}
+			
 			.privateMessageInputContainer {
 				position: absolute;
 				height: 2em;
@@ -90,7 +96,9 @@
 					<li class="mui-media">
 						<div class="mui-media-body">
 							<div>
-								<p class="freindNameStyle">123</p>
+								<span class="freindNameStyle">123<span>
+									&nbsp;&nbsp;&nbsp;
+								<span class="TimeStyle">2012-2-2 8:09<span>
 							</div>
 							<div>
 								<p class="freindMessageStyle">这个东西老不匹配咋办？</p>
@@ -101,7 +109,9 @@
 					<li class="mui-media">
 						<div class="mui-media-body textRight">
 							<div>
-								<p class="myNameStyle" id="123">jqm</p>
+								<span class="TimeStyle">2012-2-2 8:09<span>
+									&nbsp;&nbsp;&nbsp;
+								<span class="myNameStyle">jqm<span>
 							</div>
 							<div>
 								<p class="myMessageStyle">这个东西老不匹配咋办？</p>
@@ -110,9 +120,13 @@
 					</li>
 							<hr class="caseBorder">
 				</ul>
+				<div style="height: 3.8em;" id="bottomDiv">
+					
+				</div>
 			</div>
 		</div>
-		<table class="mui-input-row mui-search privateMessageInputContainer">
+		<header class="mui-bar mui-bar-footer" style="height:4.5em;">
+			<table class="mui-input-row mui-search privateMessageInputContainer">
 			<tr>
 				<td style="width: 75%;text-align: center;">
 					<input class="privateMessageInput" id="privateMessageInput" type="text" class="mui-input-clear" placeholder="">
@@ -124,5 +138,7 @@
 				</td>
 			</tr>
 		</table>
+		</header>
+		
 	</body>
 </html>

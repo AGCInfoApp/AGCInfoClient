@@ -24,7 +24,7 @@ $(document).ready(function() {
 		}
 	});
 	getMyInfo();
-	showFirstFriendDynamic();
+	showFirstSelfCollect();
 
 $(document).on('click', '.newsId', function() {
 		newsId = parseInt($(this).attr("id").replace("newsId", ""));
@@ -51,12 +51,12 @@ $(document).on('click', '.newsId', function() {
  */
 function pullupRefresh() {
 	setTimeout(function() {
-		showMoreFriendDynamicOnBottom();
+		showMoreSelfCollectOnBottom();
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh();
 	}, 1000);
 }
 
-function showFirstFriendDynamic() {
+function showFirstSelfCollect() {
 	$.ajax({
 		type: "GET",
 		url: url + "prometheus/news/collect/getByUser?userId="+myUserId+"&token="+myToken+"&page="+page,
@@ -80,7 +80,7 @@ function showFirstFriendDynamic() {
 	});
 }
 
-function showMoreFriendDynamicOnBottom() {
+function showMoreSelfCollectOnBottom() {
 	$.ajax({
 		type: "GET",
 		url: url + "prometheus/news/collect/getByUser?userId="+myUserId+"&token="+myToken+"&page="+page,

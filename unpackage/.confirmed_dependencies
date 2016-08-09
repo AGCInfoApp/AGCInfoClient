@@ -148,7 +148,8 @@
 			"html/mine/fansList.html",
 			"html/dynamic/friendShare_Main.html",
 			"html/dynamic/myMessage.html",
-			"html/dynamic/selfCollect.html"
+			"html/dynamic/selfCollect.html",
+			"html/news/newsDetail.html"
 		]
 	},
 	"html/mine/friendInfo.html": {
@@ -441,7 +442,11 @@
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
-			"javascript/js/mui.min.js"
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/dynamic/privateMessageOfFriendAndMe_Main.html"
 		]
 	},
 	"html/dynamic/privateMessageOfFriendAndMe_Main.html": {
@@ -472,7 +477,8 @@
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
-			"javascript/js/mui.min.js"
+			"javascript/js/mui.min.js",
+			"javascript/js/mui.js"
 		]
 	},
 	"html/dynamic/selfCollect.html": {
@@ -488,6 +494,18 @@
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js",
 			"stylesheets/fonts/iconfont.woff"
+		]
+	},
+	"html/news/newsDetail.html": {
+		"resources": [
+			"javascript/page/news/newsDetail.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"stylesheets/fonts/mui.ttf"
 		]
 	}
 }
