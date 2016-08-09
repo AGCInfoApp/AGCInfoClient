@@ -6,7 +6,7 @@ var myUserId;
     $('#searchBtn').on('click',function(event){
             mui.openWindow({
                 id: "search",
-                url: "search.html",
+                url: "../../html/news/search.html",
                 styles: {
                     popGesture: 'close'
                 },

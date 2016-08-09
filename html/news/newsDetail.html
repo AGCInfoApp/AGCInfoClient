@@ -8,43 +8,75 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <script src="../../javascript/js/mui.min.js"></script>
-    <script src="../../javascript/js/jquery-2.2.3.min.js"></script>
-    <script src="../../javascript/js/idangerous.swiper.min.js"></script>
-    <script src="../../javascript/js/util.js"></script>
-    <script src="../../javascript/page/news/newsDetail.js"></script>
+
 
     <link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
     <link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css"/>
     <!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 
     <style>
+    		#topPopover {
+				position: fixed;
+				top: 16px;
+				right: 0px;
+			}
+			#topPopover .mui-popover-arrow {
+				left: auto;
+				right: 0px;
+			}
+			.mui-popover {
+				height: 7.5em;
+				width:45%;
+			}
     </style>
 </head>
 
 <body>
 <header class="mui-bar mui-bar-nav">
-    <a class="mui-icon  mui-pull-left mui-icon-back" id="backBtn"></a>
+    <a class="mui-icon mui-action-back  mui-pull-left mui-icon-back" id="backBtn"></a>
     <h1 class="mui-title"></h1>
-    <a class="mui-icon  mui-pull-right mui-icon-more"></a>
+    <a class="mui-icon  mui-pull-right mui-icon-more" id="moreBtn" href="#topPopover"></a>
 </header>
 
 
 <nav class="mui-bar mui-bar-tab" style="height:30px; min-height:30px;background-color: white">
     <div style="width: 100%; height:100%;">
         <div style="float: left; width:15%">
-            <img src="../images/comment.png" style="margin-top:10px; margin-left:10%;">
+            <img src="../../images/comment.png" style="margin-top:7px; margin-left:20%;">
         </div>
         <div style="float: left; width:65%">
             <input type="text" id="commentContent" style="width: 100%; height: 25px; border:none; margin:0; margin-bottom: 5px;margin-top:13px;border-bottom: inset"
                     placeholder="在此写下评论"/>
         </div>
-        <div style="float: left; width:15%">
-            <input id="createComment" type="submit" value="发送" style="border: none;background-color: white;color: #333333;margin-top:10px;" />
+        <div style="float: left; width:15%;">
+            <input id="createComment" type="submit" value="发送" style="border: none;background-color: white;
+            	color: #333333;margin-top:0.2em; font-size:1.2em;;" />
         </div>
     </div>
 </nav>
 
+<!--右上角弹出菜单-->
+		<div id="topPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" >
+						<li class="mui-table-view-cell">
+							<a href="#" id="share" class="mui-icon mui-icon-paperplane" style="font-size: 2em;">
+								<font style="font-size:0.7em">分享</font>
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="#" id="collect" class="mui-icon mui-icon-star" style="font-size: 2em;">
+								<font style="font-size:0.7em">收藏</font>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		
 
 <div id="newsDetail" class="mui-content">
 <div class="mui-scroll news-detail">
@@ -149,5 +181,11 @@
 </div>
 </div>
 
+    <script src="../../javascript/js/mui.min.js"></script>
+    <script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+    <script src="../../javascript/js/idangerous.swiper.min.js"></script>
+    <script src="../../javascript/js/util.js"></script>
+    <script src="../../javascript/page/news/newsDetail.js"></script>
+    
 </body>
 </html>

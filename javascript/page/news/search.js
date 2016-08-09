@@ -1,10 +1,14 @@
+var url = "http://139.129.25.229:31010";
+var myToken;
+var myUserId;
+
 function updateSearchResultList(data){
         $("#searchBoard").html("");
         $("#boardTip").html("搜索结果");
         for(var i=0;i<data.length;i++){
             var html="";
             html+='<li class="mui-table-view-cell mui-media"  >';
-            html+='<a href="/prometheus/assets/customer/newsDetail.html?newsId='+data[i]["id"]+"&cateId="+data[i]["cateId"]+'" >';
+            html+='<a href="newsDetail.html?newsId='+data[i]["id"]+"&cateId="+data[i]["cateId"]+'" >';
             html+='<div class="mui-media-body">';
             html+='<div class="reco-news-title">';
             html+=data[i]["title"];
@@ -28,7 +32,7 @@ function updateSearchResultList(data){
     function getKeyword(){
         $.ajax({
             type: "GET",
-            url: "/prometheus/news/getKeyword",
+            url: url + "/prometheus/news/getKeyword",
             dataType: 'JSON',
             beforeSend: function (XMLHttpRequest) {
             },
@@ -55,7 +59,7 @@ function updateSearchResultList(data){
             if(keyword.length>0) {
                 $.ajax({
                     type: "GET",
-                    url: "/prometheus/news/search?searchKey="+keyword,
+                    url: url + "/prometheus/news/search?searchKey="+keyword,
                     dataType: 'JSON',
                     beforeSend: function (XMLHttpRequest) {
                     },
