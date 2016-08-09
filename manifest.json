@@ -758,7 +758,9 @@
 					"javascript/js/mui.min.js",
 					"stylesheets/fonts/iconfont.woff"
 				],
-				"refer": [],
+				"refer": [
+					"html/news/newsDetail.html"
+				],
 				"priority": 0
 			},
 			"html/news/newsDetail.html": {

@@ -28,10 +28,9 @@ $(document).ready(function() {
 
 $(document).on('click', '.newsId', function() {
 		newsId = parseInt($(this).attr("id").replace("newsId", ""));
-		localStorage.setItem("newsId", newsId);
 		mui.openWindow({
-                    id: newsDetail,
-                    url: "../news/newsDetail.html",
+                    id: "newsDetail",
+                    url: "../news/newsDetail.html?newsId="+newsId+"&userId="+myUserId,
                     styles: {
                         popGesture: 'close'
                     },
