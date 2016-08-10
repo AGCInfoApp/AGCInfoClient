@@ -20,21 +20,21 @@ $(document).ready(function() {
 	getFriendInfo();
 	showFriendInfo();
 	
-	document.getElementById("changeRemarkName").addEventListener("tap", function() {
-		mui.openWindow({
-			id: "changeRemarkName",
-			url: "changeRemarkName.html",
-			styles: {
-				popGesture: 'close'
-			},
-			show: {
-				aniShow: "pop-in"
-			},
-			waiting: {
-				autoShow: true
-			}
-		});
-	});
+//	document.getElementById("changeRemarkName").addEventListener("tap", function() {
+//		mui.openWindow({
+//			id: "changeRemarkName",
+//			url: "changeRemarkName.html",
+//			styles: {
+//				popGesture: 'close'
+//			},
+//			show: {
+//				aniShow: "pop-in"
+//			},
+//			waiting: {
+//				autoShow: true
+//			}
+//		});
+//	}); 
 	
 	document.getElementById("sandPrivateMessage").addEventListener("tap", function() {
 		mui.openWindow({

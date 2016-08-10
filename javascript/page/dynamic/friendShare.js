@@ -233,7 +233,7 @@ function showFirstFriendDynamic() {
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
 			if(errCode == 0) {
-
+alert(JSON.stringify(data))
 				if(data["data"].length > 0) {
 					for(var i = 0; i < data["data"].length; i++) {
 						appendNewShare(data["data"][i], "bottom");
@@ -418,7 +418,7 @@ function appendNewShare(data, type) {
 		html = html + "<hr>";
 		html = html + "<div class='newsPicContainer'>";
 		//新闻图片
-		html = html + "<img class='newsPhoto' src=" + data.newsPic + "/>";
+		html = html + "<img class='newsPhoto' src='" + data.newsPic + "'/>";
 		html = html + "</div>";
 		html = html + "</td>";
 		html = html + "</tr>";

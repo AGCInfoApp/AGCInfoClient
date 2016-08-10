@@ -4,8 +4,8 @@ var myToken;
 var myUserId;
 var pageLength = 20;
 var page = 1;
-var newestShare;
-var oldestShare;
+var newestCollect;
+var oldestCollect;
 var momentId = 0;
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 $(document).ready(function() {
@@ -67,11 +67,11 @@ function showFirstSelfCollect() {
 					for(var i = 0; i < data["data"].length; i++) {
 						appendNewCollect(data["data"][i], "bottom");
 					}
-					newestShare = data["data"][0].id;
-					oldestShare = data["data"][data["data"].length - 1].id;
+					newestCollect = data["data"][0].id;
+					oldestCollect = data["data"][data["data"].length - 1].id;
 					page++;
 				} else {
-					mui.toast("你没有收藏...");
+					mui.toast("你还没有收藏任何东西...");
 				}
 
 			}
@@ -89,12 +89,12 @@ function showMoreSelfCollectOnBottom() {
 			if(errCode == 0) {
 				if(data["data"].length > 0) {
 					for(var i = 0; i < data["data"].length; i++) {
-						if(data["data"][i].id < oldestShare) {
+						if(data["data"][i].id < oldestCollect) {
 
 							appendNewCollect(data["data"][i], "bottom");
 						}
 					}
-					oldestShare = data["data"][data["data"].length - 1].id;
+					oldestCollect = data["data"][data["data"].length - 1].id;
 					page++;
 				} else {
 					mui.toast("没有更多收藏了...");

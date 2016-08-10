@@ -334,7 +334,8 @@
 					"html/dynamic/friendShare_Main.html",
 					"html/dynamic/myMessage.html",
 					"html/dynamic/selfCollect.html",
-					"html/news/newsDetail.html"
+					"html/news/newsDetail.html",
+					"html/dynamic/selfShare.html"
 				],
 				"priority": 0
 			},
@@ -775,6 +776,23 @@
 					"stylesheets/fonts/mui.ttf"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"html/dynamic/selfShare.html": {
+				"resources": [
+					"javascript/js/util.js",
+					"javascript/js/idangerous.swiper.min.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/fonts/mui.ttf",
+					"stylesheets/css/app.css",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/mui.min.js",
+					"javascript/page/dynamic/selfShare.js",
+					"images/noHeadPhoto.jpg"
+				],
+				"refer": [
+					"html/news/newsDetail.html"
+				],
 				"priority": 0
 			}
 		},
