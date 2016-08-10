@@ -98,30 +98,60 @@ var myUserId;
         });
     }
     
-//  //获取推荐新闻
-//  function getRecommentNews(newsId){
-//      $.ajax({
-//          type: "GET",
-//          url: url+"/prometheus/news/getRecommentNews?newsId="+newsId,
-//          dataType: 'JSON',
-//          beforeSend: function(XMLHttpRequest){
-//          },
-//          success: function(data, textStatus){
-//              var errCode=data["errCode"];
-//              if(errCode==0){
-//                  updateRecommentList(data["data"]);
-//              }else{
-//              }
-//          },
-//          complete: function(XMLHttpRequest, textStatus){
-//
-//          },
-//          error: function(){//请求出错处理
-//          }
-//      });
-//  }
+    //分享
+    function shareNews(newsId,message){
+    	console.log(message);
+        $.ajax({
+            type: "POST",
+            url: url+"/prometheus/moment/createMoment",
+            contentType: "application/json", //必须有
+                dataType: 'JSON',
+                data: JSON.stringify({
+                    'newsId': parseInt(newsId),
+                    'userId': parseInt(myUserId),
+                    'token': myToken,
+                    'message': message
+                }),
+            beforeSend: function(XMLHttpRequest){
+            },
+            success: function(data, textStatus){
+                var errCode=data["errCode"];
+                if(errCode==0){
+                    mui.toast("分享成功！");
+                }else{
+                }
+            },
+            complete: function(XMLHttpRequest, textStatus){
 
-    
+            },
+            error: function(){//请求出错处理
+            }
+        });
+    }
+
+    //收藏
+    function collectNews(newsId){
+        $.ajax({
+            type: "GET",
+            url: url+"/prometheus/news/collect/create?newsId="+newsId+
+            "&userId="+myUserId+"&token="+myToken,
+            dataType: 'JSON',
+            beforeSend: function(XMLHttpRequest){
+            },
+            success: function(data, textStatus){
+                var errCode=data["errCode"];
+                if(errCode==0){
+                    mui.toast("收藏成功！");
+                }else{
+                }
+            },
+            complete: function(XMLHttpRequest, textStatus){
+
+            },
+            error: function(){//请求出错处理
+            }
+        });
+    }
 
 
     function handleData(data){
@@ -200,14 +230,17 @@ var myUserId;
 		var btnArray = ['取消', '确定'];
 		mui.prompt($("title").html(), '说点什么吧…', '分享到动态', btnArray, function(e) {
 			if (e.index == 1) {
-				mui.toast("分享成功！");
+				shareNews(newsId,e.value);
 			} else {
 				mui.toast("取消！");
 			}
 		})
     });
-
-
+    
+    $("#collect").on("tap",function(e){
+    	mui("#topPopover").popover('hide');//show hide toggle
+		collectNews(newsId);
+    });
 
     //发表评论
     document.getElementById("createComment").addEventListener('tap', function() {

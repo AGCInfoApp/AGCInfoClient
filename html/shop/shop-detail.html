@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css"/>
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/page/shop/shop.css"/>
+		<style>
+			h5{
+		        padding-top: 8px;
+		        padding-bottom: 8px;
+		        text-indent: 12px;
+		    }
+		   
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">商城</h1>
+		</header>
+		<div id="slider" class="mui-slider" style="height:400px;" >
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="../../images/myPhoto.png">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="../../images/cehuabeijing.png">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		
+		<div class="mui-content" style="background-color:#fff;margin-top:-20px;">  
+		    <div style="padding-left:20px; padding-right:13px;">
+		    	<div class="goods-title">
+		    		哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈ddddd水水水水水水水水水水
+		    	</div>
+		    	<div class="goods-price">
+		    		￥777
+		    	</div>
+		    </div>
+		    
+		    <div class="goods-info">
+		    	<img  src="../../images/myPhoto.png" width="100%">
+		    </div>
+		</div>
+		
+	</body>
+	<script src="../../javascript/js/mui.min.js"></script>
+	<script src="../../javascript/page/shop/shopDetail.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		mui("#slider").slider({
+			interval: 5000
+		});
+	</script>
+</html>

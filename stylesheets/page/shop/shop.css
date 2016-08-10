@@ -1,0 +1,39 @@
+
+.mui-content{
+	margin-left: -7px;
+}
+.mui-media-body{
+	height:300px;
+	min-height:70px;
+}
+
+.goods-title{
+	width:100%;
+	font-size:1.1em;
+	line-height: 1.2em;
+	display: -webkit-box;
+    overflow: hidden;
+	white-space: normal !important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+	-webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.goods-price{
+	width:100%;
+	text-align: left;
+	font-size: 1.4em;
+	line-height: 1.2em;
+	color:#DD0000;
+}
+
+.goods-info{
+    clear: both;
+    word-wrap:break-word;
+    color: #6d6d72;
+}
+
+.goods-info-pic{
+	width: 200px;
+}
