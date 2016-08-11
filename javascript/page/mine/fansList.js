@@ -1,4 +1,5 @@
 var url = "http://139.129.25.229:31010/";
+var headPhotoUrl = "http://139.129.25.229/";
 var myUserId;
 var myToken;
 var fansList = new Array();

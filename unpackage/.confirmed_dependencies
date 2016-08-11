@@ -150,7 +150,9 @@
 			"html/dynamic/myMessage.html",
 			"html/dynamic/selfCollect.html",
 			"html/news/newsDetail.html",
-			"html/dynamic/selfShare.html"
+			"html/dynamic/selfShare.html",
+			"html/shop/shopDetail.html",
+			"html/news/search.html"
 		]
 	},
 	"html/mine/friendInfo.html": {
@@ -307,7 +309,14 @@
 	},
 	"html/news/search.html": {
 		"resources": [
-			"javascript/page/news/search.js"
+			"javascript/page/news/search.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
 		],
 		"refer": []
 	},
@@ -530,6 +539,18 @@
 		],
 		"refer": [
 			"html/news/newsDetail.html"
+		]
+	},
+	"html/shop/shopDetail.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/page/shop/shopDetail.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js",
+			"stylesheets/page/shop/shop.css"
 		]
 	}
 }
