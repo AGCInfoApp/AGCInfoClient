@@ -1,6 +1,7 @@
 var url = "http://139.129.25.229:31010/";
 var myToken;
 var myUserId;
+var newSex = "女";
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 
 $(document).ready(function() {
@@ -22,9 +23,10 @@ $(document).ready(function() {
 	getMyInfo();
 	
 	
-	var newSex = "";
+
 	document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected', function(e) {
 		newSex = e.detail.el.innerText;
+		alert(newSex)
 	});
 	
 	document.getElementById("save").addEventListener('tap', function() {
@@ -79,6 +81,7 @@ function getMyInfo(){
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
 		dataType: 'JSON',
+		async:false,
 		beforeSend: function(XMLHttpRequest) {},
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
@@ -96,7 +99,7 @@ function getMyInfo(){
 				level = data["data"].level;
 				preference = data["data"].preference;
 				signature = data["data"].signature;
-				if (sex == "男") {
+				if (sex!="女") {
 					$("#sexSelect").html("<li class='mui-table-view-cell mui-selected'><a class='mui-navigate-right'>男</a></li><li class='mui-table-view-cell'><a class='mui-navigate-right'>女</a></li>");
 				} else {
 					$("#sexSelect").html("<li class='mui-table-view-cell'><a class='mui-navigate-right'>男</a></li><li class='mui-table-view-cell mui-selected'><a class='mui-navigate-right'>女</a></li>");

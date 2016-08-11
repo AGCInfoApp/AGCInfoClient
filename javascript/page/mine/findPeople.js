@@ -6,14 +6,14 @@ var myUserId;
 
 $(document).ready(function() {
 
-	if(window.localStorage) {
+	if (window.localStorage) {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
 	mui.init({
 		beforeback: function() {
 			//获得列表界面的webview  
-			var list = plus.webview.currentWebview().opener(); 
+			var list = plus.webview.currentWebview().opener();
 			//触发列表界面的自定义事件（refresh）,从而进行数据刷新  
 			mui.fire(list, 'refresh');
 			//返回true，继续页面关闭逻辑  
@@ -23,9 +23,6 @@ $(document).ready(function() {
 	mui.init({
 		pullRefresh: {
 			container: '#pullRefresh',
-			down: {
-				callback: pulldownRefresh
-			},
 			up: {
 				contentrefresh: '正在加载...',
 				callback: pullupRefresh
@@ -33,29 +30,34 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#search").bind('input propertychange', function(e) {
+	$("#searchInput").bind('input propertychange', function(e) {
 		searchInput = $.trim($("#searchInput").val());
-		$.ajax({
-			type: "GET",
-			url: url + "prometheus/user/searchUser?searchKey=" + searchInput, //+ "&page=" + "1",
-			dataType: 'JSON',
-			async: false,
-			beforeSend: function(XMLHttpRequest) {},
-			success: function(data, textStatus) {
-				var errCode = data["errCode"];
-				if(errCode == 0) {
-					firstSearchPeople(data["data"]);
+		if (searchInput != "") {
+			$.ajax({
+				type: "GET",
+				url: url + "prometheus/user/searchUser?searchKey=" + searchInput, //+ "&page=" + "1",
+				dataType: 'JSON',
+				async: false,
+				beforeSend: function(XMLHttpRequest) {},
+				success: function(data, textStatus) {
+					var errCode = data["errCode"];
+					if (errCode == 0) {
+						firstSearchPeople(data["data"]);
 
-				} else {
-					mui.toast("获取失败，稍后重试…");
+					} else {
+						$("#searchResult").html("");
+					}
+				},
+				complete: function(XMLHttpRequest, textStatus) {
+
+				},
+				error: function() { //请求出错处理
 				}
-			},
-			complete: function(XMLHttpRequest, textStatus) {
+			});
+		} else {
+			$("#searchResult").html("");
+		}
 
-			},
-			error: function() { //请求出错处理
-			}
-		});
 		page = 2;
 	});
 
@@ -80,7 +82,7 @@ $(document).ready(function() {
 });
 
 function showSearchPeople(data) {
-	for(var i = 0; i < data.length; i++) {
+	for (var i = 0; i < data.length; i++) {
 		$("#searchResult").append("<li class='mui-table-view-cell stranger' id='" + data[i].userId + "'>" + data[i].nickname + "</li>")
 	}
 }
@@ -88,18 +90,16 @@ function showSearchPeople(data) {
 function firstSearchPeople(data) {
 	$("#searchResult").html("");
 	var html = "";
-	for(var i = 0; i < data.length; i++) {
-		html = html + "<li class='mui-table-view-cell stranger' id='" + data[i].userId + "'>" + data[i].nickname + "</li>";
+	for (var i = 0; i < data.length; i++) {
+		if (data[i].userId != myUserId) {
+			html = html + "<li class='mui-table-view-cell stranger' id='" + data[i].userId + "'>" + data[i].nickname + "</li>";
+		}
 	}
 	$("#searchResult").html(html);
 }
 
-function pulldownRefresh() {
-
-}
-
 function pullupRefresh() {
-	if(page != 1) {
+	if (page != 1) {
 		var data = [];
 		data[0] = 1;
 		data[1] = 1;

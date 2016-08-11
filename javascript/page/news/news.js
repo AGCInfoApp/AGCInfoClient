@@ -6,7 +6,7 @@ var myUserId;
     $('#searchBtn').on('click',function(event){
             mui.openWindow({
                 id: "search",
-                url: "search.html",
+                url: "../../html/news/search.html",
                 styles: {
                     popGesture: 'close'
                 },
@@ -39,6 +39,10 @@ var myUserId;
         $(".mui-btn-danger,.choose-cate-button").removeClass("mui-btn-danger");
         jQuery(this).addClass("mui-btn-danger");
         toggleChooseCateBtn();
+        
+        cateId = parseInt(cate);
+        afterChooseCate();
+        firstGetData(newsPage);
     });
 
 
@@ -53,6 +57,8 @@ var myUserId;
     var newsId=0;
     var newsPage=1;
     var index=0; //新闻的序号 1-20
+    
+    
 
     mui.init({
         gestureConfig:{
@@ -126,6 +132,63 @@ var myUserId;
             //Hide loader
             $('.preloader').removeClass('visible');
         },1000)
+    }
+    
+    
+    function afterChooseCate(){
+     nextPage=1;//记录下一页 每次页面渲染之后之后 +1
+     prePage=0;//记录上一页
+     curPage=1; //当前页 用来存放sessionStory数据
+     isloading=0;//如果isloading=1 表示正在加载
+    //to flag witch page and witch news has been clicked
+     newsId=0;
+     newsPage=1;
+     index=0; //新闻的序号 1-20
+    }
+
+
+    /**获取分类 */
+    function getCategory(){
+        $.ajax({
+            type: "GET",
+            url: url+"prometheus/news/listCate",
+            dataType: 'JSON',
+            beforeSend: function(XMLHttpRequest){
+            },
+            success: function(data, textStatus){
+                var errCode=data["errCode"];
+                if(errCode==0){
+                    appendCategory(data["data"]);
+                }
+            },
+
+            complete: function(XMLHttpRequest, textStatus){
+
+            },
+            error: function(){//请求出错处理
+            }
+        });
+    }
+
+    /**添加分类*/
+    function appendCategory(data){
+    	for(var i=0;i<data.length;i++){
+            var html="";
+            var html2="";
+            html+='<a class="swiper-slide" href="javascript:void(0);" cate='+data[i]["cateId"]+' >';
+            html+='<span class="news-cate-title">';
+            html+=data[i]["category"];
+            html+='</span></a>';
+            if(i==0){
+            html2+='<button type="button" class="mui-button mui-btn-danger choose-cate-button"  cate='+data[i]["cateId"]+'>';
+            }else{
+            html2+='<button type="button" class="mui-button choose-cate-button"  cate='+data[i]["cateId"]+'>';	
+            }
+            html2+=data[i]["category"];
+            html2+='</button>';
+            $("#cateDiv").append(html);
+            $("#cateChoose").append(html2);
+        }
     }
 
 
@@ -418,27 +481,30 @@ var myUserId;
         if (window.sessionStorage) {
             sessionStorage.setItem("cateId", parseInt(cate));
         }
-        if(cate==1){
-            cateId=1;
-            nextPage=1;//记录下一页 每次页面渲染之后之后 +1
-            prePage=0;//记录上一页
-            curPage=1; //当前页 用来存放sessionStory数据
-            newsId=0;
-            newsPage=1;
-            index=0; //新闻的序号 1-20
-            firstGetData(newsPage);
-        }else if(cate==2){
-            cateId=2;
-            nextPage=1;//记录下一页 每次页面渲染之后之后 +1
-            prePage=0;//记录上一页
-            curPage=1; //当前页 用来存放sessionStory数据
-            newsId=0;
-            newsPage=1;
-            index=0; //新闻的序号 1-20
-            firstGetData(newsPage);
-        }else{
-            mySwiper.removeAllSlides();
-        }
+        cateId = parseInt(cate);
+        afterChooseCate();
+        firstGetData(newsPage);
+//      if(cate==1){
+//          cateId=1;
+//          nextPage=1;//记录下一页 每次页面渲染之后之后 +1
+//          prePage=0;//记录上一页
+//          curPage=1; //当前页 用来存放sessionStory数据
+//          newsId=0;
+//          newsPage=1;
+//          index=0; //新闻的序号 1-20
+//          firstGetData(newsPage);
+//      }else if(cate==2){
+//          cateId=2;
+//          nextPage=1;//记录下一页 每次页面渲染之后之后 +1
+//          prePage=0;//记录上一页
+//          curPage=1; //当前页 用来存放sessionStory数据
+//          newsId=0;
+//          newsPage=1;
+//          index=0; //新闻的序号 1-20
+//          firstGetData(newsPage);
+//      }else{
+//          mySwiper.removeAllSlides();
+//      }
     }
 
 
@@ -477,7 +543,7 @@ var myUserId;
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	   }
-
+        getCategory();
         firstGetData(newsPage);
 
     });

@@ -18,7 +18,15 @@
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
-
+			 .font {
+				font-size: 18px;
+				font-weight: 900;
+				margin-left: 0.8em;
+			}
+			
+			.myIconStyle{
+				font-size: 22px;
+			}
 		</style>
 	</head>
 
@@ -27,18 +35,23 @@
 			<h1 class="mui-title" id="welcome"></h1>
 		</header>
 		<div class="mui-content">
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell" >
+			<ul class="mui-table-view" style="margin-top: 1.5em;">
+				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id="myInfo">
-						<h4 class="list-font">个人信息</h4></a>
+						<span class="mui-icon iconfont icon-gerenxinxi myIconStyle" style="color: dodgerblue;"></span>
+						<span class="font">个人信息</span></a>
 				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 2em;">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id="concernList">
-						<h4 class="list-font">我的关注</h4></a>
+						<span class="mui-icon iconfont icon-guanzhu myIconStyle" style="color: indianred;"></span>
+						<span class="font">我的关注</span></a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id="fansList">
-						<h4 class="list-font">我的粉丝</h4></a>
+						<span class="mui-icon iconfont icon-wodefensi myIconStyle" style="color: red;"></span>
+						<span class="font">我的粉丝</span></a>
 				</li>
 			</ul>
 		</div>

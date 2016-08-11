@@ -1,4 +1,5 @@
 var url = "http://139.129.25.229:31010";
+var picServer = "http://139.129.25.229/"
 var myToken;
 var myUserId;
  
@@ -11,12 +12,20 @@ var myUserId;
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
+    
+    mui('body').on('shown', '.mui-popover', function(e) {
+	    //console.log('shown', e.detail.id);//detail为当前popover元素
+	});
+	mui('body').on('hidden', '.mui-popover', function(e) {
+		//console.log('hidden', e.detail.id);//detail为当前popover元素
+	});
 
 
 
     getNewsDetail(newsId);
     getComment(newsId);
     getRecommentNews(newsId);
+
 
     //获取新闻详情
     function getNewsDetail(newsId){
@@ -28,11 +37,9 @@ var myUserId;
             beforeSend: function(XMLHttpRequest){
             },
             success: function(data, textStatus){
-            	console.log(JSON.stringify(data));
                 var errCode=data["errCode"];
                 if(errCode==0){
                     handleData(data["data"]);
-                    console.log(JSON.stringify(data["data"]));
                 }else{
 
                 }
@@ -49,7 +56,7 @@ var myUserId;
     function getComment(newsId){
         $.ajax({
             type: "GET",
-            url: url+"/prometheus/comment/getByNews?newsId="+newsId+"&page="+1+"&size="+4,
+            url: url+"/prometheus/news/comment/getByNews?newsId="+newsId+"&page="+1+"&pageSize="+4,
             dataType: 'JSON',
             beforeSend: function(XMLHttpRequest){
             },
@@ -90,6 +97,62 @@ var myUserId;
             }
         });
     }
+    
+    //分享
+    function shareNews(newsId,message){
+    	console.log(message);
+        $.ajax({
+            type: "POST",
+            url: url+"/prometheus/moment/createMoment",
+            contentType: "application/json", //必须有
+                dataType: 'JSON',
+                data: JSON.stringify({
+                    'newsId': parseInt(newsId),
+                    'userId': parseInt(myUserId),
+                    'token': myToken,
+                    'message': message
+                }),
+            beforeSend: function(XMLHttpRequest){
+            },
+            success: function(data, textStatus){
+                var errCode=data["errCode"];
+                if(errCode==0){
+                    mui.toast("分享成功！");
+                }else{
+                }
+            },
+            complete: function(XMLHttpRequest, textStatus){
+
+            },
+            error: function(){//请求出错处理
+            }
+        });
+    }
+
+    //收藏
+    function collectNews(newsId){
+        $.ajax({
+            type: "GET",
+            url: url+"/prometheus/news/collect/create?newsId="+newsId+
+            "&userId="+myUserId+"&token="+myToken,
+            dataType: 'JSON',
+            beforeSend: function(XMLHttpRequest){
+            },
+            success: function(data, textStatus){
+                var errCode=data["errCode"];
+                if(errCode==0){
+                    mui.toast("收藏成功！");
+                }else{
+                }
+            },
+            complete: function(XMLHttpRequest, textStatus){
+
+            },
+            error: function(){//请求出错处理
+            }
+        });
+    }
+
 
     function handleData(data){
         $("#newsTitle").html(data["title"]);
@@ -113,7 +176,7 @@ var myUserId;
             var html = "";
             html += '<li class="mui-table-view-cell mui-media">';
             html += '<a href="#">';
-            html += '<img class="mui-media-object mui-pull-left comment-user-pic" src="'+data[i]["userPic"]+'" />';
+            html += '<img class="mui-media-object mui-pull-left comment-user-pic" src="'+picServer+data[i]["userPic"]+'" />';
             html += '<div class="mui-media-body">';
             html += '<div class="news-list-title">';
             html += data[i]["userName"];
@@ -160,31 +223,40 @@ var myUserId;
             $("#recoBoard").append(html);
         }
     }
-
-
-    $('#backBtn').on('click',function(event){
-            window.history.back(-1);
+    
+    $("#share").on("tap",function(e){
+		e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+		mui("#topPopover").popover('hide');//show hide toggle
+		var btnArray = ['取消', '确定'];
+		mui.prompt($("title").html(), '说点什么吧…', '分享到动态', btnArray, function(e) {
+			if (e.index == 1) {
+				shareNews(newsId,e.value);
+			} else {
+				mui.toast("取消！");
+			}
+		})
+    });
+    
+    $("#collect").on("tap",function(e){
+    	mui("#topPopover").popover('hide');//show hide toggle
+		collectNews(newsId);
     });
 
-
-
-
-
     //发表评论
-    $('#createComment').on("tap",function(){
+    document.getElementById("createComment").addEventListener('tap', function() {
         var content=$("#commentContent").val();
         $("#commentContent").val("");
         if(content.length>0) {
             $.ajax({
                 type: "POST",
-                url: url+"/prometheus/comment/create",
+                url: url+"/prometheus/news/comment/create",
                 contentType: "application/json", //必须有
                 dataType: 'JSON',
                 data: JSON.stringify({
                     'newsId': parseInt(newsId),
-                    'cateId': parseInt(cateId),
+                    'userId': parseInt(myUserId),
                     'content': content,
-                    'reId': 0
+                    'reUid': 0
                 }),
                 beforeSend: function (XMLHttpRequest) {
                 },

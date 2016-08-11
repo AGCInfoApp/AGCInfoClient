@@ -1,16 +1,23 @@
+			body {
+				height: 100%;
+			}
+			
 			.dynamicWidth {
 				width: 95%;
 			}
 			
-			.headPhoto{
+			.headPhoto {
 				margin-left: 0.5em;
 				margin-top: 0.3em;
+				border: 1px groove;
+				border-radius: 2px;
 			}
 			
 			.nameStyle {
-				font-size: 18px;
+				font-size: 17px;
 				color: darkslateblue;
 				margin-top: 0.4em;
+				font-weight: bold;
 			}
 			
 			.messageStyle {
@@ -19,6 +26,7 @@
 				word-break: break-all;
 				color: #000000;
 				margin-top: -0.7em;
+				font-weight: 600;
 			}
 			
 			.photoContainer {
@@ -30,10 +38,9 @@
 			}
 			
 			.newsTable {
-				
-				background-color: #F1F1F1;
+				background-color: #DEDEBE;
 				-webkit-border-radius: 7px;
-				margin-top: 0.3em;
+				margin-top: 1.5em;
 			}
 			
 			.newsTitle {
@@ -42,8 +49,10 @@
 				/*text-align: center;*/
 				word-wrap: break-word;
 				word-break: break-all;
-				margin-top: 0.3em;
-				margin-left: 0.3em;
+				margin-top: 0.5em;
+				margin-left: 0.5em;
+				margin-right: 0.5em;
+				text-indent: 1em
 			}
 			
 			.newsDesc {
@@ -51,15 +60,16 @@
 				word-wrap: break-word;
 				word-break: break-all;
 				color: #6D6D72;
-				margin-left: 0em;
-				margin-top: 0.3em;
-				text-indent: 2em
+				margin-left: 0.5em;
+				margin-top: 0.5em;
+				margin-right: 0.5em;
+				text-indent: 1em
 			}
 			
 			.newsPicContainer {
 				text-align: center;
-				margin-top: 0.7em;
-				margin-bottom: 0.7em;
+				margin-top: 0.8em;
+				margin-bottom: 0.8em;
 			}
 			
 			.newsPhoto {
@@ -77,57 +87,71 @@
 				font-size: 16px;
 			}
 			
-			
-			.goodButton{
+			.goodButton {
 				color: #5C5C5C;
 				font-size: 16px;
 			}
-			.hasGoodButton{
+			
+			.hasGoodButton {
 				color: #DD0000;
 				font-size: 16px;
+				font-weight: bold;
 			}
 			
-			.commentTable{
+			.commentTable {
 				width: 100%;
 				background-color: #F1F1F1;
-				-webkit-border-radius: 7px;
 				margin-top: 0.3em;
+				border-color: #BBC0CA;
+				border-top-right-radius: 0px;
+				border-bottom-right-radius: 15px;
+				border-bottom-left-radius: 15px;
+				border-top-left-radius: 15px;
 			}
-			.commentList{
+			
+			.commentList {
 				text-align: left;
-				
 			}
-			.good{
+			
+			.good {
 				margin-left: 5px;
 				margin-right: 5px;
 			}
-			.goodicon{
+			
+			.goodicon {
 				color: #1D6FA6;
 				font-size: 18px;
 				margin-top: 0.8em;
 				margin-left: 0.3em;
+				font-weight: bold;
 			}
-			.goodPeople{
-				
-				font-size: 20px;
+			
+			.goodPeople {
+				font-size: 17px;
 				word-wrap: break-word;
 				word-break: break-all;
 				color: #1D6FA6;
-
+				font-weight: 800;
 			}
-			.oneComment{
+			
+			.oneComment {
 				height: 8px;
 				margin-left: 0.5em;
 				margin-bottom: 1.0em;
 			}
-			.replyPeople{
+			
+			.replyPeople {
 				color: #1D6FA6;
-				font-size: 18px;
+				font-size: 16px;
+				font-weight: 800;
 			}
-			.replyWord{
+			
+			.replyWord {
 				color: #000000;
 				font-size: 16px;
+				font-weight: 600;
 			}
-#commentInputBottom{
-	height: 0.5em;
-}
+			
+			#commentInputBottom {
+				height: 1em;
+			}

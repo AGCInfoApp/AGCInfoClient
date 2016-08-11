@@ -1,4 +1,5 @@
 var url = "http://139.129.25.229:31010/";
+var headPhotoUrl = "http://139.129.25.229/";
 var myToken;
 var myUserId;
 var friendUserId;
@@ -19,10 +20,26 @@ $(document).ready(function() {
 	getFriendInfo();
 	showFriendInfo();
 	
-	document.getElementById("changeRemarkName").addEventListener("tap", function() {
+//	document.getElementById("changeRemarkName").addEventListener("tap", function() {
+//		mui.openWindow({
+//			id: "changeRemarkName",
+//			url: "changeRemarkName.html",
+//			styles: {
+//				popGesture: 'close'
+//			},
+//			show: {
+//				aniShow: "pop-in"
+//			},
+//			waiting: {
+//				autoShow: true
+//			}
+//		});
+//	}); 
+	
+	document.getElementById("sandPrivateMessage").addEventListener("tap", function() {
 		mui.openWindow({
-			id: "changeRemarkName",
-			url: "changeRemarkName.html",
+			id: "privateMessageOfFriendAndMe_Main",
+			url: "../dynamic/privateMessageOfFriendAndMe_Main.html",
 			styles: {
 				popGesture: 'close'
 			},
@@ -41,7 +58,7 @@ function getFriendInfo(){
 	//得到备注
 	//$.ajax({
 	//		type: "GET",
-	//		url: url + "prometheus/user/getOtherRemarkName?userId=" + friendUserId+"&firendId="+friendUserId,
+	//		url: url + "prometheus/user/getOtherRemarkName?userId=" + myUserId+"&firendId="+friendUserId,
 	//		dataType: 'JSON',
 	//	async: false,
 	//		beforeSend: function(XMLHttpRequest) {},
@@ -85,6 +102,10 @@ function showFriendInfo(){
 		remarkNameByMe = friendNickname;
 	}
 	//显示信息
+	if(friendPic!=""){
+		$("#headPhoto").attr("src",headPhotoUrl+friendPic);
+	}
+	
 	$("#friendInfo").html(remarkNameByMe + "  " + friendSex + "<p class='mui-ellipsis'>用户名:" + friendUsername + "</p>							<p class='mui-ellipsis'>    昵称:" + friendNickname + "</p>");
 
 }
