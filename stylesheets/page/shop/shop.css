@@ -37,3 +37,9 @@
 .goods-info-pic{
 	width: 200px;
 }
+
+.goods-desc{
+	margin: 10px 10px 10px;
+    word-wrap:break-word;
+    color: #6d6d72;
+}

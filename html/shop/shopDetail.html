@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../stylesheets/css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css"/>
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/page/shop/shop.css"/>
+		<script src="../../javascript/js/jquery-2.2.3.min.js"></script>
+		<script src="../../javascript/js/util.js"></script>
+		<style>
+			h5{
+		        padding-top: 8px;
+		        padding-bottom: 8px;
+		        text-indent: 12px;
+		    }
+		   
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">商城</h1>
+		</header>
+		<div id="slider" class="mui-slider" style="height:400px;" >
+			<div class="mui-slider-group mui-slider-loop" id="picLoop">
+				
+			</div>
+			<div class="mui-slider-indicator" id="picLoopIndicator">
+				
+			</div>
+		</div>
+		
+		<div class="mui-content" style="background-color:#fff;margin-top:-20px;">  
+		    <div style="padding-left:20px; padding-right:13px;">
+		    	<div class="goods-title" id="goodsTitle">
+		    		哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈ddddd水水水水水水水水水水
+		    	</div>
+		    	<div class="goods-price" id="goodsPrice">
+		    		￥777
+		    	</div>
+		    </div>
+		    
+		    <div class="goods-info" id="goodsInfo">
+		    
+		    </div>
+		    <div class="goods-desc" id="goodsDesc">
+		    	
+		    </div>
+		</div>
+		
+	</body>
+	<script src="../../javascript/js/mui.min.js"></script>
+	<script src="../../javascript/page/shop/shopDetail.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		mui("#slider").slider({
+			interval: 5000
+		});
+	</script>
+</html>
