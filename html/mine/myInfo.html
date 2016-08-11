@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<title>个人信息</title>
 		<meta charset="utf-8">
@@ -17,117 +18,130 @@
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
-			
-			
 			.messageTypeFont {
 				position: absolute;
-				left: 1em;
+				font-size: 16px;
+				font-weight: bold;
 			}
 			
 			.messageFont {
 				position: absolute;
 				right: 2em;
-				color: #bebebe;
+				color: #929292;
+			}
+			
+			.headPhoto {
+				position: absolute;
+				top: 0.6em;
+				width: 4em;
+				right: 2em;
+				border: 1px;
+				border-color: #DDDDDD;
+				border-style:groove;
+				border-radius:4px;
 			}
 		</style>
 	</head>
+
 	<body>
-		<header class="mui-bar mui-bar-nav" >
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" ></a>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">个人信息</h1>
 		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view" style="margin-top:1.5em;">
+				<li class="mui-table-view-cell mui-media" style="5.2em ;">
+					<a class="mui-navigate-right" id="myInfoChangePicture" style="height:5.2em;">
+						<div class="messageTypeFont" style="top:1.8em;">
+							头像
+						</div>
+						<img id="myHeadPicture" src="../../images/noHeadPhoto.jpg" class="headPhoto">
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="height:2.6em;">
+					<a class="mui-navigate-right" id="myInfoChangeNickname" style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							昵称
+						</div>
+						<div id="myNickname" class="messageFont" style="top:0.6em;">
+							未填写
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="height:2.6em;">
+					<a class="mui-navigate-right" id="myInfoChangeSex" style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							性别
+						</div>
+						<div id="mySex" class="messageFont" style="top:0.6em;">
+							未填写
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="height:2.6em;">
+					<a class="mui-navigate-right" id="myInfoChangeBirthday" style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							出生日期
+						</div>
+						<div id="myBirthday" class="messageFont" style="top:0.6em;">
+							未填写
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="height:2.6em;">
+					<a class="mui-navigate-right" id="myInfoChangeEmail" style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							邮箱
+						</div>
+						<div id="myEmail" class="messageFont" style="top:0.6em;">
+							未填写
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="height:2.6em;">
+					<a class="mui-navigate-right" id="myInfoChangeSignature" style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							个性签名
+						</div>
+						<div id="mySignature" class="messageFont" style="top:0.6em;">
+							未填写
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top:2em;">
+				<li style="height:2.6em;" class="mui-table-view-cell">
+					<div style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							用户名
+						</div>
+						<div id="myUsername" class="messageFont" style="top:0.6em;">
 
-		<ul class="mui-table-view" style="margin-top:3.5em;">
-			<li class="mui-table-view-cell mui-media" style="height:5.2em;">
-				<a class="mui-navigate-right" id="myInfoChangePicture" style="height:5.2em;">
-					<div class="messageTypeFont" style="top:2em;">
-						头像
+						</div>
 					</div>
-					<img id="myHeadPicture" src="../../images/noHeadPhoto.jpg" style="position:absolute;height:4em;width:4em;right:2em;">
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media" style="height:2.6em;">
-				<a class="mui-navigate-right" id="myInfoChangeNickname" style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						昵称
-					</div>
-					<div id="myNickname" class="messageFont" style="top:0.7em;">
-						未填写
-					</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media" style="height:2.6em;">
-				<a class="mui-navigate-right" id="myInfoChangeSex" style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						性别
-					</div>
-					<div id="mySex" class="messageFont" style="top:0.7em;">
-						未填写
-					</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media" style="height:2.6em;">
-				<a class="mui-navigate-right" id="myInfoChangeBirthday" style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						出生日期
-					</div>
-					<div id="myBirthday" class="messageFont" style="top:0.7em;">
-						未填写
-					</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media" style="height:2.6em;">
-				<a class="mui-navigate-right" id="myInfoChangeEmail" style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						邮箱
-					</div>
-					<div id="myEmail" class="messageFont" style="top:0.7em;">
-						未填写
-					</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media" style="height:2.6em;">
-				<a class="mui-navigate-right" id="myInfoChangeSignature" style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						个性签名
-					</div>
-					<div id="mySignature" class="messageFont" style="top:0.7em;">
-						未填写
-					</div>
-				</a>
-			</li>
-		</ul>
-		<ul class="mui-table-view" style="margin-top:2em;">
-			<li style="height:2.6em;" class="mui-table-view-cell">
-				<div style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						用户名
-					</div>
-					<div id="myUsername" class="messageFont" style="top:0.7em;">
+				</li>
+				<li style="height:2.6em;" class="mui-table-view-cell">
+					<div style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							手机
+						</div>
+						<div id="myMobile" class="messageFont" style="top:0.6em;">
 
+						</div>
 					</div>
-				</div>
-			</li>
-			<li style="height:2.6em;" class="mui-table-view-cell">
-				<div style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;"> 
-						手机
-					</div>
-					<div id="myMobile" class="messageFont" style="top:0.7em;">
+				</li>
+				<li style="height:2.6em;" class="mui-table-view-cell">
+					<div style="height:2.6em;">
+						<div class="messageTypeFont" style="top:0.6em;">
+							等级
+						</div>
+						<div id="myLevel" class="messageFont" style="top:0.6em;">
 
+						</div>
 					</div>
-				</div> 
-			</li>
-			<li style="height:2.6em;" class="mui-table-view-cell">
-				<div style="height:2.6em;">
-					<div class="messageTypeFont" style="top:0.7em;">
-						等级
-					</div>
-					<div id="myLevel" class="messageFont" style="top:0.7em;">
-
-					</div>
-				</div>
-			</li>
-		</ul>
+				</li>
+			</ul>
+		</div>
 	</body>
+
 </html>

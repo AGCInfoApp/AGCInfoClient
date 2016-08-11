@@ -31,6 +31,18 @@
 				-webkit-box-shadow: none;
 				box-shadow: none;
 			}
+			.headPhoto{
+				width: 2.5em;
+				height: 100%;
+			}
+			.name{
+				font-size: 18px;
+				color:#000000;
+				position: absolute;
+				top:1.1em;
+				left: 3.5em;
+				
+			}
 		</style>
 	</head>
 
@@ -41,10 +53,10 @@
 			<h1 class="mui-title">我的关注</h1>
 			<a id="findPeople" class="mui-icon mui-icon-plusempty mui-pull-right" style="font-size:40px;margin-top: -0.2em;"></a>
 		</header>
-		<div class="mui-content" style="margin-top:1em;">
+		<div class="mui-content">
 			<div id='list' class="mui-indexed-list">
 				<div class="mui-indexed-list-search mui-input-row mui-search">
-					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索" hidden="hidden">
 				</div>
 				<div class="mui-indexed-list-bar" id="index">
 

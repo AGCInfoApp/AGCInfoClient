@@ -236,7 +236,8 @@
 			"stylesheets/fonts/mui.ttf",
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
-			"javascript/js/mui.min.js"
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
 		],
 		"refer": [
 			"html/mine/friendInfo.html",
@@ -299,7 +300,8 @@
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js",
-			"javascript/page/mine/concernPeople.js"
+			"javascript/page/mine/concernPeople.js",
+			"images/noHeadPhoto.jpg"
 		],
 		"refer": []
 	},
@@ -321,7 +323,8 @@
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js",
-			"javascript/page/mine/fansList.js"
+			"javascript/page/mine/fansList.js",
+			"images/noHeadPhoto.jpg"
 		],
 		"refer": [
 			"html/mine/friendInfo.html",
@@ -509,7 +512,8 @@
 			"stylesheets/css/app.css",
 			"javascript/js/jquery-2.2.3.min.js",
 			"javascript/js/mui.min.js",
-			"stylesheets/fonts/mui.ttf"
+			"stylesheets/fonts/mui.ttf",
+			"images/comment.png"
 		]
 	},
 	"html/dynamic/selfShare.html": {

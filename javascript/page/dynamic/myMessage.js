@@ -46,7 +46,6 @@ function showPrivateMessageList() {
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
 			if (errCode == 0) {
-				alert(JSON.stringify(data))
 				if (data["data"].length > 0) {
 					for (var i = 0; i < data["data"].length; i++) {
 						appendNewCollect(data["data"][i], "bottom");

@@ -109,7 +109,7 @@ function showStrangerInfo(judge) {
 	}
 
 	//显示信息
-	$("#strangerInfo").html(strangerNickname + "  " + strangerSex + "<p class='mui-ellipsis'>用户名:" + strangerUsername + "</p>							<p class='mui-ellipsis'>    昵称:" + strangerNickname + "</p>");
+	$("#strangerInfo").html(strangerNickname + "  " + strangerSex + "<p class='mui-ellipsis'>用户名 : " + strangerUsername + "</p>							<p class='mui-ellipsis'>    昵称 : " + strangerNickname + "</p>");
 
 	//显示按钮
 	if(judge == 0) {

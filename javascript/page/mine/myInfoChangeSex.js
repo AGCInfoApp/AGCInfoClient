@@ -81,6 +81,7 @@ function getMyInfo(){
 		type: "GET",
 		url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
 		dataType: 'JSON',
+		async:false,
 		beforeSend: function(XMLHttpRequest) {},
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
@@ -98,7 +99,7 @@ function getMyInfo(){
 				level = data["data"].level;
 				preference = data["data"].preference;
 				signature = data["data"].signature;
-				if (sex == "男") {
+				if (sex!="女") {
 					$("#sexSelect").html("<li class='mui-table-view-cell mui-selected'><a class='mui-navigate-right'>男</a></li><li class='mui-table-view-cell'><a class='mui-navigate-right'>女</a></li>");
 				} else {
 					$("#sexSelect").html("<li class='mui-table-view-cell'><a class='mui-navigate-right'>男</a></li><li class='mui-table-view-cell mui-selected'><a class='mui-navigate-right'>女</a></li>");

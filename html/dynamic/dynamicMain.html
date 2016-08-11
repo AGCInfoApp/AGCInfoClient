@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 	<head>
 		<title>动态主页</title>
 		<meta charset="utf-8">
@@ -17,33 +18,49 @@
 		<link rel="stylesheet" type="text/css" href="../../stylesheets/css/app.css" />
 		<!--<link rel="stylesheet" type="text/css" href="../../stylesheets/css/idangerous.swiper.css"/>-->
 		<style>
-			
-
+			.font {
+				font-size: 18px;
+				font-weight: 900;
+				margin-left: 0.8em;
+			}
+			.myIconStyle{
+				font-size: 22px;
+			}
 		</style>
 	</head>
+
 	<body>
-		<header class="mui-bar mui-bar-nav" >
+		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title">动态</h1>
 		</header>
 		<div class="mui-content">
-			<ul class="mui-table-view">
+			<ul class="mui-table-view" style="margin-top: 1.5em;">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id='friendShare'>
-						<h4 class="list-font">朋友圈</h4></a>
+						<span class="mui-icon iconfont icon-pengyouquan myIconStyle" style="color: #eb4f38;"></span>
+						<span class="font">朋友圈</span></a>
 				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 2em;">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id='myMessage'>
-						<h4 class="list-font">我的消息</h4></a>
+						<span class="mui-icon mui-icon-chat myIconStyle" style="color: limegreen;"></span>
+						<span class="font">我的消息</span></a>
 				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 2em;">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id='selfShare'>
-						<h4 class="list-font">我的分享</h4></a>
+						<span class="mui-icon iconfont icon-iconfontcolor68 myIconStyle" style="color: dodgerblue;"></span>
+						<span class="font">我的分享</span></a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right" id='selfCollect'>
-						<h4 class="list-font">我的收藏</h4></a>
+						<span class="mui-icon iconfont icon-shoucang myIconStyle" style="color: dodgerblue;"></span>
+						<span class="font">我的收藏</span></a>
 				</li>
 			</ul>
 		</div>
 	</body>
+
 </html>
