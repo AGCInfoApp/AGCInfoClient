@@ -75,7 +75,6 @@ function commentToPeople(commentMessage, reId, reName) {
 	if(commentMessage == null) {
 		mui.toast("评论内容不能为空");
 	} else {
-		alert(momentId + " " + myUserId + " " + commentMessage);
 		$.ajax({
 			type: "POST",
 			url: url + "prometheus/moment/createComment",
@@ -127,7 +126,6 @@ function commonComment(commentMessage) {
 	if(commentMessage == null) {
 		mui.toast("评论内容不能为空");
 	} else {
-		alert(momentId + " " + myUserId + " " + commentMessage);
 		$.ajax({
 			type: "POST",
 			url: url + "prometheus/moment/createComment",
@@ -233,7 +231,6 @@ function showFirstFriendDynamic() {
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
 			if(errCode == 0) {
-alert(JSON.stringify(data))
 				if(data["data"].length > 0) {
 					for(var i = 0; i < data["data"].length; i++) {
 						appendNewShare(data["data"][i], "bottom");
@@ -257,7 +254,7 @@ function showMoreFriendDynamicOnBottom() {
 		dataType: 'JSON',
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if(errCode == 0) {
+			if(errCode == 0) { 
 				if(data["data"].length > 0) {
 					for(var i = 0; i < data["data"].length; i++) {
 						if(data["data"][i].id < oldestShare) {
@@ -415,7 +412,7 @@ function appendNewShare(data, type) {
 		html = html + "<p class='newsTitle'>" + data.newsTitle + "</p>";
 		//新闻简介
 		html = html + "<p class='newsDesc'>" + data.newsDesc + "</p>";
-		html = html + "<hr>";
+		html = html + "<hr style='width:95%;'>";
 		html = html + "<div class='newsPicContainer'>";
 		//新闻图片
 		html = html + "<img class='newsPhoto' src='" + data.newsPic + "'/>";
@@ -429,8 +426,8 @@ function appendNewShare(data, type) {
 	//点赞评论按钮
 	html = html + "<table class='commentButtonTable'>";
 	html = html + "<tr>";
-	html = html + "<td width='60%'></td>";
-	html = html + "<td width='20%'>";
+	html = html + "<td width='50%'></td>";
+	html = html + "<td width='25%'>";
 	//点赞按钮id
 	if(data.hasVote == 0) {
 		var hasVoteText = "点赞";
@@ -443,7 +440,7 @@ function appendNewShare(data, type) {
 	}
 	html = html + "<span class='mui-icon iconfont icon-dianzan " + hasVoteClass + "' id='" + hasVoteId + data.id + "'> " + hasVoteText + "</span>";
 	html = html + "</td>";
-	html = html + "<td width='20%'>";
+	html = html + "<td width='25%'>";
 	//评论按钮id	
 	html = html + "<div class='mui-icon mui-icon-chat commentButton' id='commentButton" + data.id + "'> 评论</div>";
 	html = html + "</td>";
@@ -472,7 +469,7 @@ function appendNewShare(data, type) {
 	}
 	html = html + "</span>";
 	html = html + "</p>";
-	html = html + "<hr>";
+	html = html + "<hr style='width:95%;'>";
 	//评论容器id
 	//评论
 	for(var j = 0; j < data.comment.length; j++) {
@@ -481,7 +478,7 @@ function appendNewShare(data, type) {
 			if(data.comment[j].reId == 0) {
 				//回复的人
 				html = html + "<span class='replyPeople'>" + data.comment[j].userName + "</span>";
-				html = html + "<span class='replyWord'>:</span>";
+				html = html + "<span class='replyWord'> : </span>";
 				//回复内容
 				html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
 			} else {
@@ -490,7 +487,7 @@ function appendNewShare(data, type) {
 				html = html + "<span class='replyWord'>回复</span>";
 				//被回复的人
 				html = html + "<span class='replyPeople'>" + data.comment[j].reName + "</span>";
-				html = html + "<span class='replyWord'>:</span>";
+				html = html + "<span class='replyWord'> : </span>";
 				//回复内容
 				html = html + "<span class='replyWord'>" + data.comment[j].content + "</span>";
 			}
