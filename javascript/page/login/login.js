@@ -1,11 +1,11 @@
 var url = "http://139.129.25.229:31010/";
 var headPhotoUrl = "http://139.129.25.229/";
-var myToken="";
-var myUserId="";
+var myToken = "";
+var myUserId = "";
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 
 function checkNull() {
-	if ($.trim($("#account").val()).length == 0 || $.trim($("#password").val()).length == 0) {
+	if($.trim($("#account").val()).length == 0 || $.trim($("#password").val()).length == 0) {
 		mui.toast("账号或密码不能为空");
 		return 0;
 	} else {
@@ -14,7 +14,7 @@ function checkNull() {
 }
 
 function login() {
-	if (checkNull()) {
+	if(checkNull()) {
 		var username = $.trim($("#account").val());
 		var password = $.trim($("#password").val());
 		$.ajax({
@@ -29,7 +29,7 @@ function login() {
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data, textStatus) {
 				var errCode = data["errCode"];
-				if (errCode == 0) {
+				if(errCode == 0) {
 					localStorage.setItem("myToken", data["token"]);
 					localStorage.setItem("myUserId", data["userId"]);
 					mui.openWindow({
@@ -46,6 +46,8 @@ function login() {
 							autoShow: true
 						}
 					});
+					main = plus.webview.getWebviewById('main');
+					mui.fire(main, 'refresh');
 					mui.toast("登录成功！");
 				} else {
 					mui.toast(data["msg"]);
@@ -58,11 +60,11 @@ function login() {
 
 $(document).ready(function() {
 
-	if (window.localStorage) {
+	if(window.localStorage) {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
-	
+
 	window.addEventListener('refresh', function(e) {
 		location.reload();
 	})
@@ -108,9 +110,9 @@ $(document).ready(function() {
 		mui.toast("自动登录成功");
 	});
 
-	if (myToken == ""||myToken==null) {
+	if(myToken == "" || myToken == null) {
 		$("#autoLogin").html("");
-		
+
 	} else {
 		$.ajax({
 			type: "GET",
@@ -119,7 +121,7 @@ $(document).ready(function() {
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data, textStatus) {
 				var errCode = data["errCode"];
-				if (errCode == 0) {
+				if(errCode == 0) {
 					alert(JSON.stringify(data))
 					id = data["data"].id;
 					nickname = data["data"].nickname;
@@ -135,7 +137,7 @@ $(document).ready(function() {
 					preference = data["data"].preference;
 					signature = data["data"].signature;
 					$('#autoLoginUsername').html(username);
-					if (pic != "") {
+					if(pic != "") {
 						$("#autoLoginHeadPhoto").attr("src", headPhotoUrl + pic);
 					}
 				} else {

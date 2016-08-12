@@ -566,7 +566,8 @@
 					"stylesheets/fonts/mui.ttf",
 					"stylesheets/css/app.css",
 					"javascript/js/jquery-2.2.3.min.js",
-					"javascript/js/mui.min.js"
+					"javascript/js/mui.min.js",
+					"html/news/newsDetail.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -789,7 +790,8 @@
 					"javascript/js/jquery-2.2.3.min.js",
 					"javascript/js/mui.min.js",
 					"stylesheets/fonts/mui.ttf",
-					"images/comment.png"
+					"images/comment.png",
+					"html/news/search.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -846,7 +848,8 @@
 					"stylesheets/css/mui.min.css",
 					"stylesheets/css/app.css",
 					"javascript/js/mui.min.js",
-					"stylesheets/fonts/iconfont.ttf"
+					"stylesheets/fonts/iconfont.ttf",
+					"stylesheets/fonts/iconfont.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -862,7 +865,6 @@
 		"idle": {
 			"resources": [
 				"images/downpullicon.png",
-				"stylesheets/fonts/iconfont.css",
 				"customer/newslistsub2.html",
 				"javascript/user/components/App.js",
 				"javascript/admin/jquery-1.10.2.min.js",

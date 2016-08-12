@@ -27,8 +27,13 @@
 .icon-wodefensi:before { content: "\e609"; }
 .icon-wode:before { content: "\e60a"; }
 
+
+.mui-icon{
+	color: #F75000;
+}
+
 .mui-bar{
-	background-color: #FFDCB9;
+	background-color: #FFEEDD;
 }
 
 .mui-title{

@@ -1,598 +1,605 @@
 {
-  "customer/newslist.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js",
-      "images/myPhoto.png",
-      "images/cehuabeijing.png"
-    ],
-    "refer": [
-      "customer/searchPage.html"
-    ]
-  },
-  "customer/searchPage.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "customer/login.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "customer/register.html"
-    ]
-  },
-  "html/login/login.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/login/login.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/news/news.html",
-      "html/mine/mineMain.html",
-      "html/login/register.html",
-      "html/dynamic/dynamicMain.html",
-      "html/login/main.html"
-    ]
-  },
-  "html/news/news.html": {
-    "resources": [
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/idangerous.swiper.css",
-      "javascript/page/news/news.js",
-      "images/cehuabeijing.png",
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "html/news/search.html"
-    ]
-  },
-  "html/mine/minemain.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/minemain.js"
-    ],
-    "refer": []
-  },
-  "html/mine/myInfo.html": {
-    "resources": [
-      "javascript/page/mine/myInfo.js",
-      "images/myPhoto.png",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/mine/myInfoChangePicture.html",
-      "html/mine/myInfoChangeBirthday.html",
-      "html/mine/myInfoChangeNickname.html",
-      "html/mine/myInfoChangeEmail.html",
-      "html/mine/myInfoChangeSex.html",
-      "html/mine/myInfoChangeSignature.html",
-      "html/mine/index.html",
-      "html/login/login.html"
-    ]
-  },
-  "html/mine/friendList.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/js/mui.indexedlist.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/friendList.js",
-      "javascript/js/jQuery.Hz2Py-min.js",
-      "stylesheets/css/mui.indexedlist.css"
-    ],
-    "refer": [
-      "html/mine/friendInfo.html"
-    ]
-  },
-  "html/mine/mineMain.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/mine/mineMain.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "html/mine/friendList.html",
-      "html/mine/myInfo.html",
-      "html/mine/selfShare.html",
-      "html/mine/selfCollect.html",
-      "html/mine/concernList.html",
-      "html/mine/myMessage.html",
-      "html/mine/fansList.html",
-      "html/dynamic/friendShare_Main.html",
-      "html/dynamic/myMessage.html",
-      "html/dynamic/selfCollect.html",
-      "html/news/newsDetail.html",
-      "html/dynamic/selfShare.html",
-      "html/shop/shopDetail.html",
-      "html/news/search.html"
-    ]
-  },
-  "html/mine/friendInfo.html": {
-    "resources": [
-      "images/myPhoto.png",
-      "javascript/page/mine/friendInfo.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/dynamic/privateMessageOfFriendAndMe_Main.html"
-    ]
-  },
-  "html/mine/myInfoChangeBirthday.html": {
-    "resources": [
-      "javascript/page/mine/myInfoChangeBirthday.js",
-      "stylesheets/css/mui.picker.min.css",
-      "javascript/js/mui.picker.min.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/myInfoChangeNickname.html": {
-    "resources": [
-      "javascript/page/mine/myInfoChangeNickname.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/myInfoChangeEmail.html": {
-    "resources": [
-      "javascript/page/mine/myInfoChangeEmail.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/myInfoChangeSex.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/myInfoChangeSex.js"
-    ],
-    "refer": []
-  },
-  "html/mine/concernList.html": {
-    "resources": [
-      "stylesheets/css/mui.indexedlist.css",
-      "javascript/js/mui.indexedlist.js",
-      "javascript/js/jQuery.Hz2Py-min.js",
-      "javascript/page/mine/concernList.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/mine/friendInfo.html",
-      "html/mine/findPeople.html"
-    ]
-  },
-  "html/mine/myInfoChangeSignature.html": {
-    "resources": [
-      "javascript/page/mine/myInfoChangeSignature.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/findPeople.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.indexedlist.css",
-      "stylesheets/css/mui.min.css",
-      "javascript/js/mui.indexedlist.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/js/jQuery.Hz2Py-min.js",
-      "javascript/page/mine/findPeople.js"
-    ],
-    "refer": [
-      "html/mine/concernPeople.html"
-    ]
-  },
-  "html/login/register.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/page/login/register.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": [
-      "html/login/login.html"
-    ]
-  },
-  "html/mine/concernPeople.html": {
-    "resources": [
-      "images/myPhoto.png",
-      "javascript/page/mine/friendInfo.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/concernPeople.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": []
-  },
-  "html/news/search.html": {
-    "resources": [
-      "javascript/page/news/search.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/fansList.html": {
-    "resources": [
-      "stylesheets/css/mui.indexedlist.css",
-      "javascript/js/mui.indexedlist.js",
-      "javascript/js/jQuery.Hz2Py-min.js",
-      "javascript/page/mine/concernList.js",
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/mine/fansList.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/mine/friendInfo.html",
-      "html/mine/concernPeople.html"
-    ]
-  },
-  "html/dynamic/dynamicMain.html": {
-    "resources": [
-      "javascript/js/idangerous.swiper.min.js",
-      "javascript/page/mine/mineMain.js",
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/dynamic/dynamicMain.js"
-    ],
-    "refer": [
-      "html/dynamic/myMessage.html",
-      "html/dynamic/friendShare.html",
-      "html/dynamic/friendShare_Main.html"
-    ]
-  },
-  "html/dynamic/friendShare.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/mine/mineMain.js",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/dynamic/friendShare.js",
-      "stylesheets/fonts/mui.ttf"
-    ],
-    "refer": []
-  },
-  "html/dynamic/friendShare_Main.html": {
-    "resources": [
-      "html/dynamic/friendShare_Sub.html",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/js/mui.min.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/dynamic/friendShare.js",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js"
-    ],
-    "refer": [
-      "html/dynamic/friendShare_Sub.html",
-      "html/dynamic/createShare.html"
-    ]
-  },
-  "html/dynamic/friendShare_Sub.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/page/dynamic/friendShare.js",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "images/myPhoto.png",
-      "stylesheets/fonts/iconfont.ttf",
-      "stylesheets/page/dynamic/friendShare.css",
-      "stylesheets/fonts/iconfont.woff",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": []
-  },
-  "html/mine/myInfoChangePicture.html": {
-    "resources": [
-      "javascript/page/mine/myInfoChangePicture.js",
-      "images/noHeadPhoto.jpg",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/js/iscroll-zoom.js",
-      "javascript/js/zepto.min.js",
-      "javascript/js/jquery.photoClip.min.js",
-      "javascript/js/hammer.js",
-      "javascript/js/lrz.all.bundle.js",
-      "images/noHeadPhoto.png",
-      "images/myPhoto.png",
-      "javascript/js/ajaxfileupload.js"
-    ],
-    "refer": []
-  },
-  "html/dynamic/createShare.html": {
-    "resources": [
-      "javascript/js/mui.min.js",
-      "javascript/page/dynamic/createShare.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js"
-    ],
-    "refer": []
-  },
-  "html/mine/index.html": {
-    "resources": [
-      "javascript/js/iscroll-zoom.js",
-      "javascript/js/jquery.photoClip.min.js",
-      "javascript/js/hammer.js",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/lrz.all.bundle.js"
-    ],
-    "refer": []
-  },
-  "html/dynamic/myMessage.html": {
-    "resources": [
-      "javascript/page/dynamic/myMessage.js",
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/dynamic/privateMessageOfFriendAndMe_Main.html"
-    ]
-  },
-  "html/dynamic/privateMessageOfFriendAndMe_Main.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "html/dynamic/privateMessageOfFriendAndMe_Sub.html",
-      "javascript/page/dynamic/privateMessageOfFriendAndMe_Main.js"
-    ],
-    "refer": [
-      "html/dynamic/privateMessageOfFriendAndMe_Sub.html"
-    ]
-  },
-  "html/dynamic/privateMessageOfFriendAndMe_Sub.html": {
-    "resources": [
-      "javascript/page/dynamic/privateMessageOfFriendAndMe_Sub.js",
-      "images/myPhoto.png",
-      "stylesheets/fonts/iconfont.woff",
-      "stylesheets/page/dynamic/friendShare.css",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/js/mui.js"
-    ],
-    "refer": []
-  },
-  "html/dynamic/selfCollect.html": {
-    "resources": [
-      "images/noHeadPhoto.jpg",
-      "images/myPhoto.png",
-      "javascript/page/dynamic/selfCollect.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "stylesheets/fonts/iconfont.woff"
-    ],
-    "refer": [
-      "html/news/newsDetail.html"
-    ]
-  },
-  "html/news/newsDetail.html": {
-    "resources": [
-      "javascript/page/news/newsDetail.js",
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "stylesheets/fonts/mui.ttf",
-      "images/comment.png"
-    ],
-    "refer": []
-  },
-  "html/dynamic/selfShare.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "javascript/js/idangerous.swiper.min.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/fonts/mui.ttf",
-      "stylesheets/css/app.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/mui.min.js",
-      "javascript/page/dynamic/selfShare.js",
-      "images/noHeadPhoto.jpg"
-    ],
-    "refer": [
-      "html/news/newsDetail.html"
-    ]
-  },
-  "html/shop/shopDetail.html": {
-    "resources": [
-      "javascript/js/util.js",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/page/shop/shopDetail.js",
-      "stylesheets/css/mui.min.css",
-      "javascript/js/jquery-2.2.3.min.js",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js",
-      "stylesheets/page/shop/shop.css"
-    ],
-    "refer": []
-  },
-  "html/login/main.html": {
-    "resources": [
-      "javascript/js/idangerous.swiper.min.js",
-      "javascript/page/dynamic/dynamicMain.js",
-      "html/shop/shop.html",
-      "javascript/page/mine/mineMain.js",
-      "javascript/page/shop/shop.js",
-      "html/mine/mineMain.html",
-      "html/dynamic/dynamicMain.html",
-      "javascript/page/login/main.js",
-      "javascript/page/news/news.js",
-      "stylesheets/page/shop/shop.css",
-      "images/myPhoto.png",
-      "stylesheets/fonts/iconfont.woff",
-      "html/news/news.html",
-      "stylesheets/fonts/mui.ttf",
-      "javascript/js/jquery-2.2.3.min.js",
-      "javascript/js/util.js",
-      "stylesheets/css/mui.min.css",
-      "stylesheets/css/app.css",
-      "javascript/js/mui.min.js",
-      "stylesheets/fonts/iconfont.ttf"
-    ],
-    "refer": []
-  },
-  "html/login/begin.html": {
-    "resources": [
-      "javascript/js/jquery-2.2.3.min.js"
-    ],
-    "refer": []
-  }
+	"customer/newslist.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js",
+			"images/myPhoto.png",
+			"images/cehuabeijing.png"
+		],
+		"refer": [
+			"customer/searchPage.html"
+		]
+	},
+	"customer/searchPage.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"customer/login.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"customer/register.html"
+		]
+	},
+	"html/login/login.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/login/login.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/news/news.html",
+			"html/mine/mineMain.html",
+			"html/login/register.html",
+			"html/dynamic/dynamicMain.html",
+			"html/login/main.html"
+		]
+	},
+	"html/news/news.html": {
+		"resources": [
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/idangerous.swiper.css",
+			"javascript/page/news/news.js",
+			"images/cehuabeijing.png",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/news/search.html"
+		]
+	},
+	"html/mine/minemain.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/minemain.js"
+		],
+		"refer": []
+	},
+	"html/mine/myInfo.html": {
+		"resources": [
+			"javascript/page/mine/myInfo.js",
+			"images/myPhoto.png",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/mine/myInfoChangePicture.html",
+			"html/mine/myInfoChangeBirthday.html",
+			"html/mine/myInfoChangeNickname.html",
+			"html/mine/myInfoChangeEmail.html",
+			"html/mine/myInfoChangeSex.html",
+			"html/mine/myInfoChangeSignature.html",
+			"html/mine/index.html",
+			"html/login/login.html"
+		]
+	},
+	"html/mine/friendList.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/js/mui.indexedlist.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/friendList.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"stylesheets/css/mui.indexedlist.css"
+		],
+		"refer": [
+			"html/mine/friendInfo.html"
+		]
+	},
+	"html/mine/mineMain.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/mine/mineMain.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/mine/friendList.html",
+			"html/mine/myInfo.html",
+			"html/mine/selfShare.html",
+			"html/mine/selfCollect.html",
+			"html/mine/concernList.html",
+			"html/mine/myMessage.html",
+			"html/mine/fansList.html",
+			"html/dynamic/friendShare_Main.html",
+			"html/dynamic/myMessage.html",
+			"html/dynamic/selfCollect.html",
+			"html/news/newsDetail.html",
+			"html/dynamic/selfShare.html",
+			"html/shop/shopDetail.html",
+			"html/news/search.html"
+		]
+	},
+	"html/mine/friendInfo.html": {
+		"resources": [
+			"images/myPhoto.png",
+			"javascript/page/mine/friendInfo.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/dynamic/privateMessageOfFriendAndMe_Main.html"
+		]
+	},
+	"html/mine/myInfoChangeBirthday.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeBirthday.js",
+			"stylesheets/css/mui.picker.min.css",
+			"javascript/js/mui.picker.min.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"html/mine/myInfoChangeNickname.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeNickname.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"html/mine/myInfoChangeEmail.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeEmail.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"html/mine/myInfoChangeSex.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/myInfoChangeSex.js"
+		],
+		"refer": []
+	},
+	"html/mine/concernList.html": {
+		"resources": [
+			"stylesheets/css/mui.indexedlist.css",
+			"javascript/js/mui.indexedlist.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"javascript/page/mine/concernList.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/mine/friendInfo.html",
+			"html/mine/findPeople.html"
+		]
+	},
+	"html/mine/myInfoChangeSignature.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangeSignature.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": []
+	},
+	"html/mine/findPeople.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.indexedlist.css",
+			"stylesheets/css/mui.min.css",
+			"javascript/js/mui.indexedlist.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"javascript/page/mine/findPeople.js"
+		],
+		"refer": [
+			"html/mine/concernPeople.html"
+		]
+	},
+	"html/login/register.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/page/login/register.js",
+			"javascript/js/mui.min.js"
+		],
+		"refer": [
+			"html/login/login.html"
+		]
+	},
+	"html/mine/concernPeople.html": {
+		"resources": [
+			"images/myPhoto.png",
+			"javascript/page/mine/friendInfo.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/concernPeople.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": []
+	},
+	"html/news/search.html": {
+		"resources": [
+			"javascript/page/news/search.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"html/news/newsDetail.html"
+		],
+		"refer": [
+			"html/news/newsDetail.html"
+		]
+	},
+	"html/mine/fansList.html": {
+		"resources": [
+			"stylesheets/css/mui.indexedlist.css",
+			"javascript/js/mui.indexedlist.js",
+			"javascript/js/jQuery.Hz2Py-min.js",
+			"javascript/page/mine/concernList.js",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/mine/fansList.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/mine/friendInfo.html",
+			"html/mine/concernPeople.html"
+		]
+	},
+	"html/dynamic/dynamicMain.html": {
+		"resources": [
+			"javascript/js/idangerous.swiper.min.js",
+			"javascript/page/mine/mineMain.js",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/dynamic/dynamicMain.js"
+		],
+		"refer": [
+			"html/dynamic/myMessage.html",
+			"html/dynamic/friendShare.html",
+			"html/dynamic/friendShare_Main.html"
+		]
+	},
+	"html/dynamic/friendShare.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/mine/mineMain.js",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/dynamic/friendShare.js",
+			"stylesheets/fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"html/dynamic/friendShare_Main.html": {
+		"resources": [
+			"html/dynamic/friendShare_Sub.html",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/js/mui.min.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/dynamic/friendShare.js",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js"
+		],
+		"refer": [
+			"html/dynamic/friendShare_Sub.html",
+			"html/dynamic/createShare.html"
+		]
+	},
+	"html/dynamic/friendShare_Sub.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/page/dynamic/friendShare.js",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"images/myPhoto.png",
+			"stylesheets/fonts/iconfont.ttf",
+			"stylesheets/page/dynamic/friendShare.css",
+			"stylesheets/fonts/iconfont.woff",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": []
+	},
+	"html/mine/myInfoChangePicture.html": {
+		"resources": [
+			"javascript/page/mine/myInfoChangePicture.js",
+			"images/noHeadPhoto.jpg",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/js/iscroll-zoom.js",
+			"javascript/js/zepto.min.js",
+			"javascript/js/jquery.photoClip.min.js",
+			"javascript/js/hammer.js",
+			"javascript/js/lrz.all.bundle.js",
+			"images/noHeadPhoto.png",
+			"images/myPhoto.png",
+			"javascript/js/ajaxfileupload.js"
+		],
+		"refer": []
+	},
+	"html/dynamic/createShare.html": {
+		"resources": [
+			"javascript/js/mui.min.js",
+			"javascript/page/dynamic/createShare.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js"
+		],
+		"refer": []
+	},
+	"html/mine/index.html": {
+		"resources": [
+			"javascript/js/iscroll-zoom.js",
+			"javascript/js/jquery.photoClip.min.js",
+			"javascript/js/hammer.js",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/lrz.all.bundle.js"
+		],
+		"refer": []
+	},
+	"html/dynamic/myMessage.html": {
+		"resources": [
+			"javascript/page/dynamic/myMessage.js",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/dynamic/privateMessageOfFriendAndMe_Main.html"
+		]
+	},
+	"html/dynamic/privateMessageOfFriendAndMe_Main.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"html/dynamic/privateMessageOfFriendAndMe_Sub.html",
+			"javascript/page/dynamic/privateMessageOfFriendAndMe_Main.js"
+		],
+		"refer": [
+			"html/dynamic/privateMessageOfFriendAndMe_Sub.html"
+		]
+	},
+	"html/dynamic/privateMessageOfFriendAndMe_Sub.html": {
+		"resources": [
+			"javascript/page/dynamic/privateMessageOfFriendAndMe_Sub.js",
+			"images/myPhoto.png",
+			"stylesheets/fonts/iconfont.woff",
+			"stylesheets/page/dynamic/friendShare.css",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/js/mui.js"
+		],
+		"refer": []
+	},
+	"html/dynamic/selfCollect.html": {
+		"resources": [
+			"images/noHeadPhoto.jpg",
+			"images/myPhoto.png",
+			"javascript/page/dynamic/selfCollect.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"stylesheets/fonts/iconfont.woff"
+		],
+		"refer": [
+			"html/news/newsDetail.html"
+		]
+	},
+	"html/news/newsDetail.html": {
+		"resources": [
+			"javascript/page/news/newsDetail.js",
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"stylesheets/fonts/mui.ttf",
+			"images/comment.png",
+			"html/news/search.html"
+		],
+		"refer": [
+			"html/news/search.html"
+		]
+	},
+	"html/dynamic/selfShare.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"javascript/js/idangerous.swiper.min.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/fonts/mui.ttf",
+			"stylesheets/css/app.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/mui.min.js",
+			"javascript/page/dynamic/selfShare.js",
+			"images/noHeadPhoto.jpg"
+		],
+		"refer": [
+			"html/news/newsDetail.html"
+		]
+	},
+	"html/shop/shopDetail.html": {
+		"resources": [
+			"javascript/js/util.js",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/page/shop/shopDetail.js",
+			"stylesheets/css/mui.min.css",
+			"javascript/js/jquery-2.2.3.min.js",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js",
+			"stylesheets/page/shop/shop.css"
+		],
+		"refer": []
+	},
+	"html/login/main.html": {
+		"resources": [
+			"javascript/js/idangerous.swiper.min.js",
+			"javascript/page/dynamic/dynamicMain.js",
+			"html/shop/shop.html",
+			"javascript/page/mine/mineMain.js",
+			"javascript/page/shop/shop.js",
+			"html/mine/mineMain.html",
+			"html/dynamic/dynamicMain.html",
+			"javascript/page/login/main.js",
+			"javascript/page/news/news.js",
+			"stylesheets/page/shop/shop.css",
+			"images/myPhoto.png",
+			"stylesheets/fonts/iconfont.woff",
+			"html/news/news.html",
+			"stylesheets/fonts/mui.ttf",
+			"javascript/js/jquery-2.2.3.min.js",
+			"javascript/js/util.js",
+			"stylesheets/css/mui.min.css",
+			"stylesheets/css/app.css",
+			"javascript/js/mui.min.js",
+			"stylesheets/fonts/iconfont.ttf",
+			"stylesheets/fonts/iconfont.css"
+		],
+		"refer": []
+	},
+	"html/login/begin.html": {
+		"resources": [
+			"javascript/js/jquery-2.2.3.min.js"
+		],
+		"refer": []
+	}
 }
