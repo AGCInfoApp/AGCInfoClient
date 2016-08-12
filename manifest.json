@@ -249,7 +249,8 @@
 					"html/news/news.html",
 					"html/mine/mineMain.html",
 					"html/login/register.html",
-					"html/dynamic/dynamicMain.html"
+					"html/dynamic/dynamicMain.html",
+					"html/login/main.html"
 				],
 				"priority": 0
 			},
@@ -818,6 +819,31 @@
 					"stylesheets/css/app.css",
 					"javascript/js/mui.min.js",
 					"stylesheets/page/shop/shop.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/login/main.html": {
+				"resources": [
+					"javascript/js/idangerous.swiper.min.js",
+					"javascript/page/dynamic/dynamicMain.js",
+					"html/shop/shop.html",
+					"javascript/page/mine/mineMain.js",
+					"javascript/page/shop/shop.js",
+					"html/mine/mineMain.html",
+					"html/dynamic/dynamicMain.html",
+					"javascript/page/login/main.js",
+					"javascript/page/news/news.js",
+					"stylesheets/page/shop/shop.css",
+					"images/myPhoto.png",
+					"stylesheets/fonts/iconfont.woff",
+					"html/news/news.html",
+					"stylesheets/fonts/mui.ttf",
+					"javascript/js/jquery-2.2.3.min.js",
+					"javascript/js/util.js",
+					"stylesheets/css/mui.min.css",
+					"stylesheets/css/app.css",
+					"javascript/js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0

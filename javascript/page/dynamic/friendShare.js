@@ -426,7 +426,7 @@ function appendNewShare(data, type) {
 	//点赞评论按钮
 	html = html + "<table class='commentButtonTable'>";
 	html = html + "<tr>";
-	html = html + "<td width='50%'></td>";
+	html = html + "<td width='50%'><p class='createTime'>"+ formatDate(data.createTime) +"</p></td>";
 	html = html + "<td width='25%'>";
 	//点赞按钮id
 	if(data.hasVote == 0) {
@@ -494,7 +494,7 @@ function appendNewShare(data, type) {
 			html = html + "</p>";
 		}
 	}
-
+    html=html+"<div class='commentBottom'></div>";
 	html = html + "</td>";
 	html = html + "</tr>";
 	html = html + "</table>";
