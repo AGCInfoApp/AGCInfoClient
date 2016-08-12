@@ -1,18 +1,18 @@
 var url = "http://139.129.25.229:31010/";
-var headPhotoUrl = "http://139.129.25.229/"
+var headPhotoUrl = "http://139.129.25.229/";
 var myToken;
 var myUserId;
 var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 
 $(document).ready(function() {
 
-	if(window.localStorage) {
+	if (window.localStorage) {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
 	}
-	window.addEventListener('refresh', function(e) {  
-        location.reload();  
-    }) 
+	window.addEventListener('refresh', function(e) {
+		location.reload();
+	})
 	getMyInfo();
 
 	document.getElementById("myInfoChangePicture").addEventListener("tap", function() {
@@ -110,6 +110,25 @@ $(document).ready(function() {
 			}
 		});
 	});
+	document.getElementById("cancel").addEventListener("tap", function() {
+		localStorage.setItem("myToken","");
+		localStorage.setItem("myUserId","");
+		mui.openWindow({
+			id: "login",
+			url: "../login/login.html",
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+		login = plus.webview.getWebviewById('login');
+		mui.fire(login, 'refresh');
+	});
 
 });
 
@@ -122,7 +141,7 @@ function getMyInfo() {
 		beforeSend: function(XMLHttpRequest) {},
 		success: function(data, textStatus) {
 			var errCode = data["errCode"];
-			if(errCode == 0) {
+			if (errCode == 0) {
 				id = data["data"].id;
 				nickname = data["data"].nickname;
 				mobile = data["data"].mobile;
@@ -144,8 +163,8 @@ function getMyInfo() {
 				$("#myEmail").html(email);
 				$("#myMobile").html(mobile);
 				$("#myLevel").html(level);
-				if(pic!=""){
-					$("#myHeadPicture").attr("src",headPhotoUrl+pic);
+				if (pic != "") {
+					$("#myHeadPicture").attr("src", headPhotoUrl + pic);
 				}
 			} else {
 				mui.toast(data["msg"]);

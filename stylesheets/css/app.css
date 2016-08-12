@@ -27,7 +27,21 @@
 .icon-wodefensi:before { content: "\e609"; }
 .icon-wode:before { content: "\e60a"; }
 
+.mui-bar{
+	background-color: #FFDCB9;
+}
 
+.mui-title{
+	color: #F75000;
+	font-weight: 800;
+}
+
+.mui-btn-primary{
+	background-color: #EA7500;
+	border-color:#EA7500 ;
+	color: white;
+	font-weight: bolder;
+}
 
 @media screen and (max-width : 320px){
     body{

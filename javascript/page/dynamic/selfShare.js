@@ -122,11 +122,11 @@ function appendNewShare(data, type) {
 		html = html + "<td>";
 		//新闻标题
 		html = html + "<p class='newsTitle'>" + data.newsTitle + "</p>";
-		html = html + "<hr>";
+		html = html + "<hr style='width:95%;'>";
 		html = html + "<div class='newsPicContainer'>";
 		html = html + "<img src='"+data.newsPic+"' class='newsPhoto'/>";
 		html = html + "</div>";
-		html = html + "<hr>";	
+		html = html + "<hr style='width:95%;'>";	
         html = html + "<div class='newsTimeContainer'>";
         html = html + "<p class='newsTime'>" + formatDate(data.createTime) + "</p>";
         html = html + "</div>";

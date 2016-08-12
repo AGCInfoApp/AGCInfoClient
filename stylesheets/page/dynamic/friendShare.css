@@ -44,7 +44,8 @@
 			}
 			
 			.newsTitle {
-				font-size: 20px;
+				font-size: 19px;
+				font-weight: bold;
 				color: #000000;
 				/*text-align: center;*/
 				word-wrap: break-word;
@@ -52,11 +53,13 @@
 				margin-top: 0.5em;
 				margin-left: 0.5em;
 				margin-right: 0.5em;
-				text-indent: 1em
+				text-indent: 1em;
+				
 			}
 			
 			.newsDesc {
 				font-size: 16px;
+				font-weight: 600;
 				word-wrap: break-word;
 				word-break: break-all;
 				color: #6D6D72;
@@ -81,7 +84,9 @@
 				height: 50px;
 				text-align: center;
 			}
-			
+			.createTime{
+				margin-top: 1em;
+			}
 			.commentButton {
 				color: #5C5C5C;
 				font-size: 16px;
@@ -152,6 +157,10 @@
 				font-weight: 600;
 			}
 			
+			.commentBottom {
+				height: 0.5em;
+			}
+			
 			#commentInputBottom {
-				height: 1em;
+				height: 2em;
 			}

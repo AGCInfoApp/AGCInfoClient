@@ -50,6 +50,21 @@
             color: #bbb;
             padding: 0px 8px;
         }
+        #autoLogin{
+        	text-align: center;
+        	margin-top: 3em;
+        }
+        #autoLoginHeadPhoto{
+        	width: 25%;
+        
+				
+				
+				border: 1px;
+				border-color: #DDDDDD;
+				border-style:groove;
+				border-radius:4px;
+			
+        }
         </style>
     </head>
     <body>
@@ -70,6 +85,11 @@
             <div class="mui-content-padded">
                 <button id='login' class="mui-btn mui-btn-block mui-btn-primary">登 录</button>
                 <div class="link-area"><a id='reg'>注册账号</a> <!--<span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>-->
+                </div>
+                <div id='autoLogin'>
+                	<img id="autoLoginHeadPhoto"  src="../../images/noHeadPhoto.jpg"/>
+                	<p id="autoLoginUsername"></p>
+                	<p>自 动 登 录</p>
                 </div>
             </div>
         </div>
