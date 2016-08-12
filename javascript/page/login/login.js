@@ -1,6 +1,8 @@
 var url = "http://139.129.25.229:31010/";
-var myToken;
-var myUserId;
+var headPhotoUrl = "http://139.129.25.229/";
+var myToken="";
+var myUserId="";
+var id, nickname, mobile, email, username, sex, birthday, pic, readNum, commentNum, level, preference, signature;
 
 function checkNull() {
 	if ($.trim($("#account").val()).length == 0 || $.trim($("#password").val()).length == 0) {
@@ -31,7 +33,7 @@ function login() {
 					localStorage.setItem("myToken", data["token"]);
 					localStorage.setItem("myUserId", data["userId"]);
 					mui.openWindow({
-						id: "dynamic",
+						id: "main",
 						url: "main.html",
 
 						styles: {
@@ -55,14 +57,15 @@ function login() {
 }
 
 $(document).ready(function() {
+
 	if (window.localStorage) {
 		myToken = localStorage.getItem("myToken");
 		myUserId = localStorage.getItem("myUserId");
-		alert(myToken)
-		alert(myUserId)
 	}
 	
-	
+	window.addEventListener('refresh', function(e) {
+		location.reload();
+	})
 
 	document.getElementById("login").addEventListener("tap", function() {
 		login();
@@ -83,12 +86,63 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
-	
+
+	document.getElementById("autoLogin").addEventListener("tap", function() {
+
+		mui.openWindow({
+			id: "main",
+			url: "main.html",
+
+			styles: {
+				popGesture: 'close'
+			},
+			show: {
+				aniShow: "pop-in"
+			},
+			waiting: {
+				autoShow: true
+			}
+		});
+		main = plus.webview.getWebviewById('main');
+		mui.fire(main, 'refresh');
+		mui.toast("自动登录成功");
+	});
+
+	if (myToken == ""||myToken==null) {
+		$("#autoLogin").html("");
 		
-	if(myToken!=null||myToken!=""){
-		alert("1")
-		self.location.href="main.html";
+	} else {
+		$.ajax({
+			type: "GET",
+			url: url + "prometheus/user/getInfo?userId=" + myUserId + "&token=" + myToken,
+			dataType: 'JSON',
+			beforeSend: function(XMLHttpRequest) {},
+			success: function(data, textStatus) {
+				var errCode = data["errCode"];
+				if (errCode == 0) {
+					alert(JSON.stringify(data))
+					id = data["data"].id;
+					nickname = data["data"].nickname;
+					mobile = data["data"].mobile;
+					email = data["data"].email;
+					username = data["data"].username;
+					sex = data["data"].sex;
+					birthday = data["data"].birthday;
+					pic = data["data"].pic;
+					readNum = data["data"].readNum;
+					commentNum = data["data"].commentNum;
+					level = data["data"].level;
+					preference = data["data"].preference;
+					signature = data["data"].signature;
+					$('#autoLoginUsername').html(username);
+					if (pic != "") {
+						$("#autoLoginHeadPhoto").attr("src", headPhotoUrl + pic);
+					}
+				} else {
+					mui.toast(data["msg"]);
+				}
+			}
+		});
 	}
 
 	//  document.getElementById("forgetPassword").addEventListener("tap",function(){
