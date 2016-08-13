@@ -122,7 +122,6 @@ $(document).ready(function() {
 			success: function(data, textStatus) {
 				var errCode = data["errCode"];
 				if(errCode == 0) {
-					alert(JSON.stringify(data))
 					id = data["data"].id;
 					nickname = data["data"].nickname;
 					mobile = data["data"].mobile;

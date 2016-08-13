@@ -15,6 +15,9 @@ var goodsId = GetQueryString("goodsId");
                 var errCode=data["errCode"];
                 if(errCode==0){
                     appendGoodsInfo(data["data"]);
+                    mui("#slider").slider({
+			        interval: 5000
+		            });
                 }else{
                 	mui.toast(data["msg"]);
                 }
@@ -51,7 +54,7 @@ var goodsId = GetQueryString("goodsId");
     function appendGoodsInfo(data){
     	appendPicLoop(data["pics"]);
     	$("#goodsTitle").html(data["title"]);
-    	$("#goodsPrice").html(data["price"]);
+    	$("#goodsPrice").html("￥ "+data["price"]);
     	for(i=0;i<data["infoPics"].length;i++){
     		var html="";
             html+='<img  src="'+data["infoPics"][i]+'" width="100%">';
