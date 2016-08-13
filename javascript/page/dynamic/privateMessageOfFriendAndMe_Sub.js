@@ -243,9 +243,9 @@ function appendNewPrivateMessage(data, type) {
 		html+='<div class="chat-header">'+formatDate(data.createTime)+'</div>';
         html+='<div class="chat-item chat-right">';
         html+='<div class="chat-media">';
-        html+='  <img src="'+headPhotoUrl+friendPic+'" /></div>';
+        html+='  <img src="'+headPhotoUrl+pic+'" /></div>';
         html+='<div class="chat-inner">';
-        html+='<div class="chat-name">'+friendNickname+'</div>';
+        html+='<div class="chat-name">'+nickname+'</div>';
         html+='<div class="chat-content">';
         html+='<div class="chat-arrow"></div>';
         html+=   data.message;
