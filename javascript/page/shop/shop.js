@@ -15,7 +15,6 @@ var myUserId;
                 var errCode=data["errCode"];
                 if(errCode==0){
                     appendGoodsList(data["data"]);
-                    console.log(data["data"]);
                 }else{
                 	mui.toast(data["msg"]);
                 }

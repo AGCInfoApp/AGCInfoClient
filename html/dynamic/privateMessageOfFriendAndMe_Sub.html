@@ -84,6 +84,106 @@
 				color: white;
 				background-color: #007AFF;
 			}
+			
+.chat {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}			
+.chat .chat-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    display: block;
+}
+.chat .chat-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.6rem;
+    color: #757575;
+}
+.chat .chat-left {
+    float: left;
+}
+.chat .chat-right {
+    float: right;
+}
+
+.chat .chat-media {
+    display: inline-block;
+    max-width: 2em;
+    width:1.8em;
+}
+.chat .chat-media img {
+    width: 2.5em;
+    border-radius: 50%;
+}
+
+.chat .chat-inner {
+    position: relative;
+    overflow: hidden;
+    /*max-width: auto;*/
+    display: inherit;
+}
+
+
+
+.chat .chat-content {
+    color: #212121;
+    font-size: 1.2em;
+    border-radius: 0.2rem;
+    min-height: 2rem;
+    position: relative;
+    padding: 0.5rem;
+    max-width: 80%;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+
+.chat .chat-name {
+    width: 100%;
+    position: relative;
+    font-size: 1em;
+    color: #757575;
+    margin-bottom: 0.25rem;
+}
+.chat .chat-left .chat-name {
+    left: 0.5rem;
+}
+
+.chat .chat-left .chat-media {
+    width: 2em;
+    float: left;
+}
+.chat .chat-left .chat-inner {
+    max-width: 70%;
+}
+.chat .chat-left .chat-content{
+    background-color: #b3e5fc;
+    float: left;
+    left: 0.5rem;
+}
+.chat .chat-right .chat-media {
+    width: 2em;
+    float: right;
+}
+.chat .chat-right .chat-inner {
+    float: right;
+    max-width: 70%;
+}
+.chat .chat-right .chat-name {
+    float: right;
+    right: 0.5rem;
+    text-align: right;
+}
+.chat .chat-right .chat-content {
+    background-color: #FF5053;
+    right: 0.5rem;
+    float: right;
+}
+
 		</style>
 	</head>
 
@@ -92,8 +192,13 @@
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<!--数据列表-->
-				<ul class="mui-table-view mui-table-view-chevron" id="privateMessageList">
-
+				<ul class="mui-table-view mui-table-view-chevron" >
+			<section class="chat" id="privateMessageList" style="margin-bottom:6em;">
+						
+	
+    
+            </section>
+    
 				</ul>
 				<div style="height: 3.8em;" id="bottomDiv">
 

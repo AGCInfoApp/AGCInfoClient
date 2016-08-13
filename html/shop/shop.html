@@ -27,10 +27,19 @@
 		<header class="mui-bar mui-bar-nav">
 		    <h1 class="mui-title">商城</h1>
 		</header>
+		
 		<div class="mui-content" style="background-color:#fff">
-		    
-		    
-		    <ul class="mui-table-view mui-grid-view" id="goodsList">
+			<div class="mui-input-row" style="margin-top:10px; float: left; width:80%;">
+				
+				<input type="text" class="mui-input-clear" placeholder="请在次输入搜索内容"
+					style="width:90%; margin-left:10%;">
+			</div>
+			<div style="float:left;">
+               <input id="searchBtn" type="submit" value="确定" style="border:none; 
+               	background-color:transparent;color: #333333; margin-top: 12px; margin-left:1%; 
+               	font-size:1.2em;" onclick="searchNews(0)" />
+            </div>
+		    <ul class="mui-table-view mui-grid-view" id="goodsList" style="clear: both;">
 		        
 		      
 		       

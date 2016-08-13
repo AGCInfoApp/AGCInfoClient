@@ -157,6 +157,7 @@ $(document).ready(function() {
 								for (var i = data["data"].length - 1; i >= 0; i--) {
 									if (data["data"][i].id > newestPrivateMessage) {
 										appendNewPrivateMessage(data["data"][i], "bottom");
+						
 									}
 								}
 							}
@@ -237,32 +238,35 @@ function showMorePrivateMessageOnTop() {
 function appendNewPrivateMessage(data, type) {
 
 	var html = "";
-	html = html + "<li class='mui-media'>";
 
 	if (data.sendId == myUserId) {
-		html = html + "<div class='mui-media-body textRight'>";
-		html = html + "<div>";
-		html = html + "<span class='myNameStyle'>我 <span>";
-		html = html + "&nbsp;&nbsp;&nbsp;";
-		html = html + "<span class='TimeStyle'>" + formatDate(data.createTime) + "<span>";
-		html = html + "</div>";
-		html = html + "<div>";
-		html = html + "<p class='myMessageStyle'>" + data.message + "</p>";
+		html+='<div class="chat-header">'+formatDate(data.createTime)+'</div>';
+        html+='<div class="chat-item chat-right">';
+        html+='<div class="chat-media">';
+        html+='  <img src="'+headPhotoUrl+friendPic+'" /></div>';
+        html+='<div class="chat-inner">';
+        html+='<div class="chat-name">'+friendNickname+'</div>';
+        html+='<div class="chat-content">';
+        html+='<div class="chat-arrow"></div>';
+        html+=   data.message;
+        html+='</div></div></div>';
 	} else {
-		html = html + "<div class='mui-media-body'>";
-		html = html + "<div>";
-		html = html + "<span class='freindNameStyle'>123<span>";
-		html = html + "&nbsp;&nbsp;&nbsp;";
-		html = html + "<span class='TimeStyle'>" + formatDate(data.createTime) + "<span>";
-		html = html + "</div>";
-		html = html + "<div>";
-		html = html + "<p class='freindMessageStyle'>" + data.message + "</p>";
+		html+='<div class="chat-header">'+formatDate(data.createTime)+'</div>';
+        html+='<div class="chat-item chat-left">';
+        html+='<div class="chat-media">';
+        html+='  <img src="'+headPhotoUrl+friendPic+'" /></div>';
+        html+='<div class="chat-inner">';
+        html+='<div class="chat-name">'+friendNickname+'</div>';
+        html+='<div class="chat-content">';
+        html+='<div class="chat-arrow"></div>';
+        html+=   data.message;
+        html+='</div></div></div>';
 	}
 
-	html = html + "</div>";
-	html = html + "</div>";
-	html = html + "</li>";
-	html = html + "<hr class='caseBorder'>";
+//	html = html + "</div>";
+//	html = html + "</div>";
+//	html = html + "</li>";
+//	html = html + "<hr class='caseBorder'>";
 	if (type == "top") {
 		$("#privateMessageList").prepend(html);
 	} else {

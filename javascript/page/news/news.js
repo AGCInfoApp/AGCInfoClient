@@ -93,7 +93,7 @@ var myUserId;
             holdPosition = pos;
         },
         onTouchEnd: function(){
-            console.log("---"+holdPosition);
+            
             if (holdPosition>100) {
                 mySwiper.setWrapperTranslate(0,75,0);
                 mySwiper.params.onlyExternal=true;
@@ -295,7 +295,7 @@ var myUserId;
                     var cur=data["curPage"];
                     if(errCode==0){
                         appendNewsList(data["data"],cur);
-                        console.log("appendNewsList finish---");
+                        
                         isloading=0;
                         loadingEnd();
                     }
@@ -367,7 +367,7 @@ var myUserId;
             var pos=index*perHeight;
             mySwiper.setWrapperTranslate(0,-pos+30,0);
         }else{
-            console.log("//??????????? curpage="+curPage);
+            
             mySwiper.setWrapperTranslate(0,30,0);
         }
         mySwiper.params.onlyExternal=false;
@@ -463,7 +463,7 @@ var myUserId;
     mui('.swiper-wrapper').on('swipeup', 'li', function() {
         var offset=$("#newsList").offset();
         var height=$("#newsList").innerHeight();
-        console.log("--------上拉==="+offset.top+"=="+height+"=="+mySwiper.getWrapperTranslate('y'));
+        
         if(((height+offset.top) < 1000) || (offset.top/height < -0.8)){
             console.log(height+offset.top+ " === " +offset.top/height);
             if(isloading==0) {

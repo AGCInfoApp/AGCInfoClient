@@ -58,15 +58,23 @@
 			}
 			
 			.newsDesc {
-				font-size: 16px;
+				font-size: 1em;
 				font-weight: 600;
+				display: -webkit-box;
 				word-wrap: break-word;
-				word-break: break-all;
+		
+				-webkit-line-clamp: 3;
+				 -webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+		
 				color: #6D6D72;
 				margin-left: 0.5em;
 				margin-top: 0.5em;
 				margin-right: 0.5em;
-				text-indent: 1em
+				text-indent: 1em;
+				line-height: 1.3em;
+
 			}
 			
 			.newsPicContainer {
@@ -77,6 +85,7 @@
 			
 			.newsPhoto {
 				width: 90%;
+				height:10em;
 			}
 			
 			.commentButtonTable {
